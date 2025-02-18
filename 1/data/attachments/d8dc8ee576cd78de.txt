@@ -1,0 +1,21 @@
+var jsonData = pm.response.json();
+
+pm.test("Response has status code 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response structure is correct", function () {
+    pm.expect(jsonData).to.have.property("status").that.is.a("string");
+    pm.expect(jsonData).to.have.property("generic").that.is.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Generic drug entry has required fields", function () {
+    var genericData = jsonData.generic[0];
+
+    pm.expect(genericData).to.be.an("object");
+    pm.expect(genericData).to.have.property("_id").that.is.a("string").and.to.not.be.null;
+    pm.expect(genericData).to.have.property("generic_id").that.is.a("string").and.to.not.be.null;
+    pm.expect(genericData).to.have.property("generic").that.is.a("string").and.to.not.be.null;
+   // pm.expect(genericData).to.have.property("createdAt").that.is.a("string").and.to.not.be.null;
+    //pm.expect(genericData).to.have.property("updatedAt").that.is.a("string").and.to.not.be.null;
+});

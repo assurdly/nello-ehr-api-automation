@@ -1,0 +1,43 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Appointments retrieval is successful", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData).to.have.property("appointments").that.is.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Appointment contains required fields", function () {
+    var appointment = jsonData.appointments[0];
+
+    pm.expect(appointment._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.firstname).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.lastname).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.upi).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.email).to.be.a("string").and.to.include("@");
+    pm.expect(appointment.purpose).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.visit_type).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.visit_date).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.scheduled_time).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.is_urgent).to.be.a("boolean");
+    pm.expect(appointment.sponsor).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.sponsor_plan).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.office).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.office_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.consultant).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.consultant_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(appointment.is_billed).to.be.a("boolean");
+});
+
+pm.test("Vital signs have expected numeric values", function () {
+    var appointment = jsonData.appointments[0];
+
+    pm.expect(appointment.vital_height).to.be.a("number").and.to.be.above(0);
+    pm.expect(appointment.vital_weight).to.be.a("number").and.to.be.above(0);
+    pm.expect(appointment.vital_blood_pressure).to.be.a("number").and.to.be.above(0);
+    pm.expect(appointment.vital_temperature).to.be.a("number").and.to.be.above(0);
+    pm.expect(appointment.vital_pulserate).to.be.a("number").and.to.be.above(0);
+});
