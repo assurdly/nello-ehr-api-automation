@@ -1,0 +1,10 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("User registration error message is correct", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.eql("user with email not registered");
+});

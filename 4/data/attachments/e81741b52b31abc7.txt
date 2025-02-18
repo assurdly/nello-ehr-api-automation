@@ -1,0 +1,4 @@
+{
+    "code":"NqM001.1",
+    "name":"Fever and cold"
+}

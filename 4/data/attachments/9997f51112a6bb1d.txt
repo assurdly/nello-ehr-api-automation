@@ -1,0 +1,24 @@
+{
+       
+        "firstname": "",
+        "lastname": "",
+        "upi": "",
+        "email": "",
+        "purpose":"",
+        "vital_height": 160,
+        "vital_weight": 81,
+        "vital_blood_pressure":120,
+        "vital_temperature":180,
+        "vital_pulserate":300,
+        "consultant":"",
+        "visit_type":"",
+        "visit_date":"",
+    "scheduled_time":"",
+    "is_urgent":false,
+        "sponsor": "",  
+        "sponsor_plan": "", 
+        
+        "office": "Famacare Clinic(Egbeda)",
+        "office_uuid": "{office_uuid}"
+      
+    }
