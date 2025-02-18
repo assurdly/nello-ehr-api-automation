@@ -22642,7 +22642,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/encounter/fetch/9E9E9F56"
+						"url": "{{host}}/api/encounter/fetch/9E9E9F56"
 					},
 					"response": []
 				},
@@ -22661,7 +22661,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
+						"url": "{{host}}/api/encounter/patient/67503403416dcd28a3945453"
 					},
 					"response": []
 				},
@@ -22680,7 +22680,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
+						"url": "{{host}}/api/encounter/billing/awaiting billing"
 					},
 					"response": []
 				}
