@@ -22587,12 +22587,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/encounter/submit",
-							"protocol": "http",
+							"raw": "{{host}}/api/encounter/submit",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"encounter",
@@ -22625,7 +22623,7 @@
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/encounter/fetch-all"
+						"url": "{{host}}/api/encounter/fetch-all"
 					},
 					"response": []
 				},
