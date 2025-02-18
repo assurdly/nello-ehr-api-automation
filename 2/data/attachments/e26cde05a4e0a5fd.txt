@@ -1,0 +1,18 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Error response contains required fields", function () {
+    pm.expect(jsonData.errors).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Validating specific error messages", function () {
+    var errorMessages = jsonData.errors.map(error => error.msg);
+
+    pm.expect(errorMessages).to.include("Name is required");
+    pm.expect(errorMessages).to.include("Email is invalid");
+    pm.expect(errorMessages).to.include("Phone number is invalid");
+    pm.expect(errorMessages).to.include("Type is required");
+});

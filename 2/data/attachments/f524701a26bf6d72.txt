@@ -1,0 +1,10 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Password update was successful", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.message).to.include("Password updated successfully");
+});
