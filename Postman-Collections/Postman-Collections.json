@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "af1507c9-ef9c-4a33-9f07-b55a72023f36",
 		"name": "FamaEMR - Test pack",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.postman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -15758,17 +15758,18 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
 													"pm.test(\"Response status is failed\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
 													"\r",
 													"pm.test(\"Response contains an error array\", function () {\r",
 													"    pm.expect(jsonData.error).to.be.an(\"array\").and.to.have.length.above(0);\r",
 													"});\r",
+													"\r",
 													"\r",
 													"pm.test(\"Error path is email\", function () {\r",
 													"    pm.expect(jsonData.error[0].path).to.eql(\"email\");\r",
@@ -22482,210 +22483,6 @@
 				}
 			],
 			"id": "9963e146-a814-4f7f-ab56-cb1594a3bd94"
-		},
-		{
-			"name": "Consultation",
-			"item": [],
-			"id": "37a7dede-2bdb-42ac-b40a-ae6cfe925a92"
-		},
-		{
-			"name": "Consultation",
-			"item": [
-				{
-					"name": "Get Doctor consultation",
-					"id": "a8302cb3-de9f-4fe2-b486-eb1c1e685ef3",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			],
-			"id": "f4992d0a-f050-4c21-800b-2ded95d519d4"
-		},
-		{
-			"name": "Encounter Billing",
-			"item": [
-				{
-					"name": "Create Bill",
-					"id": "2c521fed-54dd-4b8e-91f6-2b1bcb379271",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkaWRpb25nLmJvYnNvbkBhc2tuZWxsby5jb20iLCJyb2xlIjoiU3VwZXIgQWRtaW4iLCJpYXQiOjE3MzcxMTE1MTgsImV4cCI6MTczNzE0MDMxOH0.GWMTXjKyzEgbZAJ-gzb7MZ1l0q1QJT4TdLj8rQKnDXM",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \n    \"patientUPI\":\"D528326B\",\n    \"encounterId\":\"AD1F90DB\",\n     \"dateOfService\": \"2025-01-17\",\n     \"placeOfService\" :\"Famacare Clinic(Egbeda)\",\n    \n    \"amount\":6000,\n    \"currency\":\"NGN\",\n    \"provider\" : {\n        \"office\":\"Famacare Clinic(Egbeda)\",\n        \"office_uuid\":\"vglk5m\"\n    },\n    \"billing_officer\":\"Bobson\",\n    \"billing_service\":\"Pathology\",\n    \"sponsor\" : \"ASKNELLO\",\n    \"sponsor_plan\":\"STAFF PLAN\"\n    \n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:5000/api/billing/create"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Encounter",
-					"id": "c4fa5283-4a06-484c-a328-43337bce2454",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkaWRpb25nLmJvYnNvbkBhc2tuZWxsby5jb20iLCJyb2xlIjoiU3VwZXIgQWRtaW4iLCJpYXQiOjE3MzcxMjU4MTEsImV4cCI6MTczNzE1NDYxMX0.Iv9zl-Ex1WiG83y7SoxjRucTUT3xlOEc2k-iUbxb79E",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/billing/all"
-					},
-					"response": []
-				}
-			],
-			"id": "5c29429a-9cae-4275-8e6b-d8131530f0b1"
-		},
-		{
-			"name": "Encounter",
-			"item": [
-				{
-					"name": "Create",
-					"id": "e1753578-337c-4ccd-a065-beae20ae0078",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"payment_policy\": \"cash\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"120/80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/encounter/submit",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"encounter",
-								"submit"
-							],
-							"query": [
-								{
-									"key": "Authorization",
-									"value": "Bearer {{token}}",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Fetch All Encounter",
-					"id": "8bc00d1b-5b90-4286-811a-ea90893f160a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}/api/encounter/fetch-all"
-					},
-					"response": []
-				},
-				{
-					"name": "Unique Encounter",
-					"id": "e183960b-72a6-41e7-a5a5-43b06f37e139",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}/api/encounter/fetch/9E9E9F56"
-					},
-					"response": []
-				},
-				{
-					"name": "Encounters by patient id",
-					"id": "e874438e-8576-440e-b5db-3514bbbdc787",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}/api/encounter/patient/67503403416dcd28a3945453"
-					},
-					"response": []
-				},
-				{
-					"name": "Get encounter by billing status",
-					"id": "b14e0af2-72ae-4dd9-ae68-b9c5b64e89aa",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}/api/encounter/billing/awaiting billing"
-					},
-					"response": []
-				}
-			],
-			"id": "c26132ec-dfde-4337-95aa-599776ab8f46"
 		}
 	]
 }
