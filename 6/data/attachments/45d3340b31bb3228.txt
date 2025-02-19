@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"index Cape transmitter","branch":null,"isActive":true,"_id":"67b615f3ff56d6b268ea740b","createdAt":"2025-02-19T17:33:39.189Z","__v":0}}
