@@ -1,0 +1,15 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 404", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("Status is failed", function () {
+    pm.expect(jsonData).to.have.property("status", "failed");
+});
+pm.test("Appointment not found message is correct", function () {
+    pm.expect(jsonData).to.have.property("message", "Appointment not found");
+});
+
+
+

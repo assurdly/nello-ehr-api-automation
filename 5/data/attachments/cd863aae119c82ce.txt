@@ -1,0 +1,36 @@
+var jsonData = pm.response.json();
+
+pm.test("Response has status code 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Patient update was successful", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.message).to.eql("Patient updated successfully");
+});
+
+pm.test("Patient data structure is valid", function () {
+    var patient = jsonData.patient;
+
+    pm.expect(patient).to.be.an("object").and.to.not.be.null;
+    pm.expect(patient._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.firstname).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.lastname).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.fullname).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.upi).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.email).to.be.a("string").and.to.include("@");
+    pm.expect(patient.phone).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.office).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.office_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(patient.isActive).to.be.a("boolean");
+});
+
+pm.test("Allergies data structure is valid", function () {
+    var allergies = jsonData.patient.allergies;
+
+    pm.expect(allergies).to.be.an("object").and.to.not.be.null;
+    pm.expect(allergies.drugs).to.be.an("array");
+    pm.expect(allergies.food).to.be.an("array");
+    pm.expect(allergies.other).to.be.an("array");
+});

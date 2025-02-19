@@ -1,0 +1,25 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response contains services", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.services).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Service details are valid", function () {
+    var service = jsonData.services[0];
+
+    pm.expect(service._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.type).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.name).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.price).to.be.a("number").and.to.be.above(0);
+    pm.expect(service.sponsor_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.plan_code).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(service.is_Active).to.be.a("boolean");
+   // pm.expect(service.createdAt).to.be.a("string").and.to.not.be.null;
+    //pm.expect(service.updatedAt).to.be.a("string").and.to.not.be.null;
+});
