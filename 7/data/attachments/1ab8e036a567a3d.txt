@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response message is correct", function () {
+    pm.expect(jsonData.message).to.eql("Access denied: Doctors only");
+});
+
+pm.test("User details are present", function () {
+    pm.expect(jsonData.user).to.be.an("object").and.to.not.be.null;
+    pm.expect(jsonData.user.email).to.be.a("string").and.to.include("@");
+    pm.expect(jsonData.user.role).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.user.iat).to.be.a("number").and.to.not.be.null;
+    pm.expect(jsonData.user.exp).to.be.a("number").and.to.not.be.null;
+});

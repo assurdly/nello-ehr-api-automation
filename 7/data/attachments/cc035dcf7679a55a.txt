@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is correct", function () {
+    pm.response.to.have.status(404); 
+});
+
+pm.test("Response indicates failure", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData.error).to.be.a("string").and.to.eql("Medcenter not found");
+});

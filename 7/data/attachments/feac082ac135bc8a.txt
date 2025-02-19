@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"USB","_id":"67b61638ff56d6b268ea75ab","createdAt":"2025-02-19T17:34:48.274Z","__v":0}}

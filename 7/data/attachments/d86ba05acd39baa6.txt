@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"programming mint","branch":null,"isActive":true,"_id":"67b61636ff56d6b268ea75a3","createdAt":"2025-02-19T17:34:46.629Z","__v":0}}

@@ -1,0 +1,29 @@
+{
+     "title": "",
+        "firstname": "",
+        "lastname": "",
+        "middlename": "",
+        "marital_status": "",
+        "email": "",
+        "phone": "",
+        "address": "",
+        "state": "",
+        "city": "",
+        "religion": "",
+        "blood_group": "",
+        "genotype": "",
+        "next_of_kin": "",
+        "next_of_kin_relationship": "",
+        "next_of_kin_phone": "",
+        "next_of_kin_address": "",
+        
+        "sponsor": "",
+        "sponsor_plan": "", 
+        "occupation": "",
+        "profileImage": null,
+        "office": "Famacare Clinic(Egbeda)",
+        "office_uuid": "vglk5m",
+        "dob": "",
+        "gender": ""
+        
+}
