@@ -1,0 +1,3 @@
+var jsonData = pm.response.json();
+
+pm.environment.set("super_admin_token", jsonData.token)
