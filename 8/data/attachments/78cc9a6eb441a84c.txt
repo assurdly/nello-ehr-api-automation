@@ -1,0 +1,6 @@
+{
+    "email":"morgan+1@assurdly.com",
+    "password":"Password123!",
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsImlhdCI6MTczOTM5ODY3MiwiZXhwIjoxNzM5NDAyMjcyfQ.KJRwnZpofKKcNCx6B-s1nDRPp7VMYLC37kZfRMqCtkw"
+  
+}

@@ -1,0 +1,10 @@
+{
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkaWRpb25nLmJvYnNvbkBhc2tuZWxsby5jb20iLCJyb2xlIjoiU3VwZXIgQWRtaW4iLCJpYXQiOjE3MzU4OTc5NjEsImV4cCI6MTczNTkyNjc2MX0.Cklzi7FmENP9ge3SAQfvrh091OEh2Y6bKoZwET3EuEU",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "5c27e3b5-9cb5-45c9-8c7e-50f31ac994e0",
+    "Host": "testback.famacare.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

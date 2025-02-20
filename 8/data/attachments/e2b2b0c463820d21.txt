@@ -1,0 +1,15 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 404", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("Response status is failed", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("Failure message is correct", function () {
+    pm.expect(jsonData.error).to.eql("Invalid email or password");
+});
+
+//This would fail because the code did not cater for user not found, bug raised.
