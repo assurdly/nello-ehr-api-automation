@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Department data is returned", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.department).to.be.an("object");
+    pm.expect(jsonData.department.name).to.be.a("string").and.to.not.be.empty;
+    pm.expect(jsonData.department.isActive).to.be.true;
+    pm.expect(jsonData.department._id).to.be.a("string");
+});

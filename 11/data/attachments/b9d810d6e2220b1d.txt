@@ -1,0 +1,27 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Clinical staff data is valid", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.clinicalstaff).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Clinical staff member contains required fields", function () {
+    pm.expect(jsonData.clinicalstaff[0]).to.be.an("object").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0]._id).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].firstname).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].lastname).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].email).to.be.a("string").and.to.include("@").and.to.include(".");
+    pm.expect(jsonData.clinicalstaff[0].phone).to.be.a("string").and.to.not.include("number");
+    pm.expect(jsonData.clinicalstaff[0].office).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].office_uuid).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].role).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].department).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].uuid).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].isActive).to.be.a("boolean").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].aos).to.be.a("string").and.to.not.be.null;;
+    pm.expect(jsonData.clinicalstaff[0].dob).to.be.a("string").and.to.have.lengthOf(10);
+});

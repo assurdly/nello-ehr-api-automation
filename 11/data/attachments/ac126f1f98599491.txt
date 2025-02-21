@@ -1,0 +1,12 @@
+var jsonData = pm.response.json();
+
+pm.test("Status code is 200 with a success object", function () {
+    pm.response.to.have.status(200);
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+pm.test("User details and token exist", function () {
+    pm.expect(jsonData.token).to.be.a("string").and.to.have.length.above(10);
+    pm.expect(jsonData.user._id).to.be.a("string");
+    pm.expect(jsonData.user.isActive).to.be.true;
+});
