@@ -118,7 +118,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Successful user registration message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"User created successfully\");\r",
+													"    pm.expect(jsonData.message).to.eql(\"user created successfully\");\r",
 													"});\r",
 													"\r",
 													"\r",
@@ -140,7 +140,9 @@
 									"request": {
 										"auth": {
 											"type": "bearer",
-											"bearer": {}
+											"bearer": {
+												"token": "{{super_admin_token}}"
+											}
 										},
 										"method": "POST",
 										"header": [
