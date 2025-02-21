@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Analyst paradigms Gorgeous Lanka Principal","branch":null,"isActive":true,"_id":"67b89ddbff56d6b268eaddd4","createdAt":"2025-02-21T15:38:03.172Z","__v":0}}

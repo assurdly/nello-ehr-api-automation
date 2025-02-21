@@ -1,0 +1,34 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Response status is failed", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("Error list is not empty", function () {
+    pm.expect(jsonData.error).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Validating required fields", function () {
+    var requiredFields = [
+        "title", "firstname", "lastname", "email", "phone", "gender", "dob", 
+        "marital_status", "city", "state", "religion", "occupation", 
+        "blood_group", "genotype", "next_of_kin_relationship"
+    ];
+
+    requiredFields.forEach(field => {
+        pm.expect(jsonData.error.some(err => err.path === field)).to.be.true;
+    });
+});
+
+pm.test("Each error object has required properties", function () {
+    jsonData.error.forEach(error => {
+        pm.expect(error).to.have.property("msg").that.is.a("string");
+        pm.expect(error).to.have.property("path").that.is.a("string");
+        pm.expect(error).to.have.property("type").that.is.a("string");
+        pm.expect(error).to.have.property("location").that.is.a("string");
+    });
+});

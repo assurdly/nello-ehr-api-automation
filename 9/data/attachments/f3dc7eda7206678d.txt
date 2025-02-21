@@ -1,0 +1,14 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Response status is failed", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("Role already exists error message is correct", function () {
+    pm.expect(jsonData.message).to.eql("Role already exists");
+});
+
