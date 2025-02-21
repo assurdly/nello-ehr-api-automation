@@ -62,6 +62,8 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
+													"pm.environment.set(\"doctor_token\", jsonData.token)\r",
+													"\r",
 													"pm.test(\"Status is success and response code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
 													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
@@ -74,7 +76,7 @@
 													"    pm.expect(jsonData.user.isActive).to.be.true;\r",
 													"});\r",
 													"\r",
-													"pm.environment.set(\"doctor_token\", jsonData.token)"
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -115,13 +117,15 @@
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
+													"pm.test(\"Successful user registration message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"User created successfully\");\r",
+													"});\r",
+													"\r",
+													"\r",
 													"pm.test(\"Response body contains success object\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Successful user registration message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"User created successfully\");\r",
-													"});\r",
 													""
 												],
 												"type": "text/javascript",
