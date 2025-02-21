@@ -1,0 +1,14 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Role details are returned", function () {
+    pm.expect(jsonData.role.office_uuid).to.be.a("string");
+    pm.expect(jsonData.role.name).to.be.a("string");
+    pm.expect(jsonData.role._id).to.be.a("string");
+    pm.expect(jsonData.role.createdAt).to.be.a("string");
+});
+
+pm.environment.set("role_id", jsonData.role._id)
