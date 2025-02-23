@@ -1,0 +1,1 @@
+{"status":"failed","error":"patient with email already exists"}
