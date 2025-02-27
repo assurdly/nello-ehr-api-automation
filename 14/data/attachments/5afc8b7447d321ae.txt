@@ -1,0 +1,27 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Error response structure is valid", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Required field errors are returned", function () {
+    var errorMessages = jsonData.error.map(item => item.msg);
+    
+    pm.expect(errorMessages).to.include("Firstname is required");
+    pm.expect(errorMessages).to.include("Last name is required");
+    pm.expect(errorMessages).to.include("Email is required");
+    pm.expect(errorMessages).to.include("upi is required");
+    pm.expect(errorMessages).to.include("purpose is required");
+    pm.expect(errorMessages).to.include("consultant is required");
+    pm.expect(errorMessages).to.include("visit_type is required");
+    pm.expect(errorMessages).to.include("visit_date is required");
+    pm.expect(errorMessages).to.include("sponsor is required");
+    pm.expect(errorMessages).to.include("sponsor_plan is required");
+    pm.expect(errorMessages).to.include("scheduled_time is required");
+});
+

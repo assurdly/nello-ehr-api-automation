@@ -1,0 +1,19 @@
+{
+    
+    "firstname":"Bunmii",
+    "lastname":"Bobson",
+    "email":"morgan0@assurdly.com",
+    "phone":"09023172944",
+    "office_uuid":"vglk5m",
+    "office":"Famacare Clinic(Egbeda)",
+    "role":"Super Admin", 
+    "department":"Tech",
+    "password":"Password123!",
+    "gender":"Male",
+
+    
+    "fee":"8000",
+    "aos":"Dentist"
+
+    
+}
