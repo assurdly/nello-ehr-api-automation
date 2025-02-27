@@ -1,0 +1,22 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response contains sponsor plans", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.plans).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Plan details are valid", function () {
+    var plan = jsonData.plans[0];
+    
+    pm.expect(plan._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(plan.name).to.be.a("string").and.to.not.be.null;
+    pm.expect(plan.plan_code).to.be.a("string").and.to.not.be.null;
+    pm.expect(plan.sponsor_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(plan.is_Active).to.be.a("boolean");
+    pm.expect(plan.createdAt).to.be.a("string").and.to.not.be.null;
+    pm.expect(plan.updatedAt).to.be.a("string").and.to.not.be.null;
+});

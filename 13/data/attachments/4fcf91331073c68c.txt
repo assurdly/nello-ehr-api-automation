@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"transparent streamline Division solid invoice","branch":null,"isActive":true,"_id":"67c095703381ebabb6e31d46","createdAt":"2025-02-27T16:40:16.996Z","__v":0}}
