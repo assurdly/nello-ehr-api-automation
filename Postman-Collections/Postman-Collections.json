@@ -18106,7 +18106,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/patient/unique/CEFD2ED6"
+										"url": "{{host}}/api/patient/unique/CEFD2ED6"
 									},
 									"response": []
 								}
