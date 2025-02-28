@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"multi-byte","_id":"67c200e43381ebabb6e360c0","createdAt":"2025-02-28T18:31:00.115Z","__v":0}}
