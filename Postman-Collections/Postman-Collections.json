@@ -184,7 +184,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Successful user registration message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"User created successfully\");\r",
+													"    pm.expect(jsonData.message).to.eql(\"user created successfully\");\r",
 													"});\r",
 													""
 												],
@@ -198,10 +198,6 @@
 										"disableBodyPruning": true
 									},
 									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {}
-										},
 										"method": "POST",
 										"header": [
 											{
@@ -15666,6 +15662,9 @@
 												"id": "bb90aa48-33a0-4bba-a49d-3cf8680bbe55",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.environment.set(\"receptionist _token\", jsonData.token)\r",
+													"\r",
 													"\r",
 													"pm.test(\"Status is success and response code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
