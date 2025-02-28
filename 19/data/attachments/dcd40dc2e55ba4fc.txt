@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"generating bus","branch":null,"isActive":true,"_id":"67c203d13381ebabb6e36459","createdAt":"2025-02-28T18:43:29.054Z","__v":0}}
