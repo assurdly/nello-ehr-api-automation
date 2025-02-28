@@ -7656,7 +7656,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/sponsor/delete/FE78F283"
+										"url": "{{host}}/api/sponsor/delete/FE78F283"
 									},
 									"response": []
 								}
