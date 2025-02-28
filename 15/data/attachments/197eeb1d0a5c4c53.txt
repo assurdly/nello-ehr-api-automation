@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status is success and code is 200", function () {
+    pm.response.to.have.status(200);
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+// pm.test("Users array exists and can be empty", function () {
+//     pm.expect(jsonData.users).to.be.an("array");
+//     pm.expect(jsonData.users.length).to.be.at.least(0);
+// });
+
+//Thi is commented out because the user field is not supposed to be zero and the script would be upadted. Currently only one uuid is live 
