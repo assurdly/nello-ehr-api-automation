@@ -1,0 +1,17 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Error response is valid", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Error details are correct", function () {
+    pm.expect(jsonData.error[0].type).to.eql("field");
+    pm.expect(jsonData.error[0].path).to.eql("name");
+    pm.expect(jsonData.error[0].location).to.eql("body");
+    pm.expect(jsonData.error[0].msg).to.be.a("string").and.to.eql("Role name is required");
+});
