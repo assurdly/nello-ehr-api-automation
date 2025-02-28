@@ -1,0 +1,1 @@
+{"status":"failed","error":"type must be Pathology Investigations, Imaging Investigation or Service"}

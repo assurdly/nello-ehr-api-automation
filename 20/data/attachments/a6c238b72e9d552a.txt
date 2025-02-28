@@ -1,0 +1,21 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response body contains valid patient fields", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.patient).to.be.an("object").and.to.not.be.null;
+});
+
+pm.test("Patient details are correctly returned", function () {
+    pm.expect(jsonData.patient._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.upi).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.blood_group).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.next_of_kin).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.office).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.office_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.patient.allergies).to.be.an("object").and.to.not.be.null;
+});

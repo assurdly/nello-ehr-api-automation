@@ -1,0 +1,18 @@
+var jsonData = pm.response.json();
+
+pm.test("Response has status code 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Response contains expected fields", function () {
+    pm.expect(jsonData).to.have.property("status").that.is.a("string");
+    pm.expect(jsonData).to.have.property("error").that.is.a("string");
+});
+
+pm.test("Response status is failed", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData.error).to.eql("Generic name already exist");
+});
