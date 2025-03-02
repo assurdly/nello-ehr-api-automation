@@ -1,0 +1,9 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 401", function () {
+    pm.response.to.have.status(401);
+});
+
+pm.test("Response message is correct", function () {
+    pm.expect(jsonData.message).to.eql("Token has expired");
+});

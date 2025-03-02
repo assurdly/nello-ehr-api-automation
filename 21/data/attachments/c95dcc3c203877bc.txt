@@ -1,0 +1,19 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status is success", function () {
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+pm.test("Sponsor data is valid", function () {
+    pm.expect(jsonData.sponsor).to.be.an("object").and.to.not.be.null;
+    pm.expect(jsonData.sponsor._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.name).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.type).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.phone).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.contact_email).to.be.a("string").and.to.include("@");
+    pm.expect(jsonData.sponsor.contact_person).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.is_Active).to.be.a("boolean");
+    pm.expect(jsonData.sponsor.createdAt).to.be.a("string").and.to.not.be.null;
+    pm.expect(jsonData.sponsor.updatedAt).to.be.a("string").and.to.not.be.null;
+});

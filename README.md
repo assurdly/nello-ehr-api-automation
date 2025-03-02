@@ -1,1 +1,0 @@
-# nello-ehr-api-automation

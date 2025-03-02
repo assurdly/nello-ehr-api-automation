@@ -1,0 +1,10 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.eql("type must be Pathology Investigations, Imaging Investigation or Service");
+});

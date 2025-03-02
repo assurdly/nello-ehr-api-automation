@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"quantify channels lavender Kip","branch":null,"isActive":true,"_id":"67c4284a3381ebabb6e406d2","createdAt":"2025-03-02T09:43:38.646Z","__v":0}}
