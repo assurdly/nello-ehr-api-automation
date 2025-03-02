@@ -23,9 +23,11 @@
 												"id": "708fc950-4649-4b87-989a-12362f2bde94",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
-													"\r",
 													"pm.environment.set(\"super_admin_token\", jsonData.token)\r",
-													""
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {}
