@@ -1,5 +1,0 @@
-{   
-    "name":"web Shoes invoice",
-    "office_uuid":"vglk5m"
-}
-

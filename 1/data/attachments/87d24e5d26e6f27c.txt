@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"web Shoes invoice","branch":null,"isActive":true,"_id":"67b4cdc9ff56d6b268ea5e6a","createdAt":"2025-02-18T18:13:29.616Z","__v":0}}
