@@ -7186,7 +7186,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
