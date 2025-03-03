@@ -1,5 +1,0 @@
-{   
-    "name":"bandwidth synthesizing Cross-group",
-    "office_uuid":"vglk5m"
-}
-

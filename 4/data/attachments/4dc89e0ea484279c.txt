@@ -1,4 +1,0 @@
-{
-    "name":"Decentralized",
-    "office_uuid":"vglk5m"
-}

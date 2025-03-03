@@ -1,4 +1,0 @@
-{
-    "email":"judith.michaelfamacarecom",
-    "password":"BOBson246**"
-}

@@ -1,8 +1,0 @@
-var jsonData = pm.response.json();
-
-pm.test("Status is success and response code is 200", function () {
-    pm.response.to.have.status(200);
-    pm.expect(jsonData.status).to.eql("success");
-});
-
-pm.environment.set("receptionist_token", jsonData.token)

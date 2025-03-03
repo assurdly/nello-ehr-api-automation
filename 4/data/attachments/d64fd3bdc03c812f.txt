@@ -1,8 +1,0 @@
-   {
-          
-            "name": "Famacare Diagnosis",
-            "type": "Clinic",
-            "phone": "09070040301",
-            "contact_email": "Centre0@famacare.com",
-            "contact_person": "Judith Michael"
-        }

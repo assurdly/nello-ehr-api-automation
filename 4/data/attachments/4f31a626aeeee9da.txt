@@ -1,1 +1,0 @@
-{"status":"failed","error":[{"type":"field","value":"judith.michaelfamacarecom","msg":"must be a valid email","path":"email","location":"body"}]}

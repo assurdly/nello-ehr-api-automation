@@ -1,4 +1,0 @@
-var randomString = Math.random().toString(36).substring(7); 
-var email = `user_${randomString}@example.com`;
-
-pm.environment.set("randomEmail", email);

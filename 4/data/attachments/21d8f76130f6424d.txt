@@ -1,5 +1,0 @@
-{   
-    "name":"Ringgit International withdrawal Strategist Loan",
-    "office_uuid":"vglk5m"
-}
-

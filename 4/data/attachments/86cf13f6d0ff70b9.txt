@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Decentralized","_id":"67b5f73aff56d6b268ea6a9d","createdAt":"2025-02-19T15:22:34.106Z","__v":0}}

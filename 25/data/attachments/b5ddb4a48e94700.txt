@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"visualize SCSI Berkshire","branch":null,"isActive":true,"_id":"67c61e443381ebabb6e44358","createdAt":"2025-03-03T21:25:24.328Z","__v":0}}

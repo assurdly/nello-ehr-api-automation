@@ -1,6 +1,0 @@
-{
-    
-    "name":"Mo Development",
-    "office_uuid":"vglk5m"
-}
-
