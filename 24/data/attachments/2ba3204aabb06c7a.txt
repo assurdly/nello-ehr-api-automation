@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"IB incentivize Chips Paradigm Sausages","branch":null,"isActive":true,"_id":"67c5fdee3381ebabb6e43d61","createdAt":"2025-03-03T19:07:26.315Z","__v":0}}

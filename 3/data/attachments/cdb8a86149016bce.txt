@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Moroccan Toys Director digital Metal","branch":null,"isActive":true,"_id":"67b4da09ff56d6b268ea6470","createdAt":"2025-02-18T19:05:45.733Z","__v":0}}
