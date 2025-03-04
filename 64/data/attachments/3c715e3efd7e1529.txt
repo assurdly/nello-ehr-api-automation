@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"strategize Customer plum","branch":null,"isActive":true,"_id":"67c74e3f244e417b97fdbaaa","createdAt":"2025-03-04T19:02:23.233Z","__v":0}}

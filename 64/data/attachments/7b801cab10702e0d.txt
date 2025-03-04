@@ -1,0 +1,30 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response body contains successful fields", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.appointment).to.be.an("array").that.is.not.empty;
+});
+
+pm.test("Appointment details structure is valid", function () {
+    var appointment = jsonData.appointment[0];
+    pm.expect(appointment).to.have.property("_id").that.is.a("string");
+    pm.expect(appointment).to.have.property("firstname").that.is.a("string");
+    pm.expect(appointment).to.have.property("lastname").that.is.a("string");
+    pm.expect(appointment).to.have.property("upi").that.is.a("string");
+    pm.expect(appointment).to.have.property("email").that.is.a("string");
+    pm.expect(appointment).to.have.property("purpose").that.is.a("string");
+    pm.expect(appointment).to.have.property("visit_type").that.is.a("string");
+    pm.expect(appointment).to.have.property("visit_date").that.is.a("string");
+    pm.expect(appointment).to.have.property("scheduled_time").that.is.a("string");
+    pm.expect(appointment).to.have.property("is_urgent").that.is.a("boolean");
+    pm.expect(appointment).to.have.property("sponsor").that.is.a("string");
+    pm.expect(appointment).to.have.property("sponsor_plan").that.is.a("string");
+    pm.expect(appointment).to.have.property("office").that.is.a("string");
+    pm.expect(appointment).to.have.property("status").that.is.a("string");
+    pm.expect(appointment).to.have.property("is_billed").that.is.a("boolean");
+    pm.expect(appointment).to.have.property("consultant").that.is.a("string");
+});

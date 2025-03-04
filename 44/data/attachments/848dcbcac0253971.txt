@@ -1,5 +1,0 @@
-{   
-    "name":"Handcrafted communities",
-    "office_uuid":"vglk5m"
-}
-
