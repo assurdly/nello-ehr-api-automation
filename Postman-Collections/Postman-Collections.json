@@ -22594,7 +22594,7 @@
 											"response": []
 										},
 										{
-											"name": "Schedule-Receptionist-Successful Copy",
+											"name": "Schedule-Receptionist-Biller-Required",
 											"event": [
 												{
 													"listen": "test",
@@ -22603,18 +22603,30 @@
 														"exec": [
 															"var jsonData = pm.response.json();\r",
 															"\r",
-															"pm.test(\"Response status code is 200\", function () {\r",
-															"    pm.response.to.have.status(200);\r",
+															"pm.test(\"Response status code is not 200\", function () {\r",
+															"    pm.response.to.not.have.status(200);\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Response status is success\", function () {\r",
-															"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+															"pm.test(\"Response contains error details\", function () {\r",
+															"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+															"    pm.expect(jsonData.error).to.be.an(\"array\").that.is.not.empty;\r",
 															"});\r",
 															"\r",
-															"pm.test(\"Appointment scheduling success message is correct\", function () {\r",
-															"    pm.expect(jsonData.message).to.eql(\"Appointment scheduled successfully\");\r",
+															"pm.test(\"Error structure is valid\", function () {\r",
+															"    jsonData.error.forEach(function (err) {\r",
+															"        pm.expect(err).to.have.property(\"type\").that.is.a(\"string\");\r",
+															"        pm.expect(err).to.have.property(\"value\").that.is.a(\"string\");\r",
+															"        pm.expect(err).to.have.property(\"msg\").that.is.a(\"string\");\r",
+															"        pm.expect(err).to.have.property(\"path\").that.is.a(\"string\");\r",
+															"        pm.expect(err).to.have.property(\"location\").that.is.a(\"string\");\r",
+															"    });\r",
 															"});\r",
 															"\r",
+															"pm.test(\"Error messages are correct\", function () {\r",
+															"    var errorMessages = jsonData.error.map(e => e.msg);\r",
+															"    pm.expect(errorMessages).to.include(\"biller must be a valid email\");\r",
+															"    pm.expect(errorMessages).to.include(\"biller is required\");\r",
+															"});\r",
 															""
 														],
 														"type": "text/javascript",
@@ -22637,7 +22649,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n       \n        \"firstname\": \"Edidiong\",\n        \"lastname\": \"Anthony\",\n       \n        \"upi\": \"D528326B\",\n      \n        \"email\": \"edidiongbobson@gmail.com\",\n        \"purpose\":\"Doctor Visitation\",\n    \n        \"vital_height\": 160,\n        \"vital_weight\": 81,\n        \"vital_blood_pressure\":120,\n        \"vital_temperature\":180,\n        \"vital_pulserate\":300,\n        \"consultant\":\"9w3tzr\", //doctor uuid\n        \"visit_type\":\"New Encounter\",\n        \"visit_date\":\"17/02/2025\",\n    \"scheduled_time\":\"5:00 pm\",\n    \"is_urgent\":false,\n        \"sponsor\": \"Asknello\",  // refer to sponsor folder \n        \"sponsor_plan\": \"FAMACARE PRICELIST\", //FIX\n        \n        \"office\": \"{{office}}\",\n        \"office_uuid\": \"{office_uuid}\",\n        \"payment_policy\": \"cash\",\n        \"biller\":\"judith.michael@famacare.com\",\n        \"is_billed\":true\n      \n    }",
+													"raw": "{\n       \n        \"firstname\": \"Edidiong\",\n        \"lastname\": \"Anthony\",\n       \n        \"upi\": \"D528326B\",\n      \n        \"email\": \"edidiongbobson@gmail.com\",\n        \"purpose\":\"Doctor Visitation\",\n    \n        \"vital_height\": 160,\n        \"vital_weight\": 81,\n        \"vital_blood_pressure\":120,\n        \"vital_temperature\":180,\n        \"vital_pulserate\":300,\n        \"consultant\":\"9w3tzr\", //doctor uuid\n        \"visit_type\":\"New Encounter\",\n        \"visit_date\":\"17/02/2025\",\n    \"scheduled_time\":\"5:00 pm\",\n    \"is_urgent\":false,\n        \"sponsor\": \"Asknello\",  // refer to sponsor folder \n        \"sponsor_plan\": \"FAMACARE PRICELIST\", //FIX\n        \n        \"office\": \"{{office}}\",\n        \"office_uuid\": \"{office_uuid}\",\n        \"payment_policy\": \"cash\",\n        \"biller\":\"\",\n        \"is_billed\":true\n      \n    }",
 													"options": {
 														"raw": {
 															"language": "json"
