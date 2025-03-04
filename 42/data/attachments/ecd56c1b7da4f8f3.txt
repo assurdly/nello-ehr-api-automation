@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Loan Rubber architect infrastructures","branch":null,"isActive":true,"_id":"67c70824244e417b97fc4c4d","createdAt":"2025-03-04T14:03:16.502Z","__v":0}}
