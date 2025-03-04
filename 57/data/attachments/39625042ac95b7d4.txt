@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"yellow up Group","branch":null,"isActive":true,"_id":"67c717e4244e417b97fcfd08","createdAt":"2025-03-04T15:10:28.572Z","__v":0}}
