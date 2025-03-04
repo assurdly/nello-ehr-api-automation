@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"mindshare","_id":"67c6feea244e417b97fbf9a0","createdAt":"2025-03-04T13:23:54.543Z","__v":0}}

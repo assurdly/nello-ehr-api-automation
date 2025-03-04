@@ -1,5 +1,0 @@
-{   
-    "name":"Analyst paradigms Gorgeous Lanka Principal",
-    "office_uuid":"vglk5m"
-}
-
