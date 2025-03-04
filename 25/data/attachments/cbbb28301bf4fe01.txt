@@ -1,5 +1,0 @@
-{   
-    "name":"visualize SCSI Berkshire",
-    "office_uuid":"vglk5m"
-}
-
