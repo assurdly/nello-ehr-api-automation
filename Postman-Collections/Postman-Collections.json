@@ -23024,7 +23024,7 @@
 							"response": []
 						},
 						{
-							"name": "Fetch All Encounter - ExpireToken",
+							"name": "Fetch All Encounter - ExpiredToken",
 							"event": [
 								{
 									"listen": "test",
@@ -23313,7 +23313,7 @@
 					"id": "a6d686e3-b2fe-46b2-8e05-52f827095ee4"
 				},
 				{
-					"name": "New Folder",
+					"name": "Encounters by patient id",
 					"item": [
 						{
 							"name": "Encounters by patient id",
@@ -23381,7 +23381,7 @@
 							"response": []
 						},
 						{
-							"name": "Encounters by patient id Copy",
+							"name": "Encounters by patient id -Invalid-PatientID",
 							"event": [
 								{
 									"listen": "test",
@@ -23390,44 +23390,16 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Response status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"pm.test(\"Response status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Encounter object exists\", function () {\r",
-											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounter contains required fields\", function () {\r",
-											"    let encounter = jsonData.encounter;\r",
-											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Vitals contain valid data\", function () {\r",
-											"    let vitals = jsonData.encounter.vitals;\r",
-											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
-											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
-											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
-											"    pm.expect(hasSuspected).to.be.true;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Payment policy is valid\", function () {\r",
-											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"pm.test(\"Error message is correct\", function () {\r",
+											"    pm.expect(jsonData.error).to.eql(\"Invalid patient ID format\");\r",
 											"});\r",
 											""
 										],
@@ -23454,7 +23426,7 @@
 							"response": []
 						},
 						{
-							"name": "Encounters by patient id Copy",
+							"name": "Encounters by patient id- InvalidToken",
 							"event": [
 								{
 									"listen": "test",
@@ -23463,44 +23435,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounter object exists\", function () {\r",
-											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounter contains required fields\", function () {\r",
-											"    let encounter = jsonData.encounter;\r",
-											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Vitals contain valid data\", function () {\r",
-											"    let vitals = jsonData.encounter.vitals;\r",
-											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
-											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
-											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
-											"    pm.expect(hasSuspected).to.be.true;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Payment policy is valid\", function () {\r",
-											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 											"});\r",
 											""
 										],
@@ -23518,7 +23458,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{ExpiredToken}}",
 										"type": "text"
 									}
 								],
@@ -23527,7 +23467,7 @@
 							"response": []
 						},
 						{
-							"name": "Encounters by patient id Copy",
+							"name": "Encounters by patient id- NoToken",
 							"event": [
 								{
 									"listen": "test",
@@ -23536,44 +23476,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounter object exists\", function () {\r",
-											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounter contains required fields\", function () {\r",
-											"    let encounter = jsonData.encounter;\r",
-											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Vitals contain valid data\", function () {\r",
-											"    let vitals = jsonData.encounter.vitals;\r",
-											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
-											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
-											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
-											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
-											"    pm.expect(hasSuspected).to.be.true;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Payment policy is valid\", function () {\r",
-											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
 											"});\r",
 											""
 										],
@@ -23591,8 +23499,9 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
-										"type": "text"
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"url": "{{host}}api/encounter/patient/67503403416dcd28a3945453"
@@ -23616,11 +23525,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
+								"url": "{{host}}api/encounter/billing/awaiting billing"
 							},
 							"response": []
 						}
