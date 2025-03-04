@@ -1,0 +1,80 @@
+{
+
+    "vitals": {
+            "weight": 150,
+            "height": 150,
+            "blood_pressure": "67",
+            "temperature": 20,
+            "pulse_rate": 20
+        },
+
+        "allergies": {
+            "drugs": [
+                "Penicillin"
+            ],
+            "food": [
+                "Peanuts"
+            ],
+            "other": [
+                "Detergents"
+            ]
+        },
+     "symptoms": [
+            "Cough",
+            "Sneezing"
+        ],
+        "family_history": [
+            "Brugada Syndrome"
+        ],
+        "social_history": [
+            "Vaping or E-Cigarette Use"
+        ],
+        "diagnosis": [
+            {
+                "name": "Unspecified malaria",
+                "suspected": true,
+                "_id": "67b75860fdbab15b95142478"
+            },
+            {
+                "name": "Cold injury syndrome",
+                "suspected": false,
+                "_id": "67b75860fdbab15b95142479"
+            }
+        ],
+        "investigations": [
+            {
+                "name": "Faecal Occult Blood(FOB)",
+                "amount": 3000,
+                "billing_status": null,
+                "_id": "67b75860fdbab15b9514247a"
+            },
+            {
+                "name": "Blood Group",
+                "amount": 2000,
+                "billing_status": null,
+                "_id": "67b75860fdbab15b9514247b"
+            }
+        ],
+        "imaging": [
+            {
+                "name": "Both Feet",
+                "amount": 7000,
+                "billing_status": null,
+                "_id": "67b75860fdbab15b9514247c"
+            }
+        ],
+        "otherservices": [
+            {
+                "name": "Cast Removal",
+                "amount": 7500,
+                "billing_status": null,
+                "_id": "67b75860fdbab15b9514247d"
+            },
+            {
+                "name": "COLD APPLICATION",
+                "amount": 2500,
+                "billing_status": null,
+                "_id": "67b75860fdbab15b9514247e"
+            }
+        ]
+}

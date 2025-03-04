@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Handmade Fish","branch":null,"isActive":true,"_id":"67c702c2244e417b97fc18f4","createdAt":"2025-03-04T13:40:18.207Z","__v":0}}
