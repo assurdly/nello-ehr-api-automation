@@ -1,5 +1,0 @@
-{   
-    "name":"calculating e-business",
-    "office_uuid":"vglk5m"
-}
-
