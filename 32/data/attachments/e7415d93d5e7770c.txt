@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Money","_id":"67c7007d244e417b97fc05fa","createdAt":"2025-03-04T13:30:37.629Z","__v":0}}
