@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Intelligent AGP","branch":null,"isActive":true,"_id":"67c727e7244e417b97fd29f8","createdAt":"2025-03-04T16:18:47.299Z","__v":0}}
