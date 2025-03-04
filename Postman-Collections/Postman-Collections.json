@@ -23719,11 +23719,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+								"url": "{{host}}api/encounter/unique/AF388D54"
 							},
 							"response": []
 						}
