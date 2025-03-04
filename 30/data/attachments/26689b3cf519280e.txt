@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"programming HDD","branch":null,"isActive":true,"_id":"67c6fee8244e417b97fbf998","createdAt":"2025-03-04T13:23:52.869Z","__v":0}}
