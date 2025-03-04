@@ -1,5 +1,0 @@
-{   
-    "name":"invoice Home of East",
-    "office_uuid":"vglk5m"
-}
-

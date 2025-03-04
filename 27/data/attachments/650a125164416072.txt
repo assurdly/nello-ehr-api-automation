@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"invoice Home of East","branch":null,"isActive":true,"_id":"67c6f730244e417b97fbe635","createdAt":"2025-03-04T12:50:56.717Z","__v":0}}
