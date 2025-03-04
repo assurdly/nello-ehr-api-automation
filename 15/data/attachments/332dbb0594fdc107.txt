@@ -1,1 +1,0 @@
-{"status":"failed","error":[{"type":"field","value":"North North Right-sized","msg":"Department must contain only alphabets and spaces","path":"name","location":"body"}]}

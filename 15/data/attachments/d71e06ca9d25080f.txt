@@ -1,5 +1,0 @@
-{   
-    "name":"North North Right-sized",
-    "office_uuid":"vglk5m"
-}
-
