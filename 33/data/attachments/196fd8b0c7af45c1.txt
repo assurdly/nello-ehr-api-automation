@@ -1,5 +1,0 @@
-{   
-    "name":"SAS vortals",
-    "office_uuid":"vglk5m"
-}
-
