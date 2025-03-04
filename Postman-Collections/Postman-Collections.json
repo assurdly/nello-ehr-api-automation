@@ -20329,7 +20329,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist_token_invalid}}",
 												"type": "text"
 											}
 										],
@@ -20396,7 +20396,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token_Invalid}}",
+												"value": "Bearer {{receptionist_token_invalid}}",
 												"type": "text"
 											}
 										],
@@ -20488,7 +20488,7 @@
 											"query": [
 												{
 													"key": "Authorization",
-													"value": "Bearer {{token}}",
+													"value": "Bearer {{ExpiredToken}}",
 													"type": "text",
 													"disabled": true
 												}
