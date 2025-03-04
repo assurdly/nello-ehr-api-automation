@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Granite Frozen","branch":null,"isActive":true,"_id":"67c728b3244e417b97fd3d59","createdAt":"2025-03-04T16:22:11.235Z","__v":0}}

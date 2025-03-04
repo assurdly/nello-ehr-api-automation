@@ -1,0 +1,4 @@
+{
+    "name":"Gloves",
+    "office_uuid":"vglk5m"
+}

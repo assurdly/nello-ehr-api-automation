@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Gloves","_id":"67c728b4244e417b97fd3d61","createdAt":"2025-03-04T16:22:12.941Z","__v":0}}
