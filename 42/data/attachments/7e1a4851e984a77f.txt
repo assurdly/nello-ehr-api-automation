@@ -1,0 +1,41 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response status is success", function () {
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+pm.test("Encounter object exists", function () {
+    pm.expect(jsonData).to.have.property("encounter").that.is.an("object");
+});
+
+pm.test("Encounter contains required fields", function () {
+    let encounter = jsonData.encounter;
+    pm.expect(encounter).to.have.property("uuid").that.is.a("string");
+    pm.expect(encounter).to.have.property("consultant").that.is.a("string");
+    pm.expect(encounter).to.have.property("status").that.is.a("string");
+    pm.expect(encounter).to.have.property("symptoms").that.is.an("array");
+    pm.expect(encounter).to.have.property("diagnosis").that.is.an("array");
+    pm.expect(encounter).to.have.property("payment_policy").that.is.a("string");
+});
+
+pm.test("Vitals contain valid data", function () {
+    let vitals = jsonData.encounter.vitals;
+    pm.expect(vitals).to.have.property("weight").that.is.a("number");
+    pm.expect(vitals).to.have.property("height").that.is.a("number");
+    pm.expect(vitals).to.have.property("blood_pressure").that.is.a("string");
+    pm.expect(vitals).to.have.property("temperature").that.is.a("number");
+    pm.expect(vitals).to.have.property("pulse_rate").that.is.a("number");
+});
+
+pm.test("At least one suspected diagnosis exists", function () {
+    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);
+    pm.expect(hasSuspected).to.be.true;
+});
+
+pm.test("Payment policy is valid", function () {
+    pm.expect(["cash", "claims"]).to.include(jsonData.encounter.payment_policy);
+});
