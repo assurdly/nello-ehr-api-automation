@@ -1,4 +1,0 @@
-{
-    "name":"multi-byte",
-    "office_uuid":"vglk5m"
-}

@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"content Islands Fantastic sky ivory","branch":null,"isActive":true,"_id":"67c70518244e417b97fc2dea","createdAt":"2025-03-04T13:50:16.989Z","__v":0}}
