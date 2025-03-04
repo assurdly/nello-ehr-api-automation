@@ -20228,7 +20228,7 @@
 											"query": [
 												{
 													"key": "Authorization",
-													"value": "Bearer {{token}}",
+													"value": "Bearer {{receptionist_token_invalid}}",
 													"type": "text",
 													"disabled": true
 												}
@@ -20559,7 +20559,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -20600,7 +20600,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token_Invalid}}",
+												"value": "Bearer {{receptionist_token_invalid}}",
 												"type": "text"
 											}
 										],
@@ -20758,7 +20758,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -20803,7 +20803,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -20957,7 +20957,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -21002,7 +21002,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist_token_invalid}}",
 												"type": "text"
 											}
 										],
