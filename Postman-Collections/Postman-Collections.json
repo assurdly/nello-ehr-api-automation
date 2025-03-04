@@ -23806,7 +23806,29 @@
 							"response": []
 						},
 						{
-							"name": "Unique Encounter by (appointment_uuid) Copy",
+							"name": "Unique Encounter by (appointment_uuid) - InvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9eb3ce93-ba7f-41d9-912b-dabcedc68e7d",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates invalid token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "919b52f4-2018-4496-b00b-53722e1cb750",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -23816,7 +23838,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{super_admin_token_Invalid}}",
 										"type": "text"
 									}
 								],
@@ -23825,7 +23847,29 @@
 							"response": []
 						},
 						{
-							"name": "Unique Encounter by (appointment_uuid) Copy",
+							"name": "Unique Encounter by (appointment_uuid) - ExpiredToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f592da56-12a8-45af-9f2b-78a19c594bac",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "92e6a62d-5b69-4027-af53-fade505428cc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -23835,8 +23879,50 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{ExpiredToken}}",
 										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/unique/M528326B"
+							},
+							"response": []
+						},
+						{
+							"name": "Unique Encounter by (appointment_uuid) - NoToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f592da56-12a8-45af-9f2b-78a19c594bac",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0af13f7f-96ba-4ad4-b045-4a8f3a159eaa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"url": "{{host}}api/encounter/unique/M528326B"
@@ -23847,7 +23933,7 @@
 					"id": "1c3008e3-5c89-4f72-8456-e01628da495b"
 				},
 				{
-					"name": "New Folder",
+					"name": "Update Encounter",
 					"item": [
 						{
 							"name": "Update Encounter by (appointment_uuid)",
@@ -23860,20 +23946,48 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\n    \"vitals\": {\n            \"weight\": 77,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+									"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+								"url": "{{host}}api/encounter/unique/M528326B"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Encounter by (appointment_uuid) Copy",
+							"id": "2049344c-7ecd-4010-bf13-096524556cf7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/encounter/unique/M528326B"
 							},
 							"response": []
 						}
