@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"capacitor empower blockchains Divide holistic","branch":null,"isActive":true,"_id":"67c6f8ad244e417b97fbec8b","createdAt":"2025-03-04T12:57:17.723Z","__v":0}}

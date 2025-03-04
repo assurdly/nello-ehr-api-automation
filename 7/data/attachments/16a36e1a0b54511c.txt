@@ -1,4 +1,0 @@
-{
-    "name":"USB",
-    "office_uuid":"vglk5m"
-}
