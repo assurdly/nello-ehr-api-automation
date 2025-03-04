@@ -22520,175 +22520,217 @@
 			"name": "Encounter",
 			"item": [
 				{
-					"name": "Create",
-					"id": "fd6de753-5b55-42c9-be03-03e0048a8c55",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"payment_policy\": \"cash\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Create",
+							"id": "fd6de753-5b55-42c9-be03-03e0048a8c55",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"payment_policy\": \"cash\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/encounter/submit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"encounter",
+										"submit"
+									],
+									"query": [
+										{
+											"key": "Authorization",
+											"value": "Bearer {{token}}",
+											"type": "text",
+											"disabled": true
+										}
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/encounter/submit",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"encounter",
-								"submit"
-							],
-							"query": [
-								{
-									"key": "Authorization",
-									"value": "Bearer {{token}}",
-									"type": "text",
-									"disabled": true
-								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "2293cd75-9775-47ba-b538-e694a3964899"
 				},
 				{
-					"name": "Fetch All Encounter",
-					"id": "aba54700-004b-435f-924f-87273a907595",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/encounter/fetch-all"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Fetch All Encounter",
+							"id": "aba54700-004b-435f-924f-87273a907595",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:5000/api/encounter/fetch-all"
+							},
+							"response": []
+						}
+					],
+					"id": "eee1452e-b4c0-4266-9601-8482d37ff104"
 				},
 				{
-					"name": "Get Unique Encounter (uuid)",
-					"id": "0254b1ea-30d4-47de-bfda-f8edc179badb",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/encounter/fetch/9E9E9F56"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Get Unique Encounter (uuid)",
+							"id": "0254b1ea-30d4-47de-bfda-f8edc179badb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:5000/api/encounter/fetch/9E9E9F56"
+							},
+							"response": []
+						}
+					],
+					"id": "a6d686e3-b2fe-46b2-8e05-52f827095ee4"
 				},
 				{
-					"name": "Encounters by patient id",
-					"id": "7acf9195-04fc-4994-b3cd-06a60529a0bf",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Encounters by patient id",
+							"id": "7acf9195-04fc-4994-b3cd-06a60529a0bf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
+							},
+							"response": []
+						}
+					],
+					"id": "1ace5d35-b4bc-4542-b4a6-aa310ca1cf53"
 				},
 				{
-					"name": "Get encounter by billing status",
-					"id": "ae3e8f33-ada5-4f23-ac2d-7e4ee6954af7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Get encounter by billing status",
+							"id": "ae3e8f33-ada5-4f23-ac2d-7e4ee6954af7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
+							},
+							"response": []
+						}
+					],
+					"id": "aa6e571b-2a5f-4830-a25d-f0cec15c3230"
 				},
 				{
-					"name": "Unique Encounter by (appointment_uuid)",
-					"id": "c591a6ae-575c-431f-b4f8-2552210a1e45",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"url": "http://localhost:5000/api/encounter/unique/AF388D54"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Unique Encounter by (appointment_uuid)",
+							"id": "c591a6ae-575c-431f-b4f8-2552210a1e45",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+							},
+							"response": []
+						}
+					],
+					"id": "1c3008e3-5c89-4f72-8456-e01628da495b"
 				},
 				{
-					"name": "Update Encounter by (appointment_uuid)",
-					"id": "428500cc-6be5-480a-8737-427d24865cce",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\n    \"vitals\": {\n            \"weight\": 77,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:5000/api/encounter/unique/AF388D54"
-					},
-					"response": []
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Update Encounter by (appointment_uuid)",
+							"id": "428500cc-6be5-480a-8737-427d24865cce",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"vitals\": {\n            \"weight\": 77,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+							},
+							"response": []
+						}
+					],
+					"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
 				}
 			],
 			"id": "12efb224-3c54-4465-8486-b0cf3611c3bc"
