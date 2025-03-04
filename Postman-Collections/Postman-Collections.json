@@ -22492,7 +22492,7 @@
 			"id": "9963e146-a814-4f7f-ab56-cb1594a3bd94"
 		},
 		{
-			"name": "Consultation Copy",
+			"name": "Consultation",
 			"item": [
 				{
 					"name": "Get Doctor consultation",
@@ -22517,7 +22517,7 @@
 			"id": "edec7600-760e-4041-b044-150786dd3a1a"
 		},
 		{
-			"name": "Encounter Copy",
+			"name": "Encounter",
 			"item": [
 				{
 					"name": "Create",
