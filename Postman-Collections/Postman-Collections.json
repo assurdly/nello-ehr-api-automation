@@ -22589,7 +22589,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{super_admin_token_Invalid}}",
+								"value": "Bearer {{doctor_token_Invalid}}",
 								"type": "text"
 							}
 						],
@@ -22598,7 +22598,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Doctor consultation Copy",
+					"name": "Get Doctor consultation -ExpiredToken",
 					"event": [
 						{
 							"listen": "test",
