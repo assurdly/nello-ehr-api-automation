@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Cotton salmon Granite","branch":null,"isActive":true,"_id":"67c705d3244e417b97fc3521","createdAt":"2025-03-04T13:53:23.426Z","__v":0}}
