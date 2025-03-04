@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Automated seamless leverage","branch":null,"isActive":true,"_id":"67bb8067ff56d6b268eb715b","createdAt":"2025-02-23T20:09:11.874Z","__v":0}}

@@ -1,0 +1,6 @@
+var jsonData = pm.response.json();
+pm.environment.set("super_admin_token", jsonData.token)
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
