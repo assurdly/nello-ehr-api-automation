@@ -22505,7 +22505,64 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVkaWRpb25nLmJvYnNvbkBhc2tuZWxsby5jb20iLCJyb2xlIjoiU3VwZXIgQWRtaW4iLCJpYXQiOjE3NDEwODg4NjQsImV4cCI6MTc0MTExNzY2NH0.bQCEyFhS-6HN4wISN4bPeS4gEeYiK5z5F0BhY8LtMlk",
+								"value": "Bearer {{super_admin_token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}api/consultation/doctor/9w3tzr"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor consultation Copy",
+					"id": "66389d82-d41c-4c5d-bd1c-b9f71c03df69",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{super_admin_token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}api/consultation/doctor/9w3tzr"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor consultation Copy",
+					"id": "ef6f478f-4780-4828-8398-8b331c4da272",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{super_admin_token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}api/consultation/doctor/9w3tzr"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor consultation Copy",
+					"id": "d1a83e88-1759-472f-93e1-83da178c7539",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{super_admin_token}}",
 								"type": "text"
 							}
 						],
@@ -24204,6 +24261,57 @@
 										"key": "Authorization",
 										"value": "Bearer {{doctor_token_Invalid}}",
 										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/encounter/unique/M528326B"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Encounter by (appointment_uuid) - NoToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "a0c3473e-a368-4919-8aef-9c9bbccfd5e1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
