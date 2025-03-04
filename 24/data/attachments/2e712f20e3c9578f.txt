@@ -1,5 +1,0 @@
-{   
-    "name":"IB incentivize Chips Paradigm Sausages",
-    "office_uuid":"vglk5m"
-}
-

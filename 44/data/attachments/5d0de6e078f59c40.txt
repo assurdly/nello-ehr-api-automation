@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Shoes","_id":"67c709a7244e417b97fc5f2a","createdAt":"2025-03-04T14:09:43.994Z","__v":0}}
