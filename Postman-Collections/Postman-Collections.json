@@ -22929,11 +22929,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:5000/api/encounter/fetch-all"
+								"url": "{{host}}api/encounter/fetch-all"
 							},
 							"response": []
 						}
