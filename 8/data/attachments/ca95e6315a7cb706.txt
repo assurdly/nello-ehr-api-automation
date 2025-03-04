@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Practical Practical red","branch":null,"isActive":true,"_id":"67b7706fff56d6b268eacd40","createdAt":"2025-02-20T18:11:59.521Z","__v":0}}

@@ -1,5 +1,0 @@
-{   
-    "name":"Practical Practical red",
-    "office_uuid":"vglk5m"
-}
-
