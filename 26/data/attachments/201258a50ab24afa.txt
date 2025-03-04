@@ -1,5 +1,0 @@
-{   
-    "name":"Samoa Ferry",
-    "office_uuid":"vglk5m"
-}
-
