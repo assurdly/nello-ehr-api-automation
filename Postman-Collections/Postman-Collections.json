@@ -22653,7 +22653,7 @@
 							"response": []
 						},
 						{
-							"name": "Create - EmptyToken",
+							"name": "Create - NoToken",
 							"event": [
 								{
 									"listen": "test",
@@ -22846,7 +22846,7 @@
 							"response": []
 						},
 						{
-							"name": "Create-ExpiredToke",
+							"name": "Create-ExpiredToken",
 							"event": [
 								{
 									"listen": "test",
@@ -22916,10 +22916,55 @@
 					"id": "2293cd75-9775-47ba-b538-e694a3964899"
 				},
 				{
-					"name": "New Folder",
+					"name": "Fetch ALL Encounter",
 					"item": [
 						{
 							"name": "Fetch All Encounter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfa6efb-9083-4694-8804-b80f11f26693",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounters list is not empty\", function () {\r",
+											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Each encounter contains required fields\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "aba54700-004b-435f-924f-87273a907595",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -22931,6 +22976,130 @@
 										"key": "Authorization",
 										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/fetch-all"
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Encounter-InvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfa6efb-9083-4694-8804-b80f11f26693",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates invalid token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f1b955c0-6059-499c-937b-89be79a7fd73",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token_Invalid}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/fetch-all"
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Encounter - ExpireToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfa6efb-9083-4694-8804-b80f11f26693",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ef0e533c-e798-4267-bcb6-135037791994",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{ExpiredToken}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/fetch-all"
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch All Encounter - NoToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfa6efb-9083-4694-8804-b80f11f26693",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d798f411-81fe-4a8f-84ba-65ab570114f4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"url": "{{host}}api/encounter/fetch-all"
