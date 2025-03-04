@@ -23620,7 +23620,7 @@
 							"response": []
 						},
 						{
-							"name": "Get encounter by billing status Copy 2",
+							"name": "Get encounter by billing status-ExpiredToken",
 							"event": [
 								{
 									"listen": "test",
@@ -23629,35 +23629,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounters list is not empty\", function () {\r",
-											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Each encounter contains required fields\", function () {\r",
-											"    jsonData.encounters.forEach(encounter => {\r",
-											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
-											"    });\r",
-											"});\r",
-											"\r",
-											"\r",
-											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
-											"    jsonData.encounters.forEach(encounter => {\r",
-											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
-											"    });\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 											"});\r",
 											""
 										],
@@ -23675,7 +23652,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{ExpiredToken}}",
 										"type": "text"
 									}
 								],
@@ -23684,7 +23661,7 @@
 							"response": []
 						},
 						{
-							"name": "Get encounter by billing status Copy",
+							"name": "Get encounter by billing status - NoToken",
 							"event": [
 								{
 									"listen": "test",
@@ -23693,35 +23670,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Encounters list is not empty\", function () {\r",
-											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Each encounter contains required fields\", function () {\r",
-											"    jsonData.encounters.forEach(encounter => {\r",
-											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
-											"    });\r",
-											"});\r",
-											"\r",
-											"\r",
-											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
-											"    jsonData.encounters.forEach(encounter => {\r",
-											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
-											"    });\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
 											"});\r",
 											""
 										],
@@ -23739,8 +23693,9 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
-										"type": "text"
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"url": "{{host}}api/encounter/billing/awaiting billing"
