@@ -22504,16 +22504,33 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"\r",
-									"pm.test(\"Status is success\", () => pm.expect(jsonData.status).to.eql(\"success\"));\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
 									"\r",
-									"pm.test(\"Appointment data is valid\", () => {\r",
+									"pm.test(\"Response body contains successful fields\", function () {\r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
 									"    pm.expect(jsonData.appointment).to.be.an(\"array\").that.is.not.empty;\r",
-									"    let appointment = jsonData.appointment[0];\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Appointment details structure is valid\", function () {\r",
+									"    var appointment = jsonData.appointment[0];\r",
+									"    pm.expect(appointment).to.have.property(\"_id\").that.is.a(\"string\");\r",
 									"    pm.expect(appointment).to.have.property(\"firstname\").that.is.a(\"string\");\r",
 									"    pm.expect(appointment).to.have.property(\"lastname\").that.is.a(\"string\");\r",
-									"    pm.expect(appointment).to.have.property(\"visit_date\").that.matches(/^\\d{4}-\\d{2}-\\d{2}$/);\r",
-									"    pm.expect(appointment.is_urgent).to.be.a(\"boolean\");\r",
-									"    pm.expect(appointment.status).to.be.oneOf([\"consulted\", \"pending\", \"cancelled\"]);\r",
+									"    pm.expect(appointment).to.have.property(\"upi\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"email\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"purpose\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"visit_type\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"visit_date\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"scheduled_time\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"is_urgent\").that.is.a(\"boolean\");\r",
+									"    pm.expect(appointment).to.have.property(\"sponsor\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"sponsor_plan\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"office\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"status\").that.is.a(\"string\");\r",
+									"    pm.expect(appointment).to.have.property(\"is_billed\").that.is.a(\"boolean\");\r",
+									"    pm.expect(appointment).to.have.property(\"consultant\").that.is.a(\"string\");\r",
 									"});\r",
 									""
 								],
@@ -22540,7 +22557,29 @@
 					"response": []
 				},
 				{
-					"name": "Get Doctor consultation Copy",
+					"name": "Get Doctor consultation - InvalidToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85728850-7b84-4b2f-a925-38a4003e9825",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response message indicates invalid token\", function () {\r",
+									"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "66389d82-d41c-4c5d-bd1c-b9f71c03df69",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -22550,7 +22589,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{super_admin_token}}",
+								"value": "Bearer {{super_admin_token_Invalid}}",
 								"type": "text"
 							}
 						],
@@ -22560,6 +22599,28 @@
 				},
 				{
 					"name": "Get Doctor consultation Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21abe709-44fa-4e98-9e32-67252819c24f",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Token expiration message is correct\", function () {\r",
+									"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "ef6f478f-4780-4828-8398-8b331c4da272",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -22569,7 +22630,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{super_admin_token}}",
+								"value": "Bearer {{ExpiredToken}}",
 								"type": "text"
 							}
 						],
