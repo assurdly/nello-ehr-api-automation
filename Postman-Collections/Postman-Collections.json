@@ -22639,8 +22639,63 @@
 					"response": []
 				},
 				{
-					"name": "Get Doctor consultation Copy",
+					"name": "Get Doctor consultation - NoToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7bcd71bd-5c27-4d05-b973-28f8608f404a",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response message indicates missing token\", function () {\r",
+									"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "d1a83e88-1759-472f-93e1-83da178c7539",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{host}}api/consultation/doctor/9w3tzr"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor consultation - AccessDenied",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5db7faf7-54ff-496c-9010-52012c1fb652",
+								"exec": [
+									"// This would be updated when the fix is done"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "3e9f9eff-83b3-48e6-8a24-59a030f0ea57",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
