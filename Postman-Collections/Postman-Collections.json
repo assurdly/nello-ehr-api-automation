@@ -22496,6 +22496,45 @@
 			"item": [
 				{
 					"name": "Get Doctor consultation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "03b2512c-9952-4275-81c3-d1d589352642",
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"API should return status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response structure is valid\", function () {\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"    pm.expect(jsonData).to.have.property(\"status\").that.equals(\"success\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"User details should be present\", function () {\r",
+									"    pm.expect(jsonData.data.user).to.be.an(\"object\");\r",
+									"    pm.expect(jsonData.data.user).to.have.property(\"id\").that.is.a(\"string\");\r",
+									"    pm.expect(jsonData.data.user).to.have.property(\"email\").that.includes(\"@\");\r",
+									"    pm.expect(jsonData.data.user).to.have.property(\"role\").that.is.oneOf([\"admin\", \"user\", \"moderator\"]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Transaction details should be valid\", function () {\r",
+									"    pm.expect(jsonData.data.transaction).to.be.an(\"object\");\r",
+									"    pm.expect(jsonData.data.transaction).to.have.property(\"amount\").that.is.a(\"number\");\r",
+									"    pm.expect(jsonData.data.transaction).to.have.property(\"currency\").that.is.a(\"string\");\r",
+									"    pm.expect(jsonData.data.transaction).to.have.property(\"status\").that.is.oneOf([\"pending\", \"completed\", \"failed\"]);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "4d9e9a47-5e96-422e-a80a-fa3c75c7c9ee",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
