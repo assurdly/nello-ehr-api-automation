@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Beauty","_id":"67c70d8d244e417b97fc9b66","createdAt":"2025-03-04T14:26:21.548Z","__v":0}}

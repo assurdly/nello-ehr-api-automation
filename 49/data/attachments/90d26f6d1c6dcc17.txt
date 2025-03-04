@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"bandwidth composite withdrawal streamline Solutions","branch":null,"isActive":true,"_id":"67c70d8b244e417b97fc9b5e","createdAt":"2025-03-04T14:26:19.746Z","__v":0}}
