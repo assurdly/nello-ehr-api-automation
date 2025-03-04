@@ -23240,8 +23240,8 @@
 											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Response message indicates invalid token\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 											"});\r",
 											""
 										],
@@ -23259,7 +23259,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token_Invalid}}",
+										"value": "Bearer {{ExpiredToken}}",
 										"type": "text"
 									}
 								],
@@ -23268,12 +23268,125 @@
 							"response": []
 						},
 						{
-							"name": "Get Unique Encounter (uuid) Copy 3",
+							"name": "Get Unique Encounter (uuid)- NoToken",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "8e8a0e16-937b-460f-b3d7-5f39c5405053",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8e98c521-8609-4958-92ff-5f18bb7867dd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": "{{host}}api/encounter/fetch/9E9E9F56"
+							},
+							"response": []
+						}
+					],
+					"id": "a6d686e3-b2fe-46b2-8e05-52f827095ee4"
+				},
+				{
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Encounters by patient id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1274b668-8942-457a-9bd1-9ba09ed56774",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounters array exists and is not empty\", function () {\r",
+											"    pm.expect(jsonData.encounters).to.be.an(\"array\").that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Each encounter contains required fields\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Ensure payment policy is valid\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "7acf9195-04fc-4994-b3cd-06a60529a0bf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/patient/67503403416dcd28a3945453"
+							},
+							"response": []
+						},
+						{
+							"name": "Encounters by patient id Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1274b668-8942-457a-9bd1-9ba09ed56774",
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
@@ -23308,6 +23421,10 @@
 											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
 											"});\r",
 											"\r",
+											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
+											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
+											"    pm.expect(hasSuspected).to.be.true;\r",
+											"});\r",
 											"\r",
 											"pm.test(\"Payment policy is valid\", function () {\r",
 											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
@@ -23319,7 +23436,7 @@
 									}
 								}
 							],
-							"id": "8e98c521-8609-4958-92ff-5f18bb7867dd",
+							"id": "da346478-d87e-4f51-b795-f8922ee8bb52",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23332,19 +23449,67 @@
 										"type": "text"
 									}
 								],
-								"url": "{{host}}api/encounter/fetch/9E9E9F56"
+								"url": "{{host}}api/encounter/patient/67503403416dcd28a39"
 							},
 							"response": []
-						}
-					],
-					"id": "a6d686e3-b2fe-46b2-8e05-52f827095ee4"
-				},
-				{
-					"name": "New Folder",
-					"item": [
+						},
 						{
-							"name": "Encounters by patient id",
-							"id": "7acf9195-04fc-4994-b3cd-06a60529a0bf",
+							"name": "Encounters by patient id Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1274b668-8942-457a-9bd1-9ba09ed56774",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter object exists\", function () {\r",
+											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter contains required fields\", function () {\r",
+											"    let encounter = jsonData.encounter;\r",
+											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Vitals contain valid data\", function () {\r",
+											"    let vitals = jsonData.encounter.vitals;\r",
+											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
+											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
+											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
+											"    pm.expect(hasSuspected).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Payment policy is valid\", function () {\r",
+											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e89ee17b-803f-4084-a4ee-cdcdcb270ec2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23353,11 +23518,84 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer {{super_admin_token}}",
 										"type": "text"
 									}
 								],
-								"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
+								"url": "{{host}}api/encounter/patient/67503403416dcd28a3945453"
+							},
+							"response": []
+						},
+						{
+							"name": "Encounters by patient id Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1274b668-8942-457a-9bd1-9ba09ed56774",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter object exists\", function () {\r",
+											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter contains required fields\", function () {\r",
+											"    let encounter = jsonData.encounter;\r",
+											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Vitals contain valid data\", function () {\r",
+											"    let vitals = jsonData.encounter.vitals;\r",
+											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
+											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"At least one suspected diagnosis exists\", function () {\r",
+											"    let hasSuspected = jsonData.encounter.diagnosis.some(d => d.suspected === true);\r",
+											"    pm.expect(hasSuspected).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Payment policy is valid\", function () {\r",
+											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c91a1c7f-604f-41b1-b43c-76546b16571d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/patient/67503403416dcd28a3945453"
 							},
 							"response": []
 						}
