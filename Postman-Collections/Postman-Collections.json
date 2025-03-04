@@ -23512,11 +23512,225 @@
 					"id": "1ace5d35-b4bc-4542-b4a6-aa310ca1cf53"
 				},
 				{
-					"name": "New Folder",
+					"name": "encounter by billing status",
 					"item": [
 						{
 							"name": "Get encounter by billing status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfbb9d2-f316-4a19-bcfe-645f34ab2fbd",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounters list is not empty\", function () {\r",
+											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Each encounter contains required fields\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "ae3e8f33-ada5-4f23-ac2d-7e4ee6954af7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/billing/awaiting billing"
+							},
+							"response": []
+						},
+						{
+							"name": "Get encounter by billing status-InvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfbb9d2-f316-4a19-bcfe-645f34ab2fbd",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates invalid token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "21346705-22f9-4f40-9452-2e2d5c61629d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token_Invalid}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/billing/awaiting billing"
+							},
+							"response": []
+						},
+						{
+							"name": "Get encounter by billing status Copy 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfbb9d2-f316-4a19-bcfe-645f34ab2fbd",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounters list is not empty\", function () {\r",
+											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Each encounter contains required fields\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "432a5f01-d0ff-4ff8-9997-4a66336351b9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/billing/awaiting billing"
+							},
+							"response": []
+						},
+						{
+							"name": "Get encounter by billing status Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3bfbb9d2-f316-4a19-bcfe-645f34ab2fbd",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounters list is not empty\", function () {\r",
+											"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Each encounter contains required fields\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    });\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
+											"    jsonData.encounters.forEach(encounter => {\r",
+											"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
+											"    });\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "9fa344ae-0329-43ee-bff2-0ad662082d77",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
