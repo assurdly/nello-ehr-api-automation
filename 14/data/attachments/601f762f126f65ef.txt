@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"experiences Investment Soft Rial","branch":null,"isActive":true,"_id":"67c0ab183381ebabb6e33a86","createdAt":"2025-02-27T18:12:40.383Z","__v":0}}
