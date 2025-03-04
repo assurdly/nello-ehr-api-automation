@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"modular circuit","branch":null,"isActive":true,"_id":"67c70699244e417b97fc3da6","createdAt":"2025-03-04T13:56:41.780Z","__v":0}}
