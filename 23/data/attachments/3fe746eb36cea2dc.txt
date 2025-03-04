@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"National and Botswana Markets wireless","branch":null,"isActive":true,"_id":"67c5fd3c3381ebabb6e437ec","createdAt":"2025-03-03T19:04:28.557Z","__v":0}}
