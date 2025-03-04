@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Handmade Practical Nevada Wooden Kids","branch":null,"isActive":true,"_id":"67c1feb63381ebabb6e35d23","createdAt":"2025-02-28T18:21:42.562Z","__v":0}}
