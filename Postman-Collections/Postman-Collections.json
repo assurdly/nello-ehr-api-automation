@@ -23710,6 +23710,65 @@
 					"item": [
 						{
 							"name": "Unique Encounter by (appointment_uuid)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "478b2e4c-41ec-42c8-bd24-5ed5947d64a7",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter object exists\", function () {\r",
+											"    pm.expect(jsonData).to.have.property(\"encounter\").that.is.an(\"object\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Encounter contains required fields\", function () {\r",
+											"    let encounter = jsonData.encounter;\r",
+											"    pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
+											"    pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
+											"    pm.expect(encounter).to.have.property(\"payment_policy\").that.is.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Vitals contain valid data\", function () {\r",
+											"    let vitals = jsonData.encounter.vitals;\r",
+											"    pm.expect(vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"blood_pressure\").that.is.a(\"string\");\r",
+											"    pm.expect(vitals).to.have.property(\"temperature\").that.is.a(\"number\");\r",
+											"    pm.expect(vitals).to.have.property(\"pulse_rate\").that.is.a(\"number\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Patient object contains required fields\", function () {\r",
+											"    let patient = jsonData.encounter.patient;\r",
+											"    pm.expect(patient).to.have.property(\"fullname\").that.is.a(\"string\");\r",
+											"    pm.expect(patient).to.have.property(\"email\").that.is.a(\"string\");\r",
+											"    pm.expect(patient).to.have.property(\"phone\").that.is.a(\"string\");\r",
+											"    pm.expect(patient).to.have.property(\"address\").that.is.a(\"string\");\r",
+											"    pm.expect(patient).to.have.property(\"gender\").that.is.a(\"string\");\r",
+											"    pm.expect(patient).to.have.property(\"dob\").that.is.a(\"string\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Payment policy is valid\", function () {\r",
+											"    pm.expect([\"cash\", \"claims\"]).to.include(jsonData.encounter.payment_policy);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "c591a6ae-575c-431f-b4f8-2552210a1e45",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -23723,7 +23782,64 @@
 										"type": "text"
 									}
 								],
-								"url": "{{host}}api/encounter/unique/AF388D54"
+								"url": "{{host}}api/encounter/unique/M528326B"
+							},
+							"response": []
+						},
+						{
+							"name": "Unique Encounter by (appointment_uuid) - NotFound",
+							"id": "020c0ea8-a9e9-4ae9-bffb-26003c9436fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/unique/M5283"
+							},
+							"response": []
+						},
+						{
+							"name": "Unique Encounter by (appointment_uuid) Copy",
+							"id": "919b52f4-2018-4496-b00b-53722e1cb750",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/unique/M528326B"
+							},
+							"response": []
+						},
+						{
+							"name": "Unique Encounter by (appointment_uuid) Copy",
+							"id": "92e6a62d-5b69-4027-af53-fade505428cc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/encounter/unique/M528326B"
 							},
 							"response": []
 						}
