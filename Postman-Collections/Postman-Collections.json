@@ -23946,7 +23946,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{doctor_token}}",
 										"type": "text"
 									}
 								],
@@ -23964,7 +23964,29 @@
 							"response": []
 						},
 						{
-							"name": "Update Encounter by (appointment_uuid) Copy",
+							"name": "Update Encounter by (appointment_uuid) - AccessDenied",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2049344c-7ecd-4010-bf13-096524556cf7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
