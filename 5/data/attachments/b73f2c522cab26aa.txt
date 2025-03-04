@@ -1,1 +1,0 @@
-{"status":"failed","error":"Department with such name exists"}

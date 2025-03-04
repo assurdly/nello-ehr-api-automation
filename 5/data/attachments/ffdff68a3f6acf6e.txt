@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Vista","_id":"67b60952ff56d6b268ea6dbd","createdAt":"2025-02-19T16:39:46.110Z","__v":0}}

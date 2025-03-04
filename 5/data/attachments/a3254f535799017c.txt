@@ -1,4 +1,0 @@
-{
-    "email":"chukemeka@famacare.com",
-    "password":"Famacare123**"
-}

@@ -1,1 +1,0 @@
-{"status":"failed","error":[{"type":"field","value":"","msg":"Fee must be a number","path":"fee","location":"body"}]}

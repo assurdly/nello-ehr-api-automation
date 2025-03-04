@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Samoa Ferry","branch":null,"isActive":true,"_id":"67c6f66f244e417b97fbe074","createdAt":"2025-03-04T12:47:43.270Z","__v":0}}

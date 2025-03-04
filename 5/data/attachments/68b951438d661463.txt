@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"SSL invoice Loan Riyal Small","branch":null,"isActive":true,"_id":"67b60950ff56d6b268ea6db5","createdAt":"2025-02-19T16:39:44.613Z","__v":0}}

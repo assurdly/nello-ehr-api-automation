@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"teal silver","branch":null,"isActive":true,"_id":"67b60ddeff56d6b268ea70dc","createdAt":"2025-02-19T16:59:10.438Z","__v":0}}
