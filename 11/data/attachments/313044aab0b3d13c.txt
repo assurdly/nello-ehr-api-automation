@@ -1,5 +1,0 @@
-{   
-    "name":"Cotton Division indigo",
-    "office_uuid":"vglk5m"
-}
-

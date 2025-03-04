@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Cotton Division indigo","branch":null,"isActive":true,"_id":"67b8c322ff56d6b268eae499","createdAt":"2025-02-21T18:17:06.971Z","__v":0}}
