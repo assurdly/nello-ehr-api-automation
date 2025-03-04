@@ -1,1 +1,0 @@
-{"errors":[{"type":"field","value":"","msg":"Payment policy must be either cash or claims","path":"payment_policy","location":"body"}]}

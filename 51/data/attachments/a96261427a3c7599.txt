@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Concrete PCI seize","branch":null,"isActive":true,"_id":"67c71094244e417b97fcb491","createdAt":"2025-03-04T14:39:16.590Z","__v":0}}
