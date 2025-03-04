@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Spring Assistant","branch":null,"isActive":true,"_id":"67c70b46244e417b97fc7966","createdAt":"2025-03-04T14:16:38.113Z","__v":0}}

@@ -1,5 +1,0 @@
-{   
-    "name":"Spring Assistant",
-    "office_uuid":"vglk5m"
-}
-
