@@ -1,5 +1,0 @@
-{   
-    "name":"index Cape transmitter",
-    "office_uuid":"vglk5m"
-}
-
