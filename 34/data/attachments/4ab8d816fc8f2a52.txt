@@ -1,4 +1,0 @@
-{
-    "name":"Poland",
-    "office_uuid":"vglk5m"
-}

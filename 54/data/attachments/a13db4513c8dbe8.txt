@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Brand Streamlined Connecticut","branch":null,"isActive":true,"_id":"67c712ee244e417b97fcd580","createdAt":"2025-03-04T14:49:18.154Z","__v":0}}

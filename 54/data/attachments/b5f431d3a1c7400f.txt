@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Status is success", () => pm.expect(jsonData.status).to.eql("success"));
+
+pm.test("Appointment data is valid", () => {
+    pm.expect(jsonData.appointment).to.be.an("array").that.is.not.empty;
+    let appointment = jsonData.appointment[0];
+    pm.expect(appointment).to.have.property("firstname").that.is.a("string");
+    pm.expect(appointment).to.have.property("lastname").that.is.a("string");
+    pm.expect(appointment).to.have.property("visit_date").that.matches(/^\d{4}-\d{2}-\d{2}$/);
+    pm.expect(appointment.is_urgent).to.be.a("boolean");
+    pm.expect(appointment.status).to.be.oneOf(["consulted", "pending", "cancelled"]);
+});

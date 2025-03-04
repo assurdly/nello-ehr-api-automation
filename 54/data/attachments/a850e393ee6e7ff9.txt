@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"capability","_id":"67c712f0244e417b97fcd588","createdAt":"2025-03-04T14:49:20.495Z","__v":0}}

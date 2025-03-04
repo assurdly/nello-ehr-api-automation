@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Concrete Configuration","branch":null,"isActive":true,"_id":"67c70220244e417b97fc128c","createdAt":"2025-03-04T13:37:36.671Z","__v":0}}
