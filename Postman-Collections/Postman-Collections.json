@@ -13591,13 +13591,13 @@
 											},
 											{
 												"key": "Name",
-												"value": "{{randomDiagnosis}}",
+												"value": "{{randomName}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\":\"{{randomDiagnosis}}\",\n    \"name\":\"Fever and cold\"\n}",
+											"raw": "{\n    \"code\":\"{{randomName}}\",\n    \"name\":\"Fever and cold\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -13647,11 +13647,16 @@
 												"key": "Authorization",
 												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
+											},
+											{
+												"key": "name",
+												"value": "{{randomName}}",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\":\"NM00.1\",\n    \"name\":\"Fever and cold\"\n}",
+											"raw": "{\n    \"code\":\"{{randomName}}\",\n    \"name\":\"Fever and cold\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -13935,12 +13940,12 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7701e20a-8e73-4b2b-8f93-9faa01d4a9c8",
+										"id": "784cf8be-66ad-46a3-98e2-2014ce486ae3",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
 											"var randomName = Math.random().toString(36).substring(7); \r",
-											"pm.collectionVariables.set(\"randomDiagnosis\", randomDiagnosis);\r",
+											"pm.collectionVariables.set(\"randomName\", randomName);\r",
 											""
 										]
 									}
@@ -13948,7 +13953,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5ac126ba-f23d-425a-bbd6-c7197c60eccf",
+										"id": "0c43c3cc-b360-4482-a575-234af684cb92",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
