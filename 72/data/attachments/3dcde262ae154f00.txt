@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Dinar Response Plastic Small revolutionize","branch":null,"isActive":true,"_id":"67c951722cd083210a7a6177","createdAt":"2025-03-06T07:40:34.508Z","__v":0}}
