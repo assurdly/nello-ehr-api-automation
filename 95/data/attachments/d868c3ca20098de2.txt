@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"partnerships Automated Samoa","branch":null,"isActive":true,"_id":"67c9c0192cd083210a7db212","createdAt":"2025-03-06T15:32:41.792Z","__v":0}}

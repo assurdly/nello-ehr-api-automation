@@ -1,4 +1,0 @@
-{
-    "name":"Sausages",
-    "office_uuid":"vglk5m"
-}
