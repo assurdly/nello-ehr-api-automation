@@ -1,4 +1,0 @@
-{
-    "name":"protocol",
-    "office_uuid":"vglk5m"
-}
