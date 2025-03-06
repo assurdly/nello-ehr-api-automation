@@ -1,0 +1,4 @@
+{
+    "code":"nsvai",
+    "name":"Fever and cold"
+}
