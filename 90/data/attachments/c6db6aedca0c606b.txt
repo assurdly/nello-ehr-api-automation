@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Zealand extend Associate intangible","branch":null,"isActive":true,"_id":"67c9bb942cd083210a7ce2a5","createdAt":"2025-03-06T15:13:24.704Z","__v":0}}
