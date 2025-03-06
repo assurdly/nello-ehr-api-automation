@@ -22387,7 +22387,7 @@
 											"response": []
 										},
 										{
-											"name": "Get Roles - Super Admin - Not Found",
+											"name": "Get Roles - Receptionist - Not Found",
 											"event": [
 												{
 													"listen": "test",
@@ -22432,7 +22432,7 @@
 											"response": []
 										},
 										{
-											"name": "Get Roles - Super Admin - Invalid Token",
+											"name": "Get Roles - Receptionist - Invalid Token",
 											"event": [
 												{
 													"listen": "test",
@@ -22474,7 +22474,7 @@
 											"response": []
 										},
 										{
-											"name": "Get Roles - Super Admin - No Token",
+											"name": "Get Roles - Receptionist - No Token",
 											"event": [
 												{
 													"listen": "test",
