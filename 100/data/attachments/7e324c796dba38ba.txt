@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"capacitor","_id":"67c9c3e52cd083210a7e8b95","createdAt":"2025-03-06T15:48:53.008Z","__v":0}}
