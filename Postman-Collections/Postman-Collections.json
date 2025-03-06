@@ -17848,6 +17848,7 @@
 													"    pm.expect(jsonData.token).to.be.a(\"string\").and.to.have.length.above(10);\r",
 													"    pm.expect(jsonData.user._id).to.be.a(\"string\");\r",
 													"    pm.expect(jsonData.user.isActive).to.be.true;\r",
+													"    pm.environment.set(\"auth_receptionist\", jsonData.token)\r",
 													"});\r",
 													""
 												],
@@ -26254,7 +26255,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{token}}",
+												"value": "Bearer {{auth_receptionist}}",
 												"type": "text"
 											}
 										],
