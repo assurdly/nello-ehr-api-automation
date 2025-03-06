@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Money connect Small Leu","branch":null,"isActive":true,"_id":"67c94cf82cd083210a79f581","createdAt":"2025-03-06T07:21:28.125Z","__v":0}}
