@@ -9853,7 +9853,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\":\"Kanuu Investigations\",\n    \"name\":{{$randomWord}},\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
+											"raw": "{\n    \"type\":\"Kanuu Investigations\",\n    \"name\":\"{{randoName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -10185,11 +10185,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2d5b6209-e48a-45d4-a149-a7eb225a5b56",
+										"id": "7b378092-d4bf-477d-bb99-34fa06e94a00",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
-											"pm.environment.set(\"randomName\", pm.variables.get(\"randomFirstName\") + \" \" + pm.variables.get(\"randomLastName\"));\r",
+											"pm.globals.set(\"randomName\", randomName);\r",
 											""
 										]
 									}
@@ -10197,7 +10197,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "742e10a6-927d-4619-a599-6d62c4d06061",
+										"id": "2e35bde6-8b73-40c5-a61d-7e36dde41a33",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
