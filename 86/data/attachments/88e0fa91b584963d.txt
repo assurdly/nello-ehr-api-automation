@@ -1,1 +1,0 @@
-{"status":"success","message":"Password reset email sent. Please check your inbox.","resetToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsImlhdCI6MTc0MTI3MzM3OSwiZXhwIjoxNzQxMjc2OTc5fQ.U1Dd1L12wn6yBdTZRUZzrbAfxOe-GUX1NMp5s-9pEp8"}

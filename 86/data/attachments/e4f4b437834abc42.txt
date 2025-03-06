@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"payment deposit platforms Fresh","branch":null,"isActive":true,"_id":"67c9b89f2cd083210a7c6334","createdAt":"2025-03-06T15:00:47.110Z","__v":0}}

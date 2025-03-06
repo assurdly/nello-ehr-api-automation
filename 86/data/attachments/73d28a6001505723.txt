@@ -1,5 +1,0 @@
-{   
-    "name":"payment deposit platforms Fresh",
-    "office_uuid":"vglk5m"
-}
-

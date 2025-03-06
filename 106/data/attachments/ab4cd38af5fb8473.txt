@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"User-friendly","_id":"67c9ca2f2cd083210a7f9c84","createdAt":"2025-03-06T16:15:43.706Z","__v":0}}
