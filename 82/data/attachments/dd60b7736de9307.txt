@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Chicken Handmade Chips Unbranded","branch":null,"isActive":true,"_id":"67c9b5952cd083210a7bd709","createdAt":"2025-03-06T14:47:49.268Z","__v":0}}
