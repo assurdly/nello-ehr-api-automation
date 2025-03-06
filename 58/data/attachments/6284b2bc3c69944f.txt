@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"invoice middleware content relationships","branch":null,"isActive":true,"_id":"67c725e5244e417b97fd08e9","createdAt":"2025-03-04T16:10:13.035Z","__v":0}}
