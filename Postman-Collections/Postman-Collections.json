@@ -8173,7 +8173,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\":\"FAMACARETTTT PRICELLIST\",\n    \"type\" : \"Internal Use\",\n \n    \"contact_email\":\"info@famacare.com\",\n    \"contact_person\":\"Mrs Uzor Ukonmah\"\n    \n\n\n}",
+											"raw": "{\n    \"name\":\"{{randomName}}\",\n    \"type\" : \"Internal Use\",\n \n    \"contact_email\":\"info@famacare.com\",\n    \"contact_person\":\"Mrs Uzor Ukonmah\"\n    \n\n\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8428,7 +8428,33 @@
 									"response": []
 								}
 							],
-							"id": "68b3cc41-43e2-4155-ab26-140361bcf058"
+							"id": "68b3cc41-43e2-4155-ab26-140361bcf058",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0a0d95d6-91c8-4d57-baf4-2dad14d5a8bf",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"var randomName = Math.random().toString(36).substring(7); \r",
+											"pm.collectionVariables.set(\"randomName\", randomName);\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "44272d71-1ede-4155-8cb9-b3e760cb0eee",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						},
 						{
 							"name": "FetchSponsor",
@@ -8994,7 +9020,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\":\"FAMACARE EE1\"\n}",
+											"raw": "{\n    \"name\":\"{{randomName}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9216,7 +9242,33 @@
 									"response": []
 								}
 							],
-							"id": "0b445697-266a-4fbc-8769-a692b12bc009"
+							"id": "0b445697-266a-4fbc-8769-a692b12bc009",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "6c911ad7-090e-4eb4-8086-43abd3e075b7",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"var randomName = Math.random().toString(36).substring(7); \r",
+											"pm.collectionVariables.set(\"randomName\", randomName);\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "fafe6518-65b1-4c93-9147-241bf2aec427",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						},
 						{
 							"name": "Sponsor-DEL",
