@@ -1,5 +1,0 @@
-{   
-    "name":"Algerian ivory SCSI",
-    "office_uuid":"vglk5m"
-}
-
