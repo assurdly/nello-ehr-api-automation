@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Table Savings GB","branch":null,"isActive":true,"_id":"67c9bdd02cd083210a7d304f","createdAt":"2025-03-06T15:22:56.333Z","__v":0}}

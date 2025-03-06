@@ -1,4 +1,0 @@
-{
-    "name":"best-of-breed",
-    "office_uuid":"vglk5m"
-}
