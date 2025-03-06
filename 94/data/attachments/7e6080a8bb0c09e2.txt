@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Principal Fish relationships copy structure","branch":null,"isActive":true,"_id":"67c9bf552cd083210a7d7fc8","createdAt":"2025-03-06T15:29:25.626Z","__v":0}}
