@@ -14940,11 +14940,16 @@
 										"key": "Authorization",
 										"value": "Bearer {{doctor_token}}",
 										"type": "text"
+									},
+									{
+										"key": "Drugs",
+										"value": "{{randomDrugs}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"generic_id\" : \"MbG - 1003\",\n    \"generic\" : \"Test\"\n\n}",
+									"raw": "{\n    \"generic_id\" : \"{{randomDrugs}}\",\n    \"generic\" : \"Test\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -15184,7 +15189,33 @@
 							"response": []
 						}
 					],
-					"id": "2bb7269d-7521-474c-8fbb-94c539d26681"
+					"id": "2bb7269d-7521-474c-8fbb-94c539d26681",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7a310b79-8274-4a6d-8801-7a81d32601fa",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"var randomDrugs = Math.random().toString(36).substring(7); \r",
+									"pm.collectionVariables.set(\"randomDrugs\", randomDrugs);\r",
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f5967ad7-31ec-42fe-8987-0b202314a318",
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						}
+					]
 				},
 				{
 					"name": "Drugs-FetchGenricDrugs",
@@ -26494,6 +26525,10 @@
 	"variable": [
 		{
 			"key": "randomName",
+			"value": ""
+		},
+		{
+			"key": "randomDrugs",
 			"value": ""
 		}
 	]
