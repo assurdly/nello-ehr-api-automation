@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Stream invoice Digitized Bacon deposit","branch":null,"isActive":true,"_id":"67c71222244e417b97fcca56","createdAt":"2025-03-04T14:45:54.900Z","__v":0}}

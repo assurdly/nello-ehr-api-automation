@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"withdrawal","_id":"67c71224244e417b97fcca5e","createdAt":"2025-03-04T14:45:56.755Z","__v":0}}
