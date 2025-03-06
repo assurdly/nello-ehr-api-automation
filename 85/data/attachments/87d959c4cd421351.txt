@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Principal THX","branch":null,"isActive":true,"_id":"67c9b7d82cd083210a7c3f4b","createdAt":"2025-03-06T14:57:28.845Z","__v":0}}
