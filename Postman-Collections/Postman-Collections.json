@@ -9849,11 +9849,16 @@
 												"key": "Authorization",
 												"value": "Bearer {{super_admin_token}}",
 												"type": "text"
+											},
+											{
+												"key": "name",
+												"value": "{{randomName}}",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\": \"Kanuu Investigations\",\n    \"name\": \"{{randomName}}\",\n    \"sponsor_uuid\": \"D773AAFB\",\n    \"plan_code\": \"3A9A51C7\",\n    \"price\": 2000\n}\n",
+											"raw": "{\n    \"type\": \"Kanuu Investigations\",\n    \"name\": \"{{randomName}}\",\n    \"sponsor_uuid\": \"D773AAFB\",\n    \"plan_code\": \"3A9A51C7\",\n    \"price\":2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -10185,11 +10190,14 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "78a82e15-4517-4b8a-8f98-d1fb78b34765",
+										"id": "07967d61-0a7c-468b-b158-54522deb5a9f",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
-											"var randomName = Math.random().toString(36).substring(7); \r",
+											"var randomNames = [\"Zephyr\", \"Echo\", \"Blaze\", \"Orion\", \"Nova\", \"Titan\", \"Ember\", \"Vortex\", \"Quartz\", \"Luna\"];\r",
+											"var randomName = randomNames[Math.floor(Math.random() * randomNames.length)];\r",
+											"\r",
+											"// Store it as a collection/folder variable (instead of global)\r",
 											"pm.collectionVariables.set(\"randomName\", randomName);\r",
 											""
 										]
@@ -10198,7 +10206,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "15013e69-346c-4757-8c0f-cdcd8d7aa736",
+										"id": "c880bb39-61b5-47e9-9ea7-1a8f82437eae",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
