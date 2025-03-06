@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Shoes Technician FTP","branch":null,"isActive":true,"_id":"67c9b71c2cd083210a7c1bfe","createdAt":"2025-03-06T14:54:20.051Z","__v":0}}

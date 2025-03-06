@@ -1,0 +1,18 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Response body contains failure error details", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.be.an("array").that.is.not.empty;
+    pm.expect(jsonData.error[0].type).to.eql("field");
+    pm.expect(jsonData.error[0].value).to.eql("");
+    pm.expect(jsonData.error[0].path).to.eql("fee");
+    pm.expect(jsonData.error[0].location).to.eql("body");
+});
+
+pm.test("Error message about the required fee is returned", () => {
+    pm.expect(jsonData.error[0].msg).to.eql("Fee must be a number"); 
+});
