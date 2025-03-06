@@ -11319,6 +11319,7 @@
 													"    pm.expect(jsonData.token).to.be.a(\"string\").and.to.have.length.above(10);\r",
 													"    pm.expect(jsonData.user._id).to.be.a(\"string\");\r",
 													"    pm.expect(jsonData.user.isActive).to.be.true;\r",
+													"    pm.environment.set(\"auth_doctor\",jsonData.token)\r",
 													"});\r",
 													""
 												],
@@ -17760,6 +17761,60 @@
 						}
 					],
 					"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
+				},
+				{
+					"name": "Encounter",
+					"item": [
+						{
+							"name": "Create Copy",
+							"id": "c864f1ab-1e2a-4f8d-9b94-fa8014fc790b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"payment_policy\": \"cash\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/encounter/submit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"encounter",
+										"submit"
+									],
+									"query": [
+										{
+											"key": "Authorization",
+											"value": "Bearer {{token}}",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "2ea56140-57f5-420c-bb7a-e9b33b216b4d"
 				}
 			],
 			"id": "e99a0d7c-5c7a-462f-8d2f-25c757494caa"
@@ -26184,6 +26239,22 @@
 						}
 					],
 					"id": "d7828e06-f4f9-4d35-ba12-76e7a6a6f55a"
+				},
+				{
+					"name": "Encounter",
+					"item": [
+						{
+							"name": "Fetch Encounter",
+							"item": [],
+							"id": "ac8da3ee-f872-48fd-bbf0-42d21194181f"
+						},
+						{
+							"name": "New Folder",
+							"item": [],
+							"id": "cb129499-bcb1-4a90-8e23-b05c7be150a8"
+						}
+					],
+					"id": "c3981e96-5660-4b90-8daf-88f0b55e82cd"
 				}
 			],
 			"id": "9963e146-a814-4f7f-ab56-cb1594a3bd94"
