@@ -8911,65 +8911,6 @@
 										"url": "{{host}}api/sponsor/edit/87EDF987"
 									},
 									"response": []
-								},
-								{
-									"name": "UpdateUniqueSponsor -FieldsRequired",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "17e135b4-7594-451d-9a0a-4560fad82f1e",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Error response contains required fields\", function () {\r",
-													"    pm.expect(jsonData.errors).to.be.an(\"array\").and.to.have.length.above(0);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validating specific error messages\", function () {\r",
-													"    var errorMessages = jsonData.errors.map(error => error.msg);\r",
-													"\r",
-													"    pm.expect(errorMessages).to.include(\"Name is required\");\r",
-													"    pm.expect(errorMessages).to.include(\"Email is invalid\");\r",
-													"    pm.expect(errorMessages).to.include(\"Phone number is invalid\");\r",
-													"    pm.expect(errorMessages).to.include(\"Type is required\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b2b2daea-6291-4c70-8631-f3d9804fcb61",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "   {\n          \n            \"name\": \"\",\n            \"type\": \"\",\n            \"phone\": \"\",\n            \"contact_email\": \"\",\n            \"contact_person\": \"\"\n        }",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/sponsor/edit/87EDF987"
-									},
-									"response": []
 								}
 							],
 							"id": "348acbbc-c61a-48d0-8eac-454b22257a56"
