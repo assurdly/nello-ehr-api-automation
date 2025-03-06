@@ -19250,7 +19250,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -23472,7 +23472,7 @@
 														"type": "text"
 													}
 												],
-												"url": "{{host}}api/appointment/unique/patient/6207F55C"
+												"url": "{{host}}api/appointment/unique/patient/56C36693"
 											},
 											"response": []
 										},
