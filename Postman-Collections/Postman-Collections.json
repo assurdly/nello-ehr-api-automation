@@ -10185,11 +10185,15 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7b378092-d4bf-477d-bb99-34fa06e94a00",
+										"id": "4052b708-ac7a-4a5d-9d93-7184377087bb",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
-											"pm.globals.set(\"randomName\", randomName);\r",
+											"var randomNames = [\"Zephyr\", \"Echo\", \"Blaze\", \"Orion\", \"Nova\", \"Titan\", \"Ember\", \"Vortex\", \"Quartz\", \"Luna\"];\r",
+											"var randomName = randomNames[Math.floor(Math.random() * randomNames.length)];\r",
+											"\r",
+											"// Store it as a collection/folder variable (instead of global)\r",
+											"pm.collectionVariables.set(\"randomName\", randomName);\r",
 											""
 										]
 									}
@@ -10197,7 +10201,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2e35bde6-8b73-40c5-a61d-7e36dde41a33",
+										"id": "67e7237d-0a23-4a29-ab00-6044ab285c02",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
@@ -26446,6 +26450,12 @@
 				}
 			],
 			"id": "9963e146-a814-4f7f-ab56-cb1594a3bd94"
+		}
+	],
+	"variable": [
+		{
+			"key": "randomName",
+			"value": ""
 		}
 	]
 }
