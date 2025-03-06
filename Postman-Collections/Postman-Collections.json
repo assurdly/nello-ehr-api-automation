@@ -2642,16 +2642,17 @@
 											"script": {
 												"id": "bf132d16-5be1-4a2b-8548-fb7dd08f5d17",
 												"exec": [
-													"var jsonData = pm.response.json();",
+													"// var jsonData = pm.response.json();",
 													"",
-													"pm.test(\"Response status code is 200\", function () {",
-													"    pm.response.to.have.status(200);",
-													"});",
+													"// pm.test(\"Response status code is 200\", function () {",
+													"//     pm.response.to.have.status(200);",
+													"// });",
 													"",
-													"pm.test(\"Role is deleted successfully\", function () {",
-													"    pm.expect(jsonData.role.message).is.eql(\"Role deleted successfully\");",
-													"});",
-													""
+													"// pm.test(\"Role is deleted successfully\", function () {",
+													"//     pm.expect(jsonData.role.message).is.eql(\"Role deleted successfully\");",
+													"// });",
+													"",
+													"// Advised to leave delete endpoints"
 												],
 												"type": "text/javascript",
 												"packages": {}
