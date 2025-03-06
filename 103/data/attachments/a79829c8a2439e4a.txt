@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Investor Bulgaria Clothing Vista","branch":null,"isActive":true,"_id":"67c9c6fc2cd083210a7f2c29","createdAt":"2025-03-06T16:02:04.384Z","__v":0}}

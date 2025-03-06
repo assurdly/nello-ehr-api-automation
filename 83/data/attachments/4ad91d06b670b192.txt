@@ -1,3 +1,0 @@
-{
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsInJvbGUiOiJEb2N0b3IiLCJpYXQiOjE3NDEyNzI2NTcsImV4cCI6MTc0MTMwMTQ1N30.3Ga9NnT5Vt5nz84j_u-Z6ndHigMkJx6kdd5-DWtnFzo"
-}
