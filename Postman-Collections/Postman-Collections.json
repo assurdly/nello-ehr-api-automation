@@ -10065,7 +10065,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\":\"Kanu Investigations\",\n    \"name\":\"Cryy\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":hhhhh\n}",
+											"raw": "{\n    \"type\":\"Kanu Investigations\",\n    \"name\":\"{{randomName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\": 100\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -10190,14 +10190,11 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "07967d61-0a7c-468b-b158-54522deb5a9f",
+										"id": "cb36f83e-21cd-4b0e-b4a2-be93b9f3ce4b",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
-											"var randomNames = [\"Zephyr\", \"Echo\", \"Blaze\", \"Orion\", \"Nova\", \"Titan\", \"Ember\", \"Vortex\", \"Quartz\", \"Luna\"];\r",
-											"var randomName = randomNames[Math.floor(Math.random() * randomNames.length)];\r",
-											"\r",
-											"// Store it as a collection/folder variable (instead of global)\r",
+											"var randomName = Math.random().toString(36).substring(7); \r",
 											"pm.collectionVariables.set(\"randomName\", randomName);\r",
 											""
 										]
@@ -10206,7 +10203,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c880bb39-61b5-47e9-9ea7-1a8f82437eae",
+										"id": "cb67677d-f237-4791-8a03-4f98f5ef5b98",
 										"type": "text/javascript",
 										"packages": {},
 										"exec": [
