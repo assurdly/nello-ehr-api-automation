@@ -1,0 +1,1 @@
+{"status":"failed","error":[{"type":"field","value":"(Malvinas) front-end withdrawal","msg":"Department must contain only alphabets and spaces","path":"name","location":"body"}]}
