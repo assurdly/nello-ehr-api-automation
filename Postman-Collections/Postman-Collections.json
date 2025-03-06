@@ -240,7 +240,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Error message about a duplicate email is returned\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"User with email already exists\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"user with email already exists\");\r",
 													"});\r",
 													""
 												],
