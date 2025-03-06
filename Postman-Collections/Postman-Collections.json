@@ -23272,7 +23272,7 @@
 												"header": [
 													{
 														"key": "Authorization",
-														"value": "Bearer {{receptionist _token}}",
+														"value": "Bearer {{receptionist_token_invalid}}",
 														"type": "text"
 													}
 												],
