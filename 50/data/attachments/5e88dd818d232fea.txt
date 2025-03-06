@@ -1,4 +1,0 @@
-{
-    "name":"compress",
-    "office_uuid":"vglk5m"
-}

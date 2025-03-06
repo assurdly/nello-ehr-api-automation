@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Fresh parallelism parse Minnesota Exclusive","branch":null,"isActive":true,"_id":"67c70fd0244e417b97fca9f4","createdAt":"2025-03-04T14:36:00.483Z","__v":0}}
