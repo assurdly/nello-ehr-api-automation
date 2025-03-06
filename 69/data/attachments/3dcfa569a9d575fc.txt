@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"primary feed","branch":null,"isActive":true,"_id":"67c94f392cd083210a7a1e53","createdAt":"2025-03-06T07:31:05.484Z","__v":0}}
