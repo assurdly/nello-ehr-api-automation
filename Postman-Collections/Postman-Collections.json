@@ -13618,6 +13618,10 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
+													"pm.test(\"Error code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});\r",
+													"\r",
 													"pm.test(\"Response message is correct\", function () {\r",
 													"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
 													"});\r",
@@ -13629,6 +13633,7 @@
 													"    pm.expect(jsonData.user.iat).to.be.a(\"number\").and.to.not.be.null;\r",
 													"    pm.expect(jsonData.user.exp).to.be.a(\"number\").and.to.not.be.null;\r",
 													"});\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
