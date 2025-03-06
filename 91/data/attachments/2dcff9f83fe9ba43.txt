@@ -1,4 +1,0 @@
-{
-    "name":"Ergonomic",
-    "office_uuid":"vglk5m"
-}
