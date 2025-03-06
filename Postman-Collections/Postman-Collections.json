@@ -17766,7 +17766,7 @@
 					"name": "Encounter",
 					"item": [
 						{
-							"name": "Create Copy",
+							"name": "Create Encounter",
 							"id": "c864f1ab-1e2a-4f8d-9b94-fa8014fc790b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -26249,7 +26249,7 @@
 							"id": "ac8da3ee-f872-48fd-bbf0-42d21194181f"
 						},
 						{
-							"name": "New Folder",
+							"name": "Update Encounter",
 							"item": [],
 							"id": "cb129499-bcb1-4a90-8e23-b05c7be150a8"
 						}
