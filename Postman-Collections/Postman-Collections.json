@@ -26258,7 +26258,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/encounter/fetch-all"
+										"url": "{{host}}api/encounter/fetch-all"
 									},
 									"response": []
 								},
@@ -26277,12 +26277,12 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/encounter/fetch/9E9E9F56"
+										"url": "{{host}}api/encounter/fetch/9E9E9F56"
 									},
 									"response": []
 								},
 								{
-									"name": "Encounters by patient id Copy",
+									"name": "Encounters By Patient ID",
 									"id": "badb497f-c380-479b-b124-08de980d1273",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26296,12 +26296,12 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
+										"url": "{{host}}api/encounter/patient/67503403416dcd28a3945453"
 									},
 									"response": []
 								},
 								{
-									"name": "Get encounter by billing status Copy",
+									"name": "Get Encounter By Billing Status",
 									"id": "88df1a5b-5207-4a0a-9bfd-772199aab7f8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26315,12 +26315,12 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
+										"url": "{{host}}api/encounter/billing/awaiting billing"
 									},
 									"response": []
 								},
 								{
-									"name": "Unique Encounter by (appointment_uuid) Copy",
+									"name": "Unique Encounter By Appointment UUID",
 									"id": "6ec04595-f423-4fe2-8d2d-6c35d70ccb22",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26334,7 +26334,7 @@
 												"type": "text"
 											}
 										],
-										"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+										"url": "{{host}}api/encounter/unique/AF388D54"
 									},
 									"response": []
 								}
@@ -26368,7 +26368,7 @@
 												}
 											}
 										},
-										"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+										"url": "{{host}}api/encounter/unique/AF388D54"
 									},
 									"response": []
 								}
