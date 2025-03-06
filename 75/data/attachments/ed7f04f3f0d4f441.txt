@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Gorgeous Applications transmitting Visionary transmitting","branch":null,"isActive":true,"_id":"67c9b0442cd083210a7af75f","createdAt":"2025-03-06T14:25:08.399Z","__v":0}}

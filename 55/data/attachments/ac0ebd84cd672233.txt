@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Frozen Squares Handmade","branch":null,"isActive":true,"_id":"67c7147b244e417b97fce0d8","createdAt":"2025-03-04T14:55:55.176Z","__v":0}}
