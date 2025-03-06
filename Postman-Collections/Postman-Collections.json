@@ -1117,7 +1117,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Required email error message is returned\", function () {\r",
-													"    pm.expect(jsonData.error[1].msg).to.eql(\"Email is required\");\r",
+													"    pm.expect(jsonData.error[1].msg).to.eql(\"email is required\");\r",
 													"});\r",
 													""
 												],
@@ -11558,7 +11558,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Required email error message is returned\", function () {\r",
-													"    pm.expect(jsonData.error[1].msg).to.eql(\"Email is required\");\r",
+													"    pm.expect(jsonData.error[1].msg).to.eql(\"email is required\");\r",
 													"});\r",
 													""
 												],
@@ -18146,7 +18146,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Required email error message is returned\", function () {\r",
-													"    pm.expect(jsonData.error[1].msg).to.eql(\"Email is required\");\r",
+													"    pm.expect(jsonData.error[1].msg).to.eql(\"email is required\");\r",
 													"});\r",
 													""
 												],
