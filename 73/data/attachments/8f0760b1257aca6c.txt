@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Nevada pixel Intranet turquoise auxiliary","branch":null,"isActive":true,"_id":"67c9546c2cd083210a7a84a8","createdAt":"2025-03-06T07:53:16.812Z","__v":0}}

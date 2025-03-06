@@ -1,9 +1,0 @@
-var jsonData = pm.response.json();
-
-pm.test("Response status is failed", function () {
-    pm.expect(jsonData.status).to.eql("failed");
-});
-
-pm.test("Error message is correct", function () {
-    pm.expect(jsonData.error).to.eql("Sponsor already exists");
-});
