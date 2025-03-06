@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Internal Personal synthesize Intelligent Functionality","branch":null,"isActive":true,"_id":"67c9b9582cd083210a7c87bd","createdAt":"2025-03-06T15:03:52.648Z","__v":0}}

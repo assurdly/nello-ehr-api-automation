@@ -1,0 +1,2 @@
+var randomName = Math.random().toString(36).substring(7); 
+pm.collectionVariables.set("randomDiagnosis", randomDiagnosis);
