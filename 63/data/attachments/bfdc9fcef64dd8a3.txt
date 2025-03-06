@@ -1,5 +1,0 @@
-{   
-    "name":"THX Renminbi hacking Home",
-    "office_uuid":"vglk5m"
-}
-

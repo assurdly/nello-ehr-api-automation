@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Cheese application blue","branch":null,"isActive":true,"_id":"67c9b6582cd083210a7bf930","createdAt":"2025-03-06T14:51:04.626Z","__v":0}}
