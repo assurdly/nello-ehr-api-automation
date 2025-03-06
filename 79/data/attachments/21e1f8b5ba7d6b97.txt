@@ -1,5 +1,0 @@
-{   
-    "name":"Zloty world-class",
-    "office_uuid":"vglk5m"
-}
-
