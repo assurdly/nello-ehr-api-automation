@@ -13588,11 +13588,16 @@
 												"key": "Authorization",
 												"value": "Bearer {{doctor_token}}",
 												"type": "text"
+											},
+											{
+												"key": "Name",
+												"value": "{{randomDiagnosis}}",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\":\"NqM001.1\",\n    \"name\":\"Fever and cold\"\n}",
+											"raw": "{\n    \"code\":\"{{randomDiagnosis}}\",\n    \"name\":\"Fever and cold\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -13925,7 +13930,33 @@
 									"response": []
 								}
 							],
-							"id": "76d36e5e-a1f8-47c4-b911-c4e389f19bd9"
+							"id": "76d36e5e-a1f8-47c4-b911-c4e389f19bd9",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7701e20a-8e73-4b2b-8f93-9faa01d4a9c8",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"var randomName = Math.random().toString(36).substring(7); \r",
+											"pm.collectionVariables.set(\"randomDiagnosis\", randomDiagnosis);\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "5ac126ba-f23d-425a-bbd6-c7197c60eccf",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						},
 						{
 							"name": "FetchAll",
