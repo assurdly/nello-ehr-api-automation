@@ -763,7 +763,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Error message about the required fee is returned\", () => {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Fee must be a number\");\r",
+													"    pm.expect(jsonData.msg).to.eql(\"Fee must be a number\");\r",
 													"});"
 												],
 												"type": "text/javascript",
