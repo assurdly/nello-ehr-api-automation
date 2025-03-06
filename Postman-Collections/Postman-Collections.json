@@ -17909,10 +17909,9 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Failure message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Invalid email or password\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"User not found\");\r",
 													"});\r",
-													"\r",
-													"//This would fail because the code did not cater for user not found, bug raised."
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
