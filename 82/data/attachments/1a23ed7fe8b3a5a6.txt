@@ -1,1 +1,0 @@
-pm.environment.set("randomName", pm.variables.get("randomFirstName") + " " + pm.variables.get("randomLastName"));
