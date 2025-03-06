@@ -24823,11 +24823,16 @@
 												"key": "Authorization",
 												"value": "Bearer {{doctor_token}}",
 												"type": "text"
+											},
+											{
+												"key": "name",
+												"value": "{{randomName}}",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\":\"Kanu Investigations\",\n    \"name\":\"Cer33\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
+											"raw": "{\n    \"type\": \"Kanu Investigations\",\n    \"name\":\"{{randomName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -25029,11 +25034,16 @@
 												"key": "Authorization",
 												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
+											},
+											{
+												"key": "name",
+												"value": "{{randomName}}",
+												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\":\"Kanu Investigations\",\n    \"name\":\"Cry\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":\"wqwqq\"\n}",
+											"raw": "{\n    \"type\":\"Kanu Investigations\",\n    \"name\":\"{{randomName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":\"wqwqq\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -25150,7 +25160,33 @@
 									"response": []
 								}
 							],
-							"id": "1274b15c-ef4f-4729-8176-985dda674e93"
+							"id": "1274b15c-ef4f-4729-8176-985dda674e93",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "06e4a1c2-2409-4682-b285-f11e395b3317",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											"var randomName = Math.random().toString(36).substring(7); // Generates a random word-like string\r",
+											"pm.collectionVariables.set(\"randomName\", randomName);\r",
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "704452d7-1d9f-4f8d-a876-a4b92e6d9826",
+										"type": "text/javascript",
+										"packages": {},
+										"exec": [
+											""
+										]
+									}
+								}
+							]
 						},
 						{
 							"name": "fetch all services",
@@ -26220,9 +26256,12 @@
 													"    pm.expect(pm.response.code).to.eql(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
+													"pm.test(\"Response status is failed\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
-													"    pm.expect(jsonData.error).to.eql(\"Sponsor plan does not exists\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"Sponsor plan does not exist\");\r",
 													"});\r",
 													""
 												],
