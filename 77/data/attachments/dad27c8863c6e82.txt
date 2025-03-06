@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Senior Home","branch":null,"isActive":true,"_id":"67c9b1d02cd083210a7b345e","createdAt":"2025-03-06T14:31:44.921Z","__v":0}}

@@ -1,5 +1,0 @@
-{   
-    "name":"yellow up Group",
-    "office_uuid":"vglk5m"
-}
-
