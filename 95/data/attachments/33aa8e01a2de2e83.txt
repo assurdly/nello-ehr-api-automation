@@ -1,5 +1,0 @@
-{   
-    "name":"partnerships Automated Samoa",
-    "office_uuid":"vglk5m"
-}
-
