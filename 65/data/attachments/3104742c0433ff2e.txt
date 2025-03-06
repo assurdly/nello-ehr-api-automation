@@ -1,4 +1,0 @@
-{
-    "name":"networks",
-    "office_uuid":"vglk5m"
-}
