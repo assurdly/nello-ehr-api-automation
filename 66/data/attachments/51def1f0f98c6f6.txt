@@ -1,5 +1,0 @@
-{   
-    "name":"Group conglomeration open-source indexing virtual",
-    "office_uuid":"vglk5m"
-}
-

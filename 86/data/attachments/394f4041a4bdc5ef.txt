@@ -1,0 +1,5 @@
+var randomNames = ["Zephyr", "Echo", "Blaze", "Orion", "Nova", "Titan", "Ember", "Vortex", "Quartz", "Luna"];
+var randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+
+// Store it as a collection/folder variable (instead of global)
+pm.collectionVariables.set("randomName", randomName);
