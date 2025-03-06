@@ -9853,7 +9853,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\":\"Kanuu Investigations\",\n    \"name\":\"Cry4\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
+											"raw": "{\n    \"type\":\"Kanuu Investigations\",\n    \"name\":{{$randomWord}},\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
