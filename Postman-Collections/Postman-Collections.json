@@ -17766,7 +17766,7 @@
 					"name": "Encounter",
 					"item": [
 						{
-							"name": "Create Encounter",
+							"name": "Create Encounter - successful",
 							"id": "c864f1ab-1e2a-4f8d-9b94-fa8014fc790b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -17790,14 +17790,11 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:5000/api/encounter/submit",
-									"protocol": "http",
+									"raw": "{{host}}api/encounter/submit",
 									"host": [
-										"localhost"
+										"{{host}}api"
 									],
-									"port": "5000",
 									"path": [
-										"api",
 										"encounter",
 										"submit"
 									],
@@ -26245,12 +26242,137 @@
 					"item": [
 						{
 							"name": "Fetch Encounter",
-							"item": [],
+							"item": [
+								{
+									"name": "Fetch All Encounter",
+									"id": "cbf8bb6c-14f0-471e-8ece-ca65b0a0feac",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:5000/api/encounter/fetch-all"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Unique Encounter by UUID",
+									"id": "d93e91f7-4549-495d-bd82-5b670531a33a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:5000/api/encounter/fetch/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Encounters by patient id Copy",
+									"id": "badb497f-c380-479b-b124-08de980d1273",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:5000/api/encounter/patient/67503403416dcd28a3945453"
+									},
+									"response": []
+								},
+								{
+									"name": "Get encounter by billing status Copy",
+									"id": "88df1a5b-5207-4a0a-9bfd-772199aab7f8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:5000/api/encounter/billing/awaiting billing"
+									},
+									"response": []
+								},
+								{
+									"name": "Unique Encounter by (appointment_uuid) Copy",
+									"id": "6ec04595-f423-4fe2-8d2d-6c35d70ccb22",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+									},
+									"response": []
+								}
+							],
 							"id": "ac8da3ee-f872-48fd-bbf0-42d21194181f"
 						},
 						{
 							"name": "Update Encounter",
-							"item": [],
+							"item": [
+								{
+									"name": "Update Encounter by (appointment_uuid) Copy",
+									"id": "ec659162-f1b9-4c97-9cfb-5cf82b6dbf6b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 77,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "http://localhost:5000/api/encounter/unique/AF388D54"
+									},
+									"response": []
+								}
+							],
 							"id": "cb129499-bcb1-4a90-8e23-b05c7be150a8"
 						}
 					],
