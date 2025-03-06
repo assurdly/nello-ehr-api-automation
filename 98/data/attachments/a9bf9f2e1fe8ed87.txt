@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Riel Utah Refined","branch":null,"isActive":true,"_id":"67c9c2682cd083210a7e34d9","createdAt":"2025-03-06T15:42:32.651Z","__v":0}}
