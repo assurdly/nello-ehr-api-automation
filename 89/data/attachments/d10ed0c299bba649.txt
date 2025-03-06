@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"RAM Islands Account ivory","branch":null,"isActive":true,"_id":"67c9badc2cd083210a7cbcf6","createdAt":"2025-03-06T15:10:20.750Z","__v":0}}
