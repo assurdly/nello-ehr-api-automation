@@ -14984,7 +14984,7 @@
 											"});\r",
 											"\r",
 											"pm.test(\"Error message is correct\", function () {\r",
-											"    pm.expect(jsonData.error).to.eql(\"Generic name already exist\");\r",
+											"    pm.expect(jsonData.error).to.eql(\"Generic name already exists\");\r",
 											"});\r",
 											""
 										],
@@ -15004,11 +15004,16 @@
 										"key": "Authorization",
 										"value": "Bearer {{doctor_token}}",
 										"type": "text"
+									},
+									{
+										"key": "Drugs",
+										"value": "{{randomDrugs}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"generic_id\" : \"MG - 100361\",\n    \"generic\" : \"Test\"\n\n}",
+									"raw": "{\n    \"generic_id\" : \"{{randomDrugs}}\",\n    \"generic\" : \"Test\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16821,7 +16826,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Sponsor plan does not exist\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"Sponsor plan does not  exist\");\r",
 													"});\r",
 													""
 												],
@@ -16839,7 +16844,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
+												"value": "Bearer {{doctor_token}}",
 												"type": "text"
 											}
 										],
