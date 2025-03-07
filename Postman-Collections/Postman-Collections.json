@@ -21055,7 +21055,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Encounter does not exists\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"Encounter does not exist\");\r",
 													"});\r",
 													""
 												],
@@ -21236,7 +21236,7 @@
 									"response": []
 								},
 								{
-									"name": "Encounters by patient id -Invalid-PatientID",
+									"name": "Encounters by patient id - Invalid PatientID",
 									"event": [
 										{
 											"listen": "test",
@@ -21264,6 +21264,51 @@
 										}
 									],
 									"id": "3eb00af5-f49b-4e64-b11a-615cd71620c9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist _token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/encounter/patient/67503403416dcd28a39"
+									},
+									"response": []
+								},
+								{
+									"name": "Encounters by patient id - Invalid PatientID format",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1274b668-8942-457a-9bd1-9ba09ed56774",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"Invalid patient ID format\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7fa24b4f-2378-4eae-a0b7-a69bdbac4325",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
