@@ -1,4 +1,0 @@
-{
-    "name":"interfaces",
-    "office_uuid":"vglk5m"
-}
