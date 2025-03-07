@@ -4473,7 +4473,22 @@
 											"script": {
 												"id": "42b507da-90c0-4d3e-843c-1190d2096259",
 												"exec": [
-													"//This would be upadted when the endpoint is fixed"
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 404 (Not Found)\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"appointment not found\");\r",
+													"});\r",
+													"\r",
+													"\r",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -16197,7 +16212,28 @@
 											"script": {
 												"id": "fd60acee-857a-42d0-9ebe-485ffcf2b289",
 												"exec": [
-													"//Should not be able to call this endpoint\r",
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 403 (Forbidden)\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"message\", \"Access denied: Admins and Receptionist only\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User object is present and has required fields\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"user\").that.is.an(\"object\");\r",
+													"    pm.expect(jsonData.user).to.have.property(\"email\").that.is.a(\"string\");\r",
+													"    pm.expect(jsonData.user).to.have.property(\"role\").that.is.a(\"string\");\r",
+													"    pm.expect(jsonData.user).to.have.property(\"iat\").that.is.a(\"number\");\r",
+													"    pm.expect(jsonData.user).to.have.property(\"exp\").that.is.a(\"number\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User role is not Admin or Receptionist\", function () {\r",
+													"    pm.expect(jsonData.user.role).to.not.eql(\"Admin\");\r",
+													"    pm.expect(jsonData.user.role).to.not.eql(\"Receptionist\");\r",
+													"});\r",
 													""
 												],
 												"type": "text/javascript",
