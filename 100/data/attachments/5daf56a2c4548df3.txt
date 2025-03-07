@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Islands Avon","branch":null,"isActive":true,"_id":"67c9c3e32cd083210a7e8b88","createdAt":"2025-03-06T15:48:51.435Z","__v":0}}
