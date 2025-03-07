@@ -15263,7 +15263,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{auth_doctor}}",
+												"value": "Bearer {{doctor_token}}",
 												"type": "text"
 											}
 										],
