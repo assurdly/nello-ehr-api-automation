@@ -1,5 +1,0 @@
-{   
-    "name":"Investor Bulgaria Clothing Vista",
-    "office_uuid":"vglk5m"
-}
-
