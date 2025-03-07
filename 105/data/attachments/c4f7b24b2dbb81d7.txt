@@ -1,5 +1,0 @@
-{   
-    "name":"transition bricks-and-clicks",
-    "office_uuid":"vglk5m"
-}
-

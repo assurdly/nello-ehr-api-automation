@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Savings deposit","branch":null,"isActive":true,"_id":"67cad20cf3b2a79a7f348c82","createdAt":"2025-03-07T11:01:32.997Z","__v":0}}
