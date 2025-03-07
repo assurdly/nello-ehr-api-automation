@@ -15127,7 +15127,16 @@
 									"script": {
 										"id": "5db7faf7-54ff-496c-9010-52012c1fb652",
 										"exec": [
-											"// This would be updated when the fix is done"
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 403 (Forbidden)\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
+											"});\r",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -15143,7 +15152,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
+										"value": "Bearer {{receptionist _token}}",
 										"type": "text"
 									}
 								],
@@ -15239,15 +15248,20 @@
 											"script": {
 												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
 												"exec": [
-													"var jsonData = pm.response.json\r",
+													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
+													"pm.test(\"Response status code is 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Token error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Token has expired\");\r",
-													"});"
+													"pm.test(\"Errors array is present and not empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"errors\").that.is.an(\"array\").that.is.not.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.errors[0].msg).to.eql(\"Invalid patient identifier. Ensure you’re using the correct format.\");\r",
+													"});\r",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
