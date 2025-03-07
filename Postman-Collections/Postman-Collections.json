@@ -8207,12 +8207,20 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response status code is 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Success message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Sponsor Added successfully\");\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Errors array is present and not empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").that.is.not.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error[0].msg).to.eql(\"Name is required\");\r",
 													"});\r",
 													""
 												],
@@ -25100,7 +25108,7 @@
 									"response": []
 								},
 								{
-									"name": "Create-Service-Successful Copy",
+									"name": "Create Sponsor-NameRequired",
 									"event": [
 										{
 											"listen": "test",
@@ -25109,16 +25117,20 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Success message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Service Added successfully\");\r",
+													"pm.test(\"Errors array is present and not empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").that.is.not.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error[0].msg).to.eql(\"Name is required\");\r",
 													"});\r",
 													""
 												],
@@ -25147,7 +25159,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\": \"Kanu Investigations\",\n    \"name\":\"{{randomName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
+											"raw": "{\n    \"type\": \"Kanu Investigations\",\n    \"name\":\"\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
