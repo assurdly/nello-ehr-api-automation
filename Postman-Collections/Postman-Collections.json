@@ -4346,7 +4346,19 @@
 											"script": {
 												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
 												"exec": [
-													"//This would be updated after fix\r",
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 400 (Bad Request)\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Errors array is present and not empty\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"errors\").that.is.an(\"array\").that.is.not.empty;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.errors[0].msg).to.eql(\"Invalid patient identifier. Ensure you’re using the correct format.\");\r",
+													"});\r",
 													""
 												],
 												"type": "text/javascript",
