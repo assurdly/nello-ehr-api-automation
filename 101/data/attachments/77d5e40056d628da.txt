@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"transmit Manager haptic","branch":null,"isActive":true,"_id":"67c9c4aa2cd083210a7ec0ce","createdAt":"2025-03-06T15:52:10.153Z","__v":0}}
