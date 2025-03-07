@@ -1,4 +1,0 @@
-{
-    "code":"ul3axa",
-    "name":"Fever and cold"
-}

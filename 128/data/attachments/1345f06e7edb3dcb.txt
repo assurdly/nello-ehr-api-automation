@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"payment hard Chilean Generic Data","branch":null,"isActive":true,"_id":"67cad50ff3b2a79a7f35200f","createdAt":"2025-03-07T11:14:23.641Z","__v":0}}
