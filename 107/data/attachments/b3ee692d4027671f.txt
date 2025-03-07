@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Riel generate","branch":null,"isActive":true,"_id":"67c9caeb2cd083210a7fc83c","createdAt":"2025-03-06T16:18:51.284Z","__v":0}}

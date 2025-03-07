@@ -1,4 +1,0 @@
-{
-    "code":"{{randomDiagnosis}}",
-    "name":"Fever and cold"
-}

@@ -1,0 +1,4 @@
+{
+    "name":"partnerships",
+    "office_uuid":"vglk5m"
+}
