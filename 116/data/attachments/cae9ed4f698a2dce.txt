@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"FTP Chicken Keyboard Fort killer","branch":null,"isActive":true,"_id":"67ca546e2cd083210a8190fe","createdAt":"2025-03-07T02:05:34.004Z","__v":0}}

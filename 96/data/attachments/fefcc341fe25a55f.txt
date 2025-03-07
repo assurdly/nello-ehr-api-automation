@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Row Berkshire technologies Maine","branch":null,"isActive":true,"_id":"67c9c0d82cd083210a7ddb52","createdAt":"2025-03-06T15:35:52.650Z","__v":0}}
