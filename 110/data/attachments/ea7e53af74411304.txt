@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"e-markets","_id":"67c9cd2a2cd083210a804de2","createdAt":"2025-03-06T16:28:26.429Z","__v":0}}
