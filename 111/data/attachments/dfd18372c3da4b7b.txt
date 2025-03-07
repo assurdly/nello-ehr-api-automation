@@ -1,4 +1,0 @@
-{
-    "code":"ifmpht",
-    "name":"Fever and cold"
-}

@@ -1,4 +1,0 @@
-{
-    "name":"pixel",
-    "office_uuid":"vglk5m"
-}
