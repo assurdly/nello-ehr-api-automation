@@ -17850,49 +17850,400 @@
 					"name": "Encounter",
 					"item": [
 						{
-							"name": "Create Encounter - successful",
-							"id": "c864f1ab-1e2a-4f8d-9b94-fa8014fc790b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"payment_policy\": \"cash\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{host}}api/encounter/submit",
-									"host": [
-										"{{host}}api"
-									],
-									"path": [
-										"encounter",
-										"submit"
-									],
-									"query": [
+							"name": "Create Encounter",
+							"item": [
+								{
+									"name": "Create - Successful",
+									"event": [
 										{
-											"key": "Authorization",
-											"value": "Bearer {{token}}",
-											"type": "text",
-											"disabled": true
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A successful message is displayed\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Encounter saved successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
-									]
+									],
+									"id": "fd065ebb-0932-425a-9a09-2b7b4a8a61d3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist _token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"Z528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{token}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create - Invalid-Patient-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"//This would be updated after fix\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c1ed6121-c0b8-4c08-9891-5bb8d10ee192",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{super_admin_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bcfgfgfgf\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{receptionist_token_invalid}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create - NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7aa8fece-96e3-47b5-ae3b-df74eccec634",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create- Invalid-UUID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "42b507da-90c0-4d3e-843c-1190d2096259",
+												"exec": [
+													"//This would be upadted when the endpoint is fixed"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3edaf99d-9646-4fa2-8b26-5ea2dbb3e82f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist_token_invalid}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D52hjkkuujhh\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{token}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create-InvalidToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7869fbb1-36d0-466e-9e06-f917c5054bc0",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2fec8674-5ac8-484d-8868-a2084cc6eb06",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist_token_invalid}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{token}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create-ExpiredToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3e7816b5-4ed2-4481-974f-776dd7483d08",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "217d022d-1c2b-4624-9c95-9a39435e4458",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{ExpiredToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{ExpiredToken}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							],
+							"id": "65302c78-5b62-4110-a4bd-ae638f2bf474"
 						}
 					],
 					"id": "2ea56140-57f5-420c-bb7a-e9b33b216b4d"
@@ -20375,402 +20726,6 @@
 					"name": "Encounter",
 					"item": [
 						{
-							"name": "Create Encounter",
-							"item": [
-								{
-									"name": "Create - Successful",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"A successful message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Encounter saved successfully\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "fd065ebb-0932-425a-9a09-2b7b4a8a61d3",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{receptionist _token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"Z528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{token}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create - Invalid-Patient-ID",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
-												"exec": [
-													"//This would be updated after fix\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "c1ed6121-c0b8-4c08-9891-5bb8d10ee192",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bcfgfgfgf\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{receptionist_token_invalid}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create - NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates missing token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "7aa8fece-96e3-47b5-ae3b-df74eccec634",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create- Invalid-UUID",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "42b507da-90c0-4d3e-843c-1190d2096259",
-												"exec": [
-													"//This would be upadted when the endpoint is fixed"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "3edaf99d-9646-4fa2-8b26-5ea2dbb3e82f",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{receptionist_token_invalid}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D52hjkkuujhh\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{token}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create-InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "7869fbb1-36d0-466e-9e06-f917c5054bc0",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates invalid token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "2fec8674-5ac8-484d-8868-a2084cc6eb06",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{receptionist_token_invalid}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{token}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create-ExpiredToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3e7816b5-4ed2-4481-974f-776dd7483d08",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Token expiration message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "217d022d-1c2b-4624-9c95-9a39435e4458",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{ExpiredToken}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{ExpiredToken}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "65302c78-5b62-4110-a4bd-ae638f2bf474"
-						},
-						{
 							"name": "Fetch ALL Encounter",
 							"item": [
 								{
@@ -21488,36 +21443,17 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Encounters list is not empty\", function () {\r",
-													"    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Each encounter contains required fields\", function () {\r",
-													"    jsonData.encounters.forEach(encounter => {\r",
-													"        pm.expect(encounter).to.have.property(\"uuid\").that.is.a(\"string\");\r",
-													"        pm.expect(encounter).to.have.property(\"consultant\").that.is.a(\"string\");\r",
-													"        pm.expect(encounter).to.have.property(\"status\").that.is.a(\"string\");\r",
-													"        pm.expect(encounter).to.have.property(\"symptoms\").that.is.an(\"array\");\r",
-													"        pm.expect(encounter).to.have.property(\"diagnosis\").that.is.an(\"array\");\r",
-													"        pm.expect(encounter.vitals).to.have.property(\"weight\").that.is.a(\"number\");\r",
-													"        pm.expect(encounter.vitals).to.have.property(\"height\").that.is.a(\"number\");\r",
+													"pm.test(\"Check Status can only be 'awaiting billing', 'billed', or 'invoiced'\", function () {\r",
+													"        pm.expect(jsonData.error).to.eql(\"Status can only be 'awaiting billing', 'billed', or 'invoiced'\");\r",
 													"    });\r",
-													"});\r",
-													"\r",
-													"\r",
-													"pm.test(\"Check payment policy is either 'cash' or 'claims'\", function () {\r",
-													"    jsonData.encounters.forEach(encounter => {\r",
-													"        pm.expect([\"cash\", \"claims\"]).to.include(encounter.payment_policy);\r",
-													"    });\r",
-													"});\r",
 													""
 												],
 												"type": "text/javascript",
@@ -21538,7 +21474,7 @@
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/encounter/billing/awaiting billing"
+										"url": "{{host}}api/encounter/billing/awaitings"
 									},
 									"response": []
 								},
