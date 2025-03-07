@@ -4310,7 +4310,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"M528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"27CBC801\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -17904,7 +17904,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{receptionist_token_invalid}}",
+												"value": "Bearer {{doctor_token_Invalid}}",
 												"type": "text"
 											}
 										],
