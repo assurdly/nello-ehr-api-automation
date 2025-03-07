@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Licensed","_id":"67cada32f3b2a79a7f36217e","createdAt":"2025-03-07T11:36:18.346Z","__v":0}}
