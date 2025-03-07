@@ -8198,6 +8198,56 @@
 									"response": []
 								},
 								{
+									"name": "Create Sponsor-NameRequired",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8e59ff3c-f5e0-4ac5-b64e-0676f42bef87",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Success message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Sponsor Added successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c7d9ffc5-c682-4cfb-9f6a-f62ecf74fa10",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bear {{super_admin_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\":\"\",\n    \"type\" : \"Internal Use\",\n \n    \"contact_email\":\"info@famacare.com\",\n    \"contact_person\":\"Mrs Uzor Ukonmah\"\n    \n\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/sponsor/create"
+									},
+									"response": []
+								},
+								{
 									"name": "CreateSponsor-OtherAuth",
 									"event": [
 										{
@@ -25019,6 +25069,65 @@
 										}
 									],
 									"id": "55f8d542-835a-4c2e-a8cc-b8e693876912",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist _token}}",
+												"type": "text"
+											},
+											{
+												"key": "name",
+												"value": "{{randomName}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"Kanu Investigations\",\n    \"name\":\"{{randomName}}\",\n    \"sponsor_uuid\":\"D773AAFB\",\n    \"plan_code\":\"3A9A51C7\",\n    \"price\":2000\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/service/addservice"
+									},
+									"response": []
+								},
+								{
+									"name": "Create-Service-Successful Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "dae93e59-5a6d-407e-80e4-950b2752450e",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Success message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Service Added successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "fe20d27b-862a-46e1-a47e-d291ec94f531",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
