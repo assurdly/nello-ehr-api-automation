@@ -356,7 +356,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"An error message should be flagged when AOS and fee are required\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Both fee and AOS are required for clinical staff\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"Both fee and aos are required for clinical staff\");\r",
 													"});\r",
 													""
 												],
