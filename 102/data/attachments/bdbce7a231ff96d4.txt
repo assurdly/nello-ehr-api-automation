@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"District hacking","branch":null,"isActive":true,"_id":"67c9c5712cd083210a7ee7e0","createdAt":"2025-03-06T15:55:29.342Z","__v":0}}

@@ -1,5 +1,0 @@
-{   
-    "name":"District hacking",
-    "office_uuid":"vglk5m"
-}
-
