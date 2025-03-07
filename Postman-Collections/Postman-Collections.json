@@ -14933,6 +14933,955 @@
 					"id": "19da03f0-2df7-49fa-a594-b97a2b8f6712"
 				},
 				{
+					"name": "Consultation",
+					"item": [
+						{
+							"name": "Get Doctor consultation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "03b2512c-9952-4275-81c3-d1d589352642",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Appointment array is present and not empty\", function () {\r",
+											"    pm.expect(jsonData).to.have.property(\"appointment\").that.is.an(\"array\").that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4d9e9a47-5e96-422e-a80a-fa3c75c7c9ee",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{doctor_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/consultation/doctor/9w3tzr"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Doctor consultation - InvalidToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "85728850-7b84-4b2f-a925-38a4003e9825",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates invalid token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "66389d82-d41c-4c5d-bd1c-b9f71c03df69",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{doctor_token_Invalid}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/consultation/doctor/9w3tzr"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Doctor consultation -ExpiredToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "21abe709-44fa-4e98-9e32-67252819c24f",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ef6f478f-4780-4828-8398-8b331c4da272",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{ExpiredToken}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/consultation/doctor/9w3tzr"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Doctor consultation - NoToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7bcd71bd-5c27-4d05-b973-28f8608f404a",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d1a83e88-1759-472f-93e1-83da178c7539",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": "{{host}}api/consultation/doctor/9w3tzr"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Doctor consultation - AccessDenied",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5db7faf7-54ff-496c-9010-52012c1fb652",
+										"exec": [
+											"// This would be updated when the fix is done"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "3e9f9eff-83b3-48e6-8a24-59a030f0ea57",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{super_admin_token}}",
+										"type": "text"
+									}
+								],
+								"url": "{{host}}api/consultation/doctor/9w3tzr"
+							},
+							"response": []
+						}
+					],
+					"id": "edec7600-760e-4041-b044-150786dd3a1a"
+				},
+				{
+					"name": "Encounter",
+					"item": [
+						{
+							"name": "Create Encounter",
+							"item": [
+								{
+									"name": "Create - Successful",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"A successful message is displayed\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Encounter saved successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "fd065ebb-0932-425a-9a09-2b7b4a8a61d3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"27CBC801\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{token}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create - Invalid-Patient-ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"var jsonData = pm.response.json\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Token error message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.include(\"Token has expired\");\r",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c1ed6121-c0b8-4c08-9891-5bb8d10ee192",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{auth_doctor}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bcfgfgfgf\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{receptionist_token_invalid}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create - NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7aa8fece-96e3-47b5-ae3b-df74eccec634",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create- Invalid-UUID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "42b507da-90c0-4d3e-843c-1190d2096259",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 404 (Not Found)\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"appointment not found\");\r",
+													"});\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3edaf99d-9646-4fa2-8b26-5ea2dbb3e82f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D52hjkkuujhh\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{auth_doctor}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create-InvalidToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7869fbb1-36d0-466e-9e06-f917c5054bc0",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2fec8674-5ac8-484d-8868-a2084cc6eb06",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{token}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create-ExpiredToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3e7816b5-4ed2-4481-974f-776dd7483d08",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "217d022d-1c2b-4624-9c95-9a39435e4458",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{ExpiredToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}api/encounter/submit",
+											"host": [
+												"{{host}}api"
+											],
+											"path": [
+												"encounter",
+												"submit"
+											],
+											"query": [
+												{
+													"key": "Authorization",
+													"value": "Bearer {{ExpiredToken}}",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "65302c78-5b62-4110-a4bd-ae638f2bf474"
+						},
+						{
+							"name": "Update Encounter",
+							"item": [
+								{
+									"name": "Update Encounter by (appointment_uuid)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a5a72b1b-3001-4709-8ab2-b8ad5ec1c84c",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Encounter update successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "428500cc-6be5-480a-8737-427d24865cce",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M528326B"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Encounter by (appointment_uuid) - NotFound",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a5a72b1b-3001-4709-8ab2-b8ad5ec1c84c",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"Encounter not found\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "45c90feb-680a-419f-9218-38bc47cd9114",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M5283"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Encounter by (appointment_uuid) - AccessDenied",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2049344c-7ecd-4010-bf13-096524556cf7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{super_admin_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M528326B"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Encounter by (appointment_uuid) - ExpiredToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e4bf49bd-f0fe-4e27-9695-5f669b16115b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{ExpiredToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M528326B"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Encounter by (appointment_uuid) - InvalidToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates invalid token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a90d5465-71ce-46cd-8dda-f4e049b65fe8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M528326B"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Encounter by (appointment_uuid) - NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a0c3473e-a368-4919-8aef-9c9bbccfd5e1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/encounter/unique/M528326B"
+									},
+									"response": []
+								}
+							],
+							"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
+						}
+					],
+					"id": "2ea56140-57f5-420c-bb7a-e9b33b216b4d"
+				},
+				{
 					"name": "Drugs-AddGeneric",
 					"item": [
 						{
@@ -15448,755 +16397,6 @@
 						}
 					],
 					"id": "5a2a2c77-4bc9-46b9-a838-450a09d10b84"
-				},
-				{
-					"name": "Sponsors",
-					"item": [
-						{
-							"name": "FetchSponsor",
-							"item": [
-								{
-									"name": "Fetch Sponsors",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ec57eeca-d10f-4546-a90c-228e0c16efcd",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response indicates success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"    pm.expect(jsonData.sponsors).to.be.an(\"array\").and.to.have.length.above(0);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Sponsor details are valid\", function () {\r",
-													"    var sponsor = jsonData.sponsors[0];\r",
-													"\r",
-													"    pm.expect(sponsor._id).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(sponsor.name).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(sponsor.type).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(sponsor.uuid).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(sponsor.is_Active).to.be.a(\"boolean\");\r",
-													"    pm.expect(sponsor.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(sponsor.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "fe6ba511-c4ea-46db-8374-3a6e5f233842",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Sponsors-InValidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response body contains error message\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "f09901fc-5e9c-4726-a64d-84fccf5474bc",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Sponsors-ExpiredToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Token expiration message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "2f09ff51-82c4-48dc-b0dd-2ed47674f9ac",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{ExpiredToken}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Sponsors-NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 401\", () => {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Authorization error message is correct\", () => {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "a7d1c149-4a1e-4941-96b4-781fe16688b8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{ExpiredToken}}",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch"
-									},
-									"response": []
-								}
-							],
-							"id": "9ccc1627-883c-40e4-a419-a7d35197393b"
-						},
-						{
-							"name": "Sponsor-GetAll",
-							"item": [
-								{
-									"name": "All Sponsor Plans",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "a4e73471-018a-4c04-abcd-e054d7b61677",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response contains sponsor plans\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"    pm.expect(jsonData.plans).to.be.an(\"array\").and.to.have.length.above(0);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Plan details are valid\", function () {\r",
-													"    var plan = jsonData.plans[0];\r",
-													"    \r",
-													"    pm.expect(plan._id).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.name).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.plan_code).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.sponsor_uuid).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.is_Active).to.be.a(\"boolean\").and.to.not.be.null;\r",
-													"    pm.expect(plan.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "2b27a75b-4426-4f40-a31e-355bea9b2003",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/all/plans"
-									},
-									"response": []
-								},
-								{
-									"name": "All Sponsor Plans-InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "75d5cc47-f7f7-4acc-afbd-c640368f15fb",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response body contains error message\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "dd1ac28d-26d1-4457-97ee-007582ad3a31",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/all/plans"
-									},
-									"response": []
-								},
-								{
-									"name": "All Sponsor Plans-NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "1a250bfe-8058-4e0e-ba3c-55236b7e1de7",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 401\", () => {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Authorization error message is correct\", () => {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "fb56cb8c-0f95-419a-8896-ea210ba966bb",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/all/plans"
-									},
-									"response": []
-								}
-							],
-							"id": "d25acf09-18ea-4783-8116-c0b261567b89"
-						},
-						{
-							"name": "Fetch Unique Sponsor (uuid)",
-							"item": [
-								{
-									"name": "Fetch Unique Sponsor (uuid)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "4ff9ddcd-d2e9-4277-a456-1f4760a474c4",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Sponsor data is valid\", function () {\r",
-													"    pm.expect(jsonData.sponsor).to.be.an(\"object\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor._id).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.name).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.type).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.phone).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.contact_email).to.be.a(\"string\").and.to.include(\"@\");\r",
-													"    pm.expect(jsonData.sponsor.contact_person).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.uuid).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.is_Active).to.be.a(\"boolean\");\r",
-													"    pm.expect(jsonData.sponsor.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(jsonData.sponsor.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b7536c92-394c-4e91-a6b5-4c2bcb546362",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/87EDF987"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Unique Sponsor (uuid)-NotFound",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "4ff9ddcd-d2e9-4277-a456-1f4760a474c4",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 404\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response indicates failure\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.a(\"string\").and.to.eql(\"Sponsor does not exist\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b926ba0b-d75d-48e8-9f0f-ba7d2425a9b8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{receptionist _token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/87E"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Unique Sponsor (uuid)-InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "5c47921f-f3b6-4f54-8d74-68015e6e8e58",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response body contains error message\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "bfb0da89-1d01-4352-a94d-88be1c7e5e65",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/87EDF987"
-									},
-									"response": []
-								},
-								{
-									"name": "Fetch Unique Sponsor (uuid)-NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3bfe42b5-41a3-4faa-a0ff-acf4d585acc1",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 401\", () => {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Authorization error message is correct\", () => {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "e0d19f2f-c454-4db9-862c-a8d202256231",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/87EDF987"
-									},
-									"response": []
-								}
-							],
-							"id": "49a2e9f6-f2e0-4640-8719-fa4523940675"
-						},
-						{
-							"name": "Get Unique Plan by Name",
-							"item": [
-								{
-									"name": "Get Unique Plan by Name",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response indicates success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"    pm.expect(jsonData.plan).to.be.an(\"object\").and.to.not.be.null;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Plan details are valid\", function () {\r",
-													"    var plan = jsonData.plan;\r",
-													"\r",
-													"    pm.expect(plan._id).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.name).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.plan_code).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.sponsor_uuid).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.is_Active).to.be.a(\"boolean\").and.to.not.be.null;\r",
-													"    pm.expect(plan.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    pm.expect(plan.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
-													"    \r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b7a6542c-9af4-4f12-81d6-4ed23f0139d3",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
-									},
-									"response": []
-								},
-								{
-									"name": "Get Unique Plan by Name- NotFound",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response indicates failure\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.be.a(\"string\").and.to.eql(\"Sponsor Plan does not exists\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "adc04a8d-c64c-432c-87c8-82c7956d19be",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/plan/FAM"
-									},
-									"response": []
-								},
-								{
-									"name": "Get Unique Plan by Name-InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response body contains error message\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "493045fc-2676-401b-a767-e42dfeecfcc7",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
-									},
-									"response": []
-								},
-								{
-									"name": "Get Unique Plan by Name-NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 401\", () => {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Authorization error message is correct\", () => {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "8654f291-1f5e-4f8b-8d32-e130a2c28f74",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
-									},
-									"response": []
-								},
-								{
-									"name": "Get Unique Plan by Name-ExpiredToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Token expiration message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "77c29eda-ef32-4439-a800-cd838181fa13",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{ExpiredToken}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
-									},
-									"response": []
-								}
-							],
-							"id": "45757feb-1c3b-4450-8d3c-e9aba3b00de6"
-						}
-					],
-					"id": "a7983ea5-7c5c-48fb-82d5-e6dcaf01a1fe"
 				},
 				{
 					"name": "Services",
@@ -17378,228 +17578,18 @@
 					"id": "214ab59c-4693-4255-9390-2d14478b6663"
 				},
 				{
-					"name": "Consultation",
+					"name": "Sponsors",
 					"item": [
 						{
-							"name": "Get Doctor consultation",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "03b2512c-9952-4275-81c3-d1d589352642",
-										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Appointment array is present and not empty\", function () {\r",
-											"    pm.expect(jsonData).to.have.property(\"appointment\").that.is.an(\"array\").that.is.not.empty;\r",
-											"});\r",
-											"\r",
-											"\r",
-											"\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "4d9e9a47-5e96-422e-a80a-fa3c75c7c9ee",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{doctor_token}}",
-										"type": "text"
-									}
-								],
-								"url": "{{host}}api/consultation/doctor/9w3tzr"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Doctor consultation - InvalidToken",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "85728850-7b84-4b2f-a925-38a4003e9825",
-										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Response status code is 401\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response message indicates invalid token\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "66389d82-d41c-4c5d-bd1c-b9f71c03df69",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{doctor_token_Invalid}}",
-										"type": "text"
-									}
-								],
-								"url": "{{host}}api/consultation/doctor/9w3tzr"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Doctor consultation -ExpiredToken",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "21abe709-44fa-4e98-9e32-67252819c24f",
-										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Response status code is 401\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Token expiration message is correct\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "ef6f478f-4780-4828-8398-8b331c4da272",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{ExpiredToken}}",
-										"type": "text"
-									}
-								],
-								"url": "{{host}}api/consultation/doctor/9w3tzr"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Doctor consultation - NoToken",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "7bcd71bd-5c27-4d05-b973-28f8608f404a",
-										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Response status code is 401\", function () {\r",
-											"    pm.response.to.have.status(401);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response message indicates missing token\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "d1a83e88-1759-472f-93e1-83da178c7539",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"url": "{{host}}api/consultation/doctor/9w3tzr"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Doctor consultation - AccessDenied",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "5db7faf7-54ff-496c-9010-52012c1fb652",
-										"exec": [
-											"// This would be updated when the fix is done"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "3e9f9eff-83b3-48e6-8a24-59a030f0ea57",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{super_admin_token}}",
-										"type": "text"
-									}
-								],
-								"url": "{{host}}api/consultation/doctor/9w3tzr"
-							},
-							"response": []
-						}
-					],
-					"id": "edec7600-760e-4041-b044-150786dd3a1a"
-				},
-				{
-					"name": "Encounter",
-					"item": [
-						{
-							"name": "Create Encounter",
+							"name": "FetchSponsor",
 							"item": [
 								{
-									"name": "Create - Successful",
+									"name": "Fetch Sponsors",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"id": "ec57eeca-d10f-4546-a90c-228e0c16efcd",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
@@ -17607,12 +17597,22 @@
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
+													"pm.test(\"Response indicates success\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"    pm.expect(jsonData.sponsors).to.be.an(\"array\").and.to.have.length.above(0);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"A successful message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Encounter saved successfully\");\r",
+													"pm.test(\"Sponsor details are valid\", function () {\r",
+													"    var sponsor = jsonData.sponsors[0];\r",
+													"\r",
+													"    pm.expect(sponsor._id).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(sponsor.name).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(sponsor.type).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(sponsor.uuid).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(sponsor.is_Active).to.be.a(\"boolean\");\r",
+													"    pm.expect(sponsor.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(sponsor.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"\r",
 													"});\r",
 													""
 												],
@@ -17621,12 +17621,12 @@
 											}
 										}
 									],
-									"id": "fd065ebb-0932-425a-9a09-2b7b4a8a61d3",
+									"id": "fe6ba511-c4ea-46db-8374-3a6e5f233842",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "POST",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -17634,109 +17634,17 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"Z528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{token}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
+										"url": "{{host}}api/sponsor/fetch"
 									},
 									"response": []
 								},
 								{
-									"name": "Create - Invalid-Patient-ID",
+									"name": "Fetch Sponsors-InValidToken",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
-												"exec": [
-													"var jsonData = pm.response.json\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Token error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.include(\"Token has expired\");\r",
-													"});"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "c1ed6121-c0b8-4c08-9891-5bb8d10ee192",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{auth_doctor}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bcfgfgfgf\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{receptionist_token_invalid}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create - NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ff555572-a4c6-4ba0-9599-4a661e5f3b62",
+												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
@@ -17744,148 +17652,7 @@
 													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response message indicates missing token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "7aa8fece-96e3-47b5-ae3b-df74eccec634",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create- Invalid-UUID",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "42b507da-90c0-4d3e-843c-1190d2096259",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 404 (Not Found)\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response status is failed\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"appointment not found\");\r",
-													"});\r",
-													"\r",
-													"\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "3edaf99d-9646-4fa2-8b26-5ea2dbb3e82f",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"claims\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D52hjkkuujhh\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{auth_doctor}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Create-InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "7869fbb1-36d0-466e-9e06-f917c5054bc0",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates invalid token\", function () {\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
 													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
 													"});\r",
 													""
@@ -17895,12 +17662,12 @@
 											}
 										}
 									],
-									"id": "2fec8674-5ac8-484d-8868-a2084cc6eb06",
+									"id": "f09901fc-5e9c-4726-a64d-84fccf5474bc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "POST",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -17908,43 +17675,17 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{token}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
+										"url": "{{host}}api/sponsor/fetch"
 									},
 									"response": []
 								},
 								{
-									"name": "Create-ExpiredToken",
+									"name": "Fetch Sponsors-ExpiredToken",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "3e7816b5-4ed2-4481-974f-776dd7483d08",
+												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
@@ -17962,12 +17703,12 @@
 											}
 										}
 									],
-									"id": "217d022d-1c2b-4624-9c95-9a39435e4458",
+									"id": "2f09ff51-82c4-48dc-b0dd-2ed47674f9ac",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "POST",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -17975,62 +17716,26 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"payment_policy\": \"\",\n  \"patient\": \"6751645ec79ac1e69bc7efb8\",\n  \"consultant\": \"Dr. Dr Chibuzor Nwogu\",\n  \"isUrgent\": true,\n  \"appointment_uuid\":\"D528326B\",\n  \"comment\": \"Patient is experiencing severe headache\",\n  \"status\": \"awaiting billing\",\n  \"vitals\": {\n    \"height\":160,\n    \"weight\":70,\n    \"blood_pressure\": \"80\",\n    \"pulse_rate\": 75,\n    \"temperature\": 98.6\n  },\n  \"allergies\": {\n    \"drugs\": [\"penicillin\"],\n    \"food\": [\"nuts\"],\n    \"other\": [\"dust\"]\n  },\n  \"symptoms\": [\"headache\", \"nausea\", \"dizziness\"],\n  \"family_history\": [\"diabetes\", \"hypertension\"],\n  \"social_history\": [\"smoking\", \"alcohol\"],\n  \"diagnosis\": [\n    {\n        \"name\":\"Common Cold\",\n        \"suspected\":false\n  },\n\n   {\n        \"name\":\"Typhoid fever\",\n        \"suspected\":true\n  }\n  ],\n  \"investigations\": [\n    {\"name\":\"Fasting Blood Glucose(FBS)\",\"amount\":2000},\n     {\"name\":\"Haemoglobin (HB)\",\"amount\":5000}\n  ],\n  \"imaging\": [\n     {\"name\":\"Both Feet\",\"amount\":7000},\n     {\"name\":\"Both Knee\",\"amount\":7000}\n  ],\n  \"otherservices\": [\n    {\"name\":\"Cast Removal\",\"amount\":7500}\n  ]\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{host}}api/encounter/submit",
-											"host": [
-												"{{host}}api"
-											],
-											"path": [
-												"encounter",
-												"submit"
-											],
-											"query": [
-												{
-													"key": "Authorization",
-													"value": "Bearer {{ExpiredToken}}",
-													"type": "text",
-													"disabled": true
-												}
-											]
-										}
+										"url": "{{host}}api/sponsor/fetch"
 									},
 									"response": []
-								}
-							],
-							"id": "65302c78-5b62-4110-a4bd-ae638f2bf474"
-						},
-						{
-							"name": "Update Encounter",
-							"item": [
+								},
 								{
-									"name": "Update Encounter by (appointment_uuid)",
+									"name": "Fetch Sponsors-NoToken",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "a5a72b1b-3001-4709-8ab2-b8ad5ec1c84c",
+												"id": "f9e607d3-a5fb-4d54-b330-f08fc672903f",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response code is 401\", () => {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Encounter update successfully\");\r",
+													"pm.test(\"Authorization error message is correct\", () => {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
 													"});\r",
 													""
 												],
@@ -18039,12 +17744,73 @@
 											}
 										}
 									],
-									"id": "428500cc-6be5-480a-8737-427d24865cce",
+									"id": "a7d1c149-4a1e-4941-96b4-781fe16688b8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "PUT",
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{ExpiredToken}}",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch"
+									},
+									"response": []
+								}
+							],
+							"id": "9ccc1627-883c-40e4-a419-a7d35197393b"
+						},
+						{
+							"name": "Sponsor-GetAll",
+							"item": [
+								{
+									"name": "All Sponsor Plans",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a4e73471-018a-4c04-abcd-e054d7b61677",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains sponsor plans\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"    pm.expect(jsonData.plans).to.be.an(\"array\").and.to.have.length.above(0);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Plan details are valid\", function () {\r",
+													"    var plan = jsonData.plans[0];\r",
+													"    \r",
+													"    pm.expect(plan._id).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.name).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.plan_code).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.sponsor_uuid).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.is_Active).to.be.a(\"boolean\").and.to.not.be.null;\r",
+													"    pm.expect(plan.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2b27a75b-4426-4f40-a31e-355bea9b2003",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -18052,26 +17818,157 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M528326B"
+										"url": "{{host}}api/sponsor/fetch/all/plans"
 									},
 									"response": []
 								},
 								{
-									"name": "Update Encounter by (appointment_uuid) - NotFound",
+									"name": "All Sponsor Plans-InvalidToken",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "a5a72b1b-3001-4709-8ab2-b8ad5ec1c84c",
+												"id": "75d5cc47-f7f7-4acc-afbd-c640368f15fb",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "dd1ac28d-26d1-4457-97ee-007582ad3a31",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/all/plans"
+									},
+									"response": []
+								},
+								{
+									"name": "All Sponsor Plans-NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1a250bfe-8058-4e0e-ba3c-55236b7e1de7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 401\", () => {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Authorization error message is correct\", () => {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "fb56cb8c-0f95-419a-8896-ea210ba966bb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{super_admin_token}}",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/all/plans"
+									},
+									"response": []
+								}
+							],
+							"id": "d25acf09-18ea-4783-8116-c0b261567b89"
+						},
+						{
+							"name": "Fetch Unique Sponsor (uuid)",
+							"item": [
+								{
+									"name": "Fetch Unique Sponsor (uuid)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4ff9ddcd-d2e9-4277-a456-1f4760a474c4",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Sponsor data is valid\", function () {\r",
+													"    pm.expect(jsonData.sponsor).to.be.an(\"object\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor._id).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.name).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.type).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.phone).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.contact_email).to.be.a(\"string\").and.to.include(\"@\");\r",
+													"    pm.expect(jsonData.sponsor.contact_person).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.uuid).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.is_Active).to.be.a(\"boolean\");\r",
+													"    pm.expect(jsonData.sponsor.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(jsonData.sponsor.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b7536c92-394c-4e91-a6b5-4c2bcb546362",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/87EDF987"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetch Unique Sponsor (uuid)-NotFound",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4ff9ddcd-d2e9-4277-a456-1f4760a474c4",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
@@ -18079,12 +17976,12 @@
 													"    pm.response.to.have.status(404);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is failed\", function () {\r",
+													"pm.test(\"Response indicates failure\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Encounter not found\");\r",
+													"    pm.expect(jsonData.error).to.be.a(\"string\").and.to.eql(\"Sponsor does not exist\");\r",
 													"});\r",
 													""
 												],
@@ -18093,12 +17990,156 @@
 											}
 										}
 									],
-									"id": "45c90feb-680a-419f-9218-38bc47cd9114",
+									"id": "b926ba0b-d75d-48e8-9f0f-ba7d2425a9b8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "PUT",
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{receptionist _token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/87E"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetch Unique Sponsor (uuid)-InvalidToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5c47921f-f3b6-4f54-8d74-68015e6e8e58",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bfb0da89-1d01-4352-a94d-88be1c7e5e65",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/87EDF987"
+									},
+									"response": []
+								},
+								{
+									"name": "Fetch Unique Sponsor (uuid)-NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3bfe42b5-41a3-4faa-a0ff-acf4d585acc1",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 401\", () => {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Authorization error message is correct\", () => {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e0d19f2f-c454-4db9-862c-a8d202256231",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/87EDF987"
+									},
+									"response": []
+								}
+							],
+							"id": "49a2e9f6-f2e0-4640-8719-fa4523940675"
+						},
+						{
+							"name": "Get Unique Plan by Name",
+							"item": [
+								{
+									"name": "Get Unique Plan by Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response indicates success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"    pm.expect(jsonData.plan).to.be.an(\"object\").and.to.not.be.null;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Plan details are valid\", function () {\r",
+													"    var plan = jsonData.plan;\r",
+													"\r",
+													"    pm.expect(plan._id).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.name).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.plan_code).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.sponsor_uuid).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.is_Active).to.be.a(\"boolean\").and.to.not.be.null;\r",
+													"    pm.expect(plan.createdAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    pm.expect(plan.updatedAt).to.be.a(\"string\").and.to.not.be.null;\r",
+													"    \r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b7a6542c-9af4-4f12-81d6-4ed23f0139d3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -18106,35 +18147,30 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M5283"
+										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
 									},
 									"response": []
 								},
 								{
-									"name": "Update Encounter by (appointment_uuid) - AccessDenied",
+									"name": "Get Unique Plan by Name- NotFound",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 403\", function () {\r",
-													"    pm.response.to.have.status(403);\r",
+													"pm.test(\"Response status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
+													"pm.test(\"Response indicates failure\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error).to.be.a(\"string\").and.to.eql(\"Sponsor Plan does not exists\");\r",
 													"});\r",
 													""
 												],
@@ -18143,39 +18179,113 @@
 											}
 										}
 									],
-									"id": "2049344c-7ecd-4010-bf13-096524556cf7",
+									"id": "adc04a8d-c64c-432c-87c8-82c7956d19be",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "PUT",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{super_admin_token}}",
+												"value": "Bearer {{doctor_token}}",
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M528326B"
+										"url": "{{host}}api/sponsor/fetch/plan/FAM"
 									},
 									"response": []
 								},
 								{
-									"name": "Update Encounter by (appointment_uuid) - ExpiredToken",
+									"name": "Get Unique Plan by Name-InvalidToken",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
+												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "493045fc-2676-401b-a767-e42dfeecfcc7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Unique Plan by Name-NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 401\", () => {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Authorization error message is correct\", () => {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "8654f291-1f5e-4f8b-8d32-e130a2c28f74",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Unique Plan by Name-ExpiredToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e51f0ac8-92e6-401a-8215-96273348cf13",
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
@@ -18193,12 +18303,12 @@
 											}
 										}
 									],
-									"id": "e4bf49bd-f0fe-4e27-9695-5f669b16115b",
+									"id": "77c29eda-ef32-4439-a800-cd838181fa13",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "PUT",
+										"method": "GET",
 										"header": [
 											{
 												"key": "Authorization",
@@ -18206,125 +18316,15 @@
 												"type": "text"
 											}
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M528326B"
-									},
-									"response": []
-								},
-								{
-									"name": "Update Encounter by (appointment_uuid) - InvalidToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates invalid token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "a90d5465-71ce-46cd-8dda-f4e049b65fe8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token_Invalid}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M528326B"
-									},
-									"response": []
-								},
-								{
-									"name": "Update Encounter by (appointment_uuid) - NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "27c97d65-8ef2-4285-ac16-9e44b3a029b7",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates missing token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "a0c3473e-a368-4919-8aef-9c9bbccfd5e1",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"vitals\": {\n            \"weight\": 150,\n            \"height\": 150,\n            \"blood_pressure\": \"67\",\n            \"temperature\": 20,\n            \"pulse_rate\": 20\n        },\n\n        \"allergies\": {\n            \"drugs\": [\n                \"Penicillin\"\n            ],\n            \"food\": [\n                \"Peanuts\"\n            ],\n            \"other\": [\n                \"Detergents\"\n            ]\n        },\n     \"symptoms\": [\n            \"Cough\",\n            \"Sneezing\"\n        ],\n        \"family_history\": [\n            \"Brugada Syndrome\"\n        ],\n        \"social_history\": [\n            \"Vaping or E-Cigarette Use\"\n        ],\n        \"diagnosis\": [\n            {\n                \"name\": \"Unspecified malaria\",\n                \"suspected\": true,\n                \"_id\": \"67b75860fdbab15b95142478\"\n            },\n            {\n                \"name\": \"Cold injury syndrome\",\n                \"suspected\": false,\n                \"_id\": \"67b75860fdbab15b95142479\"\n            }\n        ],\n        \"investigations\": [\n            {\n                \"name\": \"Faecal Occult Blood(FOB)\",\n                \"amount\": 3000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247a\"\n            },\n            {\n                \"name\": \"Blood Group\",\n                \"amount\": 2000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247b\"\n            }\n        ],\n        \"imaging\": [\n            {\n                \"name\": \"Both Feet\",\n                \"amount\": 7000,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247c\"\n            }\n        ],\n        \"otherservices\": [\n            {\n                \"name\": \"Cast Removal\",\n                \"amount\": 7500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247d\"\n            },\n            {\n                \"name\": \"COLD APPLICATION\",\n                \"amount\": 2500,\n                \"billing_status\": null,\n                \"_id\": \"67b75860fdbab15b9514247e\"\n            }\n        ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/encounter/unique/M528326B"
+										"url": "{{host}}api/sponsor/fetch/plan/FAMACARE PRICELIST"
 									},
 									"response": []
 								}
 							],
-							"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
+							"id": "45757feb-1c3b-4450-8d3c-e9aba3b00de6"
 						}
 					],
-					"id": "2ea56140-57f5-420c-bb7a-e9b33b216b4d"
+					"id": "a7983ea5-7c5c-48fb-82d5-e6dcaf01a1fe"
 				}
 			],
 			"id": "e99a0d7c-5c7a-462f-8d2f-25c757494caa"
