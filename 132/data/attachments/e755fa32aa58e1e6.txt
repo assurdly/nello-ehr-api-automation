@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Bacon Albania Square Games","branch":null,"isActive":true,"_id":"67cad809f3b2a79a7f35b2df","createdAt":"2025-03-07T11:27:05.808Z","__v":0}}
