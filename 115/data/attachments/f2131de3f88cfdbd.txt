@@ -1,4 +1,0 @@
-{
-    "name":"local",
-    "office_uuid":"vglk5m"
-}
