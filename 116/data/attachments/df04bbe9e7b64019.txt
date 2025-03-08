@@ -1,4 +1,0 @@
-{
-    "code":"uuxgi5",
-    "name":"Fever and cold"
-}
