@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"facilitate pricing Coordinator framework","branch":null,"isActive":true,"_id":"67cacb5df3b2a79a7f33f804","createdAt":"2025-03-07T10:33:01.917Z","__v":0}}

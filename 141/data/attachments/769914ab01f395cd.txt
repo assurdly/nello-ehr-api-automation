@@ -1,0 +1,9 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 403 (Forbidden)", function () {
+    pm.response.to.have.status(403);
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData.message).to.eql("Access denied: Doctors only");
+});

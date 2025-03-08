@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"maroon","_id":"67cacb5ff3b2a79a7f33f80c","createdAt":"2025-03-07T10:33:03.769Z","__v":0}}

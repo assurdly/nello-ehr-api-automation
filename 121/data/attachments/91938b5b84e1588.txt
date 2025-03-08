@@ -1,5 +1,0 @@
-{
-    "generic_id" : "du9pzh",
-    "generic" : "Test"
-
-}
