@@ -1,4 +1,0 @@
-{
-    "name":"connecting",
-    "office_uuid":"vglk5m"
-}
