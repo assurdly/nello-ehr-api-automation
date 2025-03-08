@@ -1,0 +1,14 @@
+// var jsonData = pm.response.json();
+
+// pm.test("Response code is 200", function () {
+//     pm.response.to.have.status(200);
+// });
+
+// pm.test("Success object is present", function () {
+//     pm.expect(jsonData.status).to.eql("success");
+//     pm.expect(jsonData.resetToken).to.be.a("string");
+// });
+
+pm.test("Successful reset message is returned", function () {
+    pm.expect(jsonData.message).to.include("Password reset email sent");
+});
