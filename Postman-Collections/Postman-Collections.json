@@ -8300,7 +8300,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bear {{receptionist _token}}",
+												"value": "Bear {{receptionist_token}}",
 												"type": "text"
 											}
 										],
