@@ -1,4 +1,0 @@
-{
-    "name":"District",
-    "office_uuid":"vglk5m"
-}

@@ -1,1 +1,0 @@
-{"status":"failed","error":"both fee  and aos are required for clinical staff"}
