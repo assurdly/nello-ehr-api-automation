@@ -972,7 +972,7 @@
 													"\r",
 													"pm.test(\"Response code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
-													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"    pm.expect(jsonData.status).to.eql(\"Failed\");\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Invalid credentials message is returned\", function () {\r",
