@@ -1,5 +1,0 @@
-{   
-    "name":"Distributed internet",
-    "office_uuid":"vglk5m"
-}
-
