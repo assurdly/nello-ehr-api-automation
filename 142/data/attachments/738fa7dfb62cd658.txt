@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"orchestration Steel Credit Soft","branch":null,"isActive":true,"_id":"67cdf57df3b2a79a7f37988f","createdAt":"2025-03-09T20:09:33.989Z","__v":0}}

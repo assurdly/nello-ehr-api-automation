@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"International deposit scale Parkways navigating","branch":null,"isActive":true,"_id":"67cacf16f3b2a79a7f3420eb","createdAt":"2025-03-07T10:48:54.768Z","__v":0}}

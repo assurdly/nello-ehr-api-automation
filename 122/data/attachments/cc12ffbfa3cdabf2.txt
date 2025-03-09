@@ -1,2 +1,0 @@
-var randomName = Math.random().toString(36).substring(7); // Generates a random word-like string
-pm.collectionVariables.set("randomName", randomName);
