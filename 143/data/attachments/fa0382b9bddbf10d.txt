@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Borders calculate","branch":null,"isActive":true,"_id":"67cebce9f3b2a79a7f37a1e3","createdAt":"2025-03-10T10:20:25.163Z","__v":0}}
