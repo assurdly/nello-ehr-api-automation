@@ -1,1 +1,0 @@
-{"status":"failed","error":[{"type":"field","value":"","msg":"payment_policy is required","path":"payment_policy","location":"body"},{"type":"field","value":"","msg":"payment_policy must be either 'cash' or 'claims'","path":"payment_policy","location":"body"}]}

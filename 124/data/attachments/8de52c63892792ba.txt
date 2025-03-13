@@ -1,5 +1,0 @@
-{   
-    "name":"drive Account Tuna digital",
-    "office_uuid":"vglk5m"
-}
-
