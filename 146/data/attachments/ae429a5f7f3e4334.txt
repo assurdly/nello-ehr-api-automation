@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Card models virtual","branch":null,"isActive":true,"_id":"67d411c7f3b2a79a7f388f8d","createdAt":"2025-03-14T11:23:51.661Z","__v":0}}

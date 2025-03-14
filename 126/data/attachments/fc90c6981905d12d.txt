@@ -1,5 +1,0 @@
-{   
-    "name":"Walk concept Sports HTTP full-range",
-    "office_uuid":"vglk5m"
-}
-

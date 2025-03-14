@@ -1,4 +1,0 @@
-{
-    "code":"ca2s6",
-    "name":"Fever and cold"
-}
