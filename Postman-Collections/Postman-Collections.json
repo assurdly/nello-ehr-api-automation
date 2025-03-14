@@ -26624,7 +26624,7 @@
 			"id": "e99a0d7c-5c7a-462f-8d2f-25c757494caa"
 		},
 		{
-			"name": "DOCTOR Copy",
+			"name": "Radiologist",
 			"item": [
 				{
 					"name": "Authentication",
@@ -33629,7 +33629,7 @@
 			"id": "b5e0aed5-3240-406d-abd6-220510d5dce8"
 		},
 		{
-			"name": "DOCTOR Copy 2",
+			"name": "Lab Technician",
 			"item": [
 				{
 					"name": "Authentication",
