@@ -1,4 +1,0 @@
-{
-    "code":"xn1wl",
-    "name":"Fever and cold"
-}
