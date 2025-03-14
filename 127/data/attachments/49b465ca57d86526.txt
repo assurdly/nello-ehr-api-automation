@@ -1,4 +1,0 @@
-{
-    "code":"xlhdo8",
-    "name":"Fever and cold"
-}

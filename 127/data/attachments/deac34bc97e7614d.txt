@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"partnerships","_id":"67cad386f3b2a79a7f34df56","createdAt":"2025-03-07T11:07:50.927Z","__v":0}}
