@@ -1,1 +1,0 @@
-{"errors":[{"type":"field","value":"6751645ec79ac1e69bcfgfgfgf","msg":"Invalid patient identifier. Ensure you’re using the correct format.","path":"patient","location":"body"}]}

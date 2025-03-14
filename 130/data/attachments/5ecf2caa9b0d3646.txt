@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Mauritius Strategist","branch":null,"isActive":true,"_id":"67cad67ef3b2a79a7f355d51","createdAt":"2025-03-07T11:20:30.917Z","__v":0}}
