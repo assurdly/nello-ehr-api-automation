@@ -1,5 +1,0 @@
-{   
-    "name":"Savings deposit",
-    "office_uuid":"vglk5m"
-}
-

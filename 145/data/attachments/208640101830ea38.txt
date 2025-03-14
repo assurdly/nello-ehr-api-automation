@@ -1,0 +1,5 @@
+{   
+    "name":"Configuration orange",
+    "office_uuid":"vglk5m"
+}
+
