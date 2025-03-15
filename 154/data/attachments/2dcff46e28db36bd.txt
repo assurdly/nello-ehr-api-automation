@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"matrix Grocery primary Organized protocol","branch":null,"isActive":true,"_id":"67d572bff3b2a79a7f3c081b","createdAt":"2025-03-15T12:29:51.002Z","__v":0}}
