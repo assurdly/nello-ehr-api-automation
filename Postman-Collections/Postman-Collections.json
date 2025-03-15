@@ -27164,7 +27164,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morgan+1@assurdly.com\",\n    \"password\":\"Password123!\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MTI3Njk0MywiZXhwIjoxNzQxMzA1NzQzfQ.mYufIeAzTC0cVLB-GTQohjtieRj_7m3X0K9Cp8__22c\"\n  \n}",
+											"raw": "{\n    \"email\":\"olamide.adeleke@famacare.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n  \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -27209,7 +27209,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"mor+1@assurdly.com\",\n    \"password\":\"Password123!\",\n    \"token\":\"\"\n}",
+											"raw": "{\n    \"email\":\"olamide.adeleke@famacare.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"\"\n  \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -27254,7 +27254,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morgan+1@assurdly.com\",\n    \"password\":\"Password123!\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsImlhdCI6MTczOTM5ODY3MiwiZXhwIjoxNzM5NDAyMjcyfQ.KJRwnZpofKKcNCx6B-s1nDRPp7VMYLC37kZfR\"\n  \n}",
+											"raw": "{\n    \"email\":\"olamide.adeleke@famacare.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"eyJOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n  \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -27281,7 +27281,7 @@
 													"\r",
 													"pm.test(\"User registration error message is correct\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
-													"    pm.expect(jsonData.error).to.eql(\"user with email not registered\");\r",
+													"    pm.expect(jsonData.error).to.eql(\"must be a valid email\");\r",
 													"});\r",
 													""
 												],
@@ -27299,7 +27299,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"mor+1@assurdly.com\",\n    \"password\":\"Password123!\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsImlhdCI6MTczOTM5ODY3MiwiZXhwIjoxNzM5NDAyMjcyfQ.KJRwnZpofKKcNCx6B-s1nDRPp7VMYLC37kZfRMqCtkw\"\n  \n}",
+											"raw": "{\n    \"email\":\"olamide.adeleke.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n  \n}",
 											"options": {
 												"raw": {
 													"language": "json"
