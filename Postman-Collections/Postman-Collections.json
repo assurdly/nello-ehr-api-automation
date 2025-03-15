@@ -19828,7 +19828,7 @@
 							"name": "Authentication-ForgotPassword",
 							"item": [
 								{
-									"name": "Forgot- Successful-Successful",
+									"name": "Forgot- Successful",
 									"event": [
 										{
 											"listen": "test",
@@ -26835,7 +26835,7 @@
 							"name": "Authentication-ForgotPassword",
 							"item": [
 								{
-									"name": "Forgot- Successful-Successful",
+									"name": "Forgot- Successful",
 									"event": [
 										{
 											"listen": "test",
