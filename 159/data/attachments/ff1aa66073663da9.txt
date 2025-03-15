@@ -1,0 +1,14 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 404", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("Response status is failed", function () {
+    pm.expect(jsonData.status).to.eql("Failed");
+});
+
+pm.test("Failure message is correct", function () {
+    pm.expect(jsonData.error).to.eql("User not found");
+});
+
