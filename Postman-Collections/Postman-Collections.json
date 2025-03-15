@@ -20120,50 +20120,6 @@
 										"url": "{{host}}api/auth/forgot"
 									},
 									"response": []
-								},
-								{
-									"name": "Forgot Password - Email-Not-Registered Copy",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Incorrect email error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "c6860f41-fe04-4333-a1d9-605e1792c6fe",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/auth/forgot"
-									},
-									"response": []
 								}
 							],
 							"id": "0f784314-a978-4f68-81cb-3b3b2b13ff68"
@@ -27179,6 +27135,50 @@
 										"url": "{{host}}api/auth/forgot"
 									},
 									"response": []
+								},
+								{
+									"name": "Forgot Password - Email-Not-Registered",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Incorrect email error message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c6860f41-fe04-4333-a1d9-605e1792c6fe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
 								}
 							],
 							"id": "db6e471f-e9cb-402b-ae67-6289d34659f5"
@@ -29274,6 +29274,50 @@
 										"url": "{{host}}api/auth/forgot"
 									},
 									"response": []
+								},
+								{
+									"name": "Forgot Password - Email-Not-Registered",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Incorrect email error message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0496b0c9-5588-4ae0-a9a0-4cffe9468f30",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
 								}
 							],
 							"id": "ab3393b3-f12d-4758-ac36-388ce3bdecd3"
@@ -29317,7 +29361,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n}",
+											"raw": "{\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjA0MDkxNCwiZXhwIjoxNzQyMDY5NzE0fQ.8mvIMTb4cHMeNVQh3GbPLFQ-5SwL8AW9P360daZH1dI\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29467,7 +29511,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"olamide.adeleke@famacare.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n  \n}",
+											"raw": "{\n    \"email\":\"jude.ekigwe@famacare.com\",\n    \"password\":\"Famacare123**\",\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjA0MDkxNCwiZXhwIjoxNzQyMDY5NzE0fQ.8mvIMTb4cHMeNVQh3GbPLFQ-5SwL8AW9P360daZH1dI\"\n  \n}",
 											"options": {
 												"raw": {
 													"language": "json"
