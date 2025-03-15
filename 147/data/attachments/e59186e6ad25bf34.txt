@@ -1,5 +1,0 @@
-{
-    "generic_id" : "rtfon9",
-    "generic" : "Test"
-
-}

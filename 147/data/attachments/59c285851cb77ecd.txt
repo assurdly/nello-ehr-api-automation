@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"calculate Decentralized South navigate local","branch":null,"isActive":true,"_id":"67d424a4f3b2a79a7f39a6f6","createdAt":"2025-03-14T12:44:20.902Z","__v":0}}
