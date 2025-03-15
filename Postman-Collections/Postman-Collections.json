@@ -19698,7 +19698,7 @@
 													"    pm.expect(jsonData.error).to.eql(\"User not found\");\r",
 													"});\r",
 													"\r",
-													"//This would fail because the code did not cater for user not found, bug raised."
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -26652,7 +26652,7 @@
 													"    pm.expect(jsonData.token).to.be.a(\"string\").and.to.have.length.above(10);\r",
 													"    pm.expect(jsonData.user._id).to.be.a(\"string\");\r",
 													"    pm.expect(jsonData.user.isActive).to.be.true;\r",
-													"    pm.environment.set(\"auth_doctor\",jsonData.token)\r",
+													"    pm.environment.set(\"auth_Radiologist\",jsonData.token)\r",
 													"});\r",
 													""
 												],
@@ -26703,7 +26703,7 @@
 													"    pm.expect(jsonData.error).to.eql(\"User not found\");\r",
 													"});\r",
 													"\r",
-													"//This would fail because the code did not cater for user not found, bug raised."
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
