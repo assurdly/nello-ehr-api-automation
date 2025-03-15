@@ -28708,7 +28708,7 @@
 							"name": "Authntication-Login(ClinicalStaff)",
 							"item": [
 								{
-									"name": "Login(staff) - Doctor-Successful",
+									"name": "Login(staff) -Lab-Technician-Successful",
 									"event": [
 										{
 											"listen": "test",
@@ -28757,7 +28757,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor-NotFound",
+									"name": "Login(staff)- Lab-Technician-NotFound",
 									"event": [
 										{
 											"listen": "test",
@@ -28806,7 +28806,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor- InvalidEmail",
+									"name": "Login(staff)-Lab-Technician- InvalidEmail",
 									"event": [
 										{
 											"listen": "test",
@@ -28855,7 +28855,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor- InvalidPassword",
+									"name": "Login(staff)-Lab-Technician- InvalidPassword",
 									"event": [
 										{
 											"listen": "test",
