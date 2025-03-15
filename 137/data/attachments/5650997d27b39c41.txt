@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Forward Oklahoma throughput virtual","branch":null,"isActive":true,"_id":"67cc65a9f3b2a79a7f369dad","createdAt":"2025-03-08T15:43:37.523Z","__v":0}}
