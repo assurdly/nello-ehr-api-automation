@@ -27837,7 +27837,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
+												"value": "Bearer {{Radiologist_token}}",
 												"type": "text"
 											}
 										],
