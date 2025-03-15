@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"interactive virtual","branch":null,"isActive":true,"_id":"67cad8b5f3b2a79a7f35de0f","createdAt":"2025-03-07T11:29:57.281Z","__v":0}}
