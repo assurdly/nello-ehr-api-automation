@@ -1,5 +1,0 @@
-{   
-    "name":"Clothing compressing content-based Rustic",
-    "office_uuid":"vglk5m"
-}
-
