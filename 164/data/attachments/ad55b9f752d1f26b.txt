@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Planner Fantastic synthesizing","branch":null,"isActive":true,"_id":"67d57a69f3b2a79a7f3ea0c3","createdAt":"2025-03-15T13:02:33.559Z","__v":0}}
