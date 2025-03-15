@@ -1,4 +1,0 @@
-{
-    "code":"A00.0",
-    "name":"Cholera due to Vibrio cholerae 01, biovar cholerae"
-}
