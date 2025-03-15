@@ -29030,7 +29030,7 @@
 													"});\r",
 													"\r",
 													"pm.test(\"Correct error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"    pm.expect(jsonData.msg).to.eql(\"must be a valid email\");\r",
 													"});\r",
 													""
 												],
@@ -29048,7 +29048,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"raw": "{\n    \"email\":\"jude.ekigwe@famacare\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
