@@ -11707,7 +11707,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -19931,12 +19931,20 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
+													"pm.test(\"Status should be failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Correct error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"pm.test(\"Error array should exist\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").with.lengthOf(1);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error should contain correct details\", function () {\r",
+													"    var error = jsonData.error[0];\r",
+													"    pm.expect(error.type).to.eql(\"field\");\r",
+													"    pm.expect(error.msg).to.eql(\"must be a valid email\");\r",
+													"    pm.expect(error.path).to.eql(\"email\");\r",
+													"    pm.expect(error.location).to.eql(\"body\");\r",
 													"});\r",
 													""
 												],
@@ -19954,7 +19962,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"raw": "{\n    \"email\":\"morg+1@assurdly\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -26938,12 +26946,20 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
+													"pm.test(\"Status should be failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Correct error message is returned\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"pm.test(\"Error array should exist\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").with.lengthOf(1);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error should contain correct details\", function () {\r",
+													"    var error = jsonData.error[0];\r",
+													"    pm.expect(error.type).to.eql(\"field\");\r",
+													"    pm.expect(error.msg).to.eql(\"must be a valid email\");\r",
+													"    pm.expect(error.path).to.eql(\"email\");\r",
+													"    pm.expect(error.location).to.eql(\"body\");\r",
 													"});\r",
 													""
 												],
@@ -26961,7 +26977,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29025,12 +29041,20 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
+													"pm.test(\"Status should be failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Correct error message is returned\", function () {\r",
-													"    pm.expect(jsonData.msg).to.eql(\"must be a valid email\");\r",
+													"pm.test(\"Error array should exist\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").with.lengthOf(1);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error should contain correct details\", function () {\r",
+													"    var error = jsonData.error[0];\r",
+													"    pm.expect(error.type).to.eql(\"field\");\r",
+													"    pm.expect(error.msg).to.eql(\"must be a valid email\");\r",
+													"    pm.expect(error.path).to.eql(\"email\");\r",
+													"    pm.expect(error.location).to.eql(\"body\");\r",
 													"});\r",
 													""
 												],
