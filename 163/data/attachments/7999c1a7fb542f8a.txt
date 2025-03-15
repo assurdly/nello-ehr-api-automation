@@ -1,0 +1,23 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response contains investigations", function () {
+    pm.expect(jsonData.status).to.eql("success");
+    pm.expect(jsonData.investigations).to.be.an("array").and.to.have.length.above(0);
+});
+
+pm.test("Investigation details are valid", function () {
+    var investigation = jsonData.investigations[0];
+
+    pm.expect(investigation).to.be.an("object").and.to.not.be.null;
+    pm.expect(investigation._id).to.be.a("string").and.to.not.be.null;
+    pm.expect(investigation.type).to.be.a("string").and.to.not.be.null;
+    pm.expect(investigation.name).to.be.a("string").and.to.not.be.null;
+    pm.expect(investigation.price).to.be.a("number").and.to.be.above(0).and.to.not.be.null;
+    pm.expect(investigation.sponsor_uuid).to.be.a("string").and.to.not.be.null;
+    pm.expect(investigation.plan_code).to.be.a("string").and.to.not.be.null;
+    pm.expect(investigation.is_Active).to.be.a("boolean").and.to.not.be.null;
+});
