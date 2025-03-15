@@ -1,4 +1,0 @@
-{
-    "name":"synergies",
-    "office_uuid":"vglk5m"
-}

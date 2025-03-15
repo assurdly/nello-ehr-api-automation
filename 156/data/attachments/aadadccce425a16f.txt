@@ -1,4 +1,0 @@
-{
-    "code":"xdmhu",
-    "name":"Fever and cold"
-}
