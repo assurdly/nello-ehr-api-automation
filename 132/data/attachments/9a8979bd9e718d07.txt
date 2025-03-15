@@ -1,4 +1,0 @@
-{
-    "code":"zxqti",
-    "name":"Fever and cold"
-}
