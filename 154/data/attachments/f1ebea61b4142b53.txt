@@ -1,4 +1,0 @@
-{
-    "code":"xbymfk",
-    "name":"Fever and cold"
-}
