@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"deposit","_id":"67d580cff3b2a79a7f40e124","createdAt":"2025-03-15T13:29:51.119Z","__v":0}}
