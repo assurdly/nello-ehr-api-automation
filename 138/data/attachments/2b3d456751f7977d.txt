@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Monitored web","branch":null,"isActive":true,"_id":"67cc665cf3b2a79a7f36ca1e","createdAt":"2025-03-08T15:46:36.545Z","__v":0}}

@@ -1,5 +1,0 @@
-{   
-    "name":"Monitored web",
-    "office_uuid":"vglk5m"
-}
-
