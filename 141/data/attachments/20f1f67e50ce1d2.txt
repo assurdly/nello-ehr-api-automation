@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Regional Savings Investor","branch":null,"isActive":true,"_id":"67cc687cf3b2a79a7f375167","createdAt":"2025-03-08T15:55:40.765Z","__v":0}}
