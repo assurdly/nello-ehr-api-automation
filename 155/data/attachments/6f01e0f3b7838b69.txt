@@ -1,4 +1,0 @@
-{
-    "code":"ynaisb",
-    "name":"Fever and cold"
-}
