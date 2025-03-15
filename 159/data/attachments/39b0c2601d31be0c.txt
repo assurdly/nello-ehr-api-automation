@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Netherlands mobile Steel","branch":null,"isActive":true,"_id":"67d576d1f3b2a79a7f3d4485","createdAt":"2025-03-15T12:47:13.611Z","__v":0}}

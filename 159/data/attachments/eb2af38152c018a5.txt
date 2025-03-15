@@ -1,5 +1,0 @@
-{   
-    "name":"Netherlands mobile Steel",
-    "office_uuid":"vglk5m"
-}
-
