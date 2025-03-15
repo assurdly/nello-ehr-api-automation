@@ -1,8 +1,0 @@
-   {
-          
-            "name": "",
-            "type": "",
-            "phone": "",
-            "contact_email": "",
-            "contact_person": ""
-        }

@@ -1,0 +1,11 @@
+// var jsonData = pm.response.json();
+
+// pm.test("Response status code is 200", function () {
+//     pm.response.to.have.status(200);
+// });
+
+// pm.test("Role is deleted successfully", function () {
+//     pm.expect(jsonData.role.message).is.eql("Role deleted successfully");
+// });
+
+// Advised to leave delete endpoints
