@@ -1,5 +1,0 @@
-{   
-    "name":"Beauty Keyboard",
-    "office_uuid":"vglk5m"
-}
-
