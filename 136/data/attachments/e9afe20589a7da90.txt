@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Guinea invoice Usability Island","branch":null,"isActive":true,"_id":"67cc64ecf3b2a79a7f3675da","createdAt":"2025-03-08T15:40:28.043Z","__v":0}}
