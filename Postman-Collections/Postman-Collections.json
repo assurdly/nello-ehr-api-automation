@@ -1061,7 +1061,7 @@
 									"response": []
 								},
 								{
-									"name": "Forgot Password - Invalid Email",
+									"name": "Forgot Password - Email-Not-Registered",
 									"event": [
 										{
 											"listen": "test",
@@ -1094,6 +1094,58 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
+								},
+								{
+									"name": "Forgot Password - Invalid Email",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status should be failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error array should exist\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").with.lengthOf(1);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error should contain correct details\", function () {\r",
+													"    var error = jsonData.error[0];\r",
+													"    pm.expect(error.type).to.eql(\"field\");\r",
+													"    pm.expect(error.msg).to.eql(\"must be a valid email\");\r",
+													"    pm.expect(error.path).to.eql(\"email\");\r",
+													"    pm.expect(error.location).to.eql(\"body\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "8c76ff43-48ac-44b1-8af5-db9b21504116",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -11675,7 +11727,7 @@
 									"response": []
 								},
 								{
-									"name": "Forgot- InvalidEmail",
+									"name": "Forgot Password - Email-Not-Registered",
 									"event": [
 										{
 											"listen": "test",
@@ -11688,8 +11740,60 @@
 													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Correct error message is returned\", function () {\r",
+													"pm.test(\"Incorrect email error message is returned\", function () {\r",
 													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a750ce2c-be7a-46a5-bc24-1605f24a7c7c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
+								},
+								{
+									"name": "Forgot- InvalidEmail",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Status should be failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error array should exist\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"error\").that.is.an(\"array\").with.lengthOf(1);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Error should contain correct details\", function () {\r",
+													"    var error = jsonData.error[0];\r",
+													"    pm.expect(error.type).to.eql(\"field\");\r",
+													"    pm.expect(error.msg).to.eql(\"must be a valid email\");\r",
+													"    pm.expect(error.path).to.eql(\"email\");\r",
+													"    pm.expect(error.location).to.eql(\"body\");\r",
 													"});\r",
 													""
 												],
@@ -19963,6 +20067,94 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\n    \"email\":\"morg+1@assurdly\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
+								},
+								{
+									"name": "Forgot Password - Email-Not-Registered",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Incorrect email error message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3f94494e-72b9-40bb-ba48-4a8ee8f35c6d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/auth/forgot"
+									},
+									"response": []
+								},
+								{
+									"name": "Forgot Password - Email-Not-Registered Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1bc760f9-2837-4e8b-b6ff-efb9cdadd00b",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Incorrect email error message is returned\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Email not registered\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c6860f41-fe04-4333-a1d9-605e1792c6fe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"morg+1@assurdly.com\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
