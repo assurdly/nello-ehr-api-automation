@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Configuration orange","branch":null,"isActive":true,"_id":"67d41113f3b2a79a7f3872b9","createdAt":"2025-03-14T11:20:51.759Z","__v":0}}

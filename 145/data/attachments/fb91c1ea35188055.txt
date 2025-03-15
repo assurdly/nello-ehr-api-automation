@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Computers","_id":"67d41115f3b2a79a7f3872c1","createdAt":"2025-03-14T11:20:53.576Z","__v":0}}

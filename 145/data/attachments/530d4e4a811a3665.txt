@@ -1,1 +1,0 @@
-{"status":"failed","error":"Generic Id and Generic name are required"}

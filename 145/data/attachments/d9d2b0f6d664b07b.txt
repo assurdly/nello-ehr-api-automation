@@ -1,1 +1,0 @@
-{"status":"failed","error":"Code and name are required"}
