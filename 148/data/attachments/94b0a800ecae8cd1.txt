@@ -1,4 +1,0 @@
-{
-    "code":"iywint",
-    "name":"Fever and cold"
-}
