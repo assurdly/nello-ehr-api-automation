@@ -1,4 +1,0 @@
-{
-    "code":"vrfy",
-    "name":"Fever and cold"
-}
