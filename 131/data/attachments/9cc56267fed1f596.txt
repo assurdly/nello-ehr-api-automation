@@ -1,5 +1,0 @@
-{   
-    "name":"Oregon Pound full-range",
-    "office_uuid":"vglk5m"
-}
-

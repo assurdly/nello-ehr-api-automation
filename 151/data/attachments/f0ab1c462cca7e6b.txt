@@ -1,0 +1,32 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Response status is success", function () {
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+pm.test("Encounters list is not empty", function () {
+    pm.expect(jsonData.encounters).to.be.an('array').that.is.not.empty;
+});
+
+pm.test("Each encounter contains required fields", function () {
+    jsonData.encounters.forEach(encounter => {
+        pm.expect(encounter).to.have.property("uuid").that.is.a("string");
+        pm.expect(encounter).to.have.property("consultant").that.is.a("string");
+        pm.expect(encounter).to.have.property("status").that.is.a("string");
+        pm.expect(encounter).to.have.property("symptoms").that.is.an("array");
+        pm.expect(encounter).to.have.property("diagnosis").that.is.an("array");
+        pm.expect(encounter.vitals).to.have.property("weight").that.is.a("number");
+        pm.expect(encounter.vitals).to.have.property("height").that.is.a("number");
+    });
+});
+
+
+pm.test("Check payment policy is either 'cash' or 'claims'", function () {
+    jsonData.encounters.forEach(encounter => {
+        pm.expect(["cash", "claims"]).to.include(encounter.payment_policy);
+    });
+});
