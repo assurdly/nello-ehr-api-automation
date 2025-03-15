@@ -9535,7 +9535,7 @@
 									"response": []
 								},
 								{
-									"name": "Get otherservice by plan_code-NoCode",
+									"name": "Get otherservice by plan_code-NoToken",
 									"event": [
 										{
 											"listen": "test",
@@ -30878,7 +30878,7 @@
 									"response": []
 								},
 								{
-									"name": "Get otherservice by plan_code-NoCode",
+									"name": "Get otherservice by plan_code-NoToken",
 									"event": [
 										{
 											"listen": "test",
@@ -30993,7 +30993,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token_Invalid}}",
+												"value": "Bearer {{Lab_Technician_token_Invalid}}",
 												"type": "text"
 											}
 										],
@@ -31038,7 +31038,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
+												"value": "Bearer {{Lab_Technician_token}}",
 												"type": "text"
 											}
 										],
