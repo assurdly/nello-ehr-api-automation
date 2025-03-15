@@ -27014,7 +27014,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MTI3Njk0MywiZXhwIjoxNzQxMzA1NzQzfQ.mYufIeAzTC0cVLB-GTQohjtieRj_7m3X0K9Cp8__22c\"\n}",
+											"raw": "{\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -27113,7 +27113,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vcmdhbisxQGFzc3VyZGx5LmNvbSIsImlhdCI6MTczOTM5ODY3MiwiZXhwIjoxNzM5NDAyMjcyfQ.KJRwnZpofKKcNCx6B-s1nDRPp7VMYLC37kZfR\"\n}",
+											"raw": "{\n    \"token\":\"ciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
