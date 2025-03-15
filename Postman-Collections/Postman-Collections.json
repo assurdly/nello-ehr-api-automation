@@ -26633,7 +26633,7 @@
 							"name": "Authntication-Login(ClinicalStaff)",
 							"item": [
 								{
-									"name": "Login(staff) - Doctor-Successful",
+									"name": "Login(staff) - Radiologist-Successful",
 									"event": [
 										{
 											"listen": "test",
@@ -26682,7 +26682,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor-NotFound",
+									"name": "Login(staff)-Radiologist-NotFound",
 									"event": [
 										{
 											"listen": "test",
@@ -26731,7 +26731,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor- InvalidEmail",
+									"name": "Login(staff)-Radiologist- InvalidEmail",
 									"event": [
 										{
 											"listen": "test",
@@ -26780,7 +26780,7 @@
 									"response": []
 								},
 								{
-									"name": "Login(staff)- Doctor- InvalidPassword",
+									"name": "Login(staff)-Radiologist- InvalidPassword",
 									"event": [
 										{
 											"listen": "test",
