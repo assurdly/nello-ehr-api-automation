@@ -1,1 +1,0 @@
-{"status":"failed","error":"Status can only be 'awaiting billing', 'billed', or 'invoiced'"}
