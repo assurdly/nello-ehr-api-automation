@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Shoes Music","branch":null,"isActive":true,"_id":"67d9814ea29f5feef9e76826","createdAt":"2025-03-18T14:21:02.561Z","__v":0}}
