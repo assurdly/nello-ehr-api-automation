@@ -24330,7 +24330,7 @@
 							"name": "Get unique result ID",
 							"item": [
 								{
-									"name": "Get unique Result ID",
+									"name": "Get unique Result ID - Successful",
 									"event": [
 										{
 											"listen": "test",
@@ -24657,7 +24657,7 @@
 							"name": "Get result by UUID",
 							"item": [
 								{
-									"name": "Get results associated with an encounter (uuid)",
+									"name": "Get results associated with an encounter (uuid) -Successful",
 									"event": [
 										{
 											"listen": "test",
@@ -24717,7 +24717,7 @@
 									"response": []
 								},
 								{
-									"name": "Get results associated with an encounter (uuid) Copy",
+									"name": "Get results associated with an encounter (uuid)-Invalid-Token",
 									"event": [
 										{
 											"listen": "test",
@@ -24726,21 +24726,12 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
 													"});\r",
 													""
 												],
@@ -24758,7 +24749,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
+												"value": "Bearer {{doctor_token_Invalid}}",
 												"type": "text"
 											}
 										],
@@ -24767,7 +24758,7 @@
 									"response": []
 								},
 								{
-									"name": "Get results associated with an encounter (uuid) Copy",
+									"name": "Get results associated with an encounter (uuid)-Expired-Token",
 									"event": [
 										{
 											"listen": "test",
@@ -24776,21 +24767,12 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 													"});\r",
 													""
 												],
@@ -24808,7 +24790,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
+												"value": "Bearer {{ExpiredToken}}",
 												"type": "text"
 											}
 										],
@@ -24817,7 +24799,7 @@
 									"response": []
 								},
 								{
-									"name": "Get results associated with an encounter (uuid) Copy",
+									"name": "Get results associated with an encounter (uuid)-NoToken",
 									"event": [
 										{
 											"listen": "test",
@@ -24826,21 +24808,12 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
 													"});\r",
 													""
 												],
@@ -24858,8 +24831,9 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
+												"value": "",
+												"type": "text",
+												"disabled": true
 											}
 										],
 										"url": "{{host}}api/result/encounter/9E9E9F56"
@@ -24867,7 +24841,7 @@
 									"response": []
 								},
 								{
-									"name": "Get results associated with an encounter (uuid) Copy",
+									"name": "Get results associated with an encounter (uuid)- Unauthorized-role",
 									"event": [
 										{
 											"listen": "test",
