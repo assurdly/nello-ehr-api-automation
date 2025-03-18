@@ -1,0 +1,4 @@
+{
+    "code":"u21b0r",
+    "name":"Fever and cold"
+}

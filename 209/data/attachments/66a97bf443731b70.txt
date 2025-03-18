@@ -1,4 +1,0 @@
-{
-    "code":"apnd71e",
-    "name":"Fever and cold"
-}
