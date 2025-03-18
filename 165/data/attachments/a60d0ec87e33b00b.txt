@@ -1,5 +1,0 @@
-{   
-    "name":"Direct fuchsia Metal",
-    "office_uuid":"vglk5m"
-}
-
