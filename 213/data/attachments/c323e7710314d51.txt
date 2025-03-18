@@ -1,5 +1,0 @@
-{   
-    "name":"Djibouti deposit RAM",
-    "office_uuid":"vglk5m"
-}
-

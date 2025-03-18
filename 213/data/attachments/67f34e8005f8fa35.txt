@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Djibouti deposit RAM","branch":null,"isActive":true,"_id":"67d96cdba29f5feef9e2d485","createdAt":"2025-03-18T12:53:47.539Z","__v":0}}

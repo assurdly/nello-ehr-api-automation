@@ -1,0 +1,11 @@
+{
+    "Server": "nginx/1.24.0 (Ubuntu)",
+    "Date": "Tue, 18 Mar 2025 14:36:36 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Content-Length": "142155",
+    "Connection": "keep-alive",
+    "X-Powered-By": "Express",
+    "Vary": "Origin",
+    "Access-Control-Allow-Credentials": "true",
+    "ETag": "W/\"22b4b-GO9nEPKLifLtqpYGSJZ7Tboshhg\""
+}
