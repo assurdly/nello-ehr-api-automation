@@ -1,5 +1,0 @@
-{
-    "generic_id" : "x15ohw",
-    "generic" : "Test"
-
-}

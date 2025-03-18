@@ -1,5 +1,0 @@
-{   
-    "name":"North haptic Bedfordshire bluetooth Hryvnia",
-    "office_uuid":"vglk5m"
-}
-

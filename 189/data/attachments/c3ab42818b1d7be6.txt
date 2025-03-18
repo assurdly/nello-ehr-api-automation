@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"North haptic Bedfordshire bluetooth Hryvnia","branch":null,"isActive":true,"_id":"67d953daa29f5feef9dc7352","createdAt":"2025-03-18T11:07:06.039Z","__v":0}}
