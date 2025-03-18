@@ -27754,7 +27754,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"501FED88\",\n  \"userType\": \"Lab Technician\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Blood Group\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"jude.ekigwe@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
