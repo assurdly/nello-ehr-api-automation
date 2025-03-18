@@ -27738,7 +27738,7 @@
 					"name": "Investigation",
 					"item": [
 						{
-							"name": "Add result Copy",
+							"name": "Add result",
 							"id": "69b92868-846c-4288-98a9-df780b04b180",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -27748,7 +27748,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjI3MTk1NCwiZXhwIjoxNzQyMzAwNzU0fQ.cGrH5HT8zoxfwi0u3XnNpMjG1vppZHCRzX5sFm5Cp6k",
+										"value": "Bearer {{Radiologist_token}}",
 										"type": "text"
 									}
 								],
