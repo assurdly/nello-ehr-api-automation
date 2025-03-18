@@ -1,5 +1,0 @@
-{   
-    "name":"reboot Georgia",
-    "office_uuid":"vglk5m"
-}
-

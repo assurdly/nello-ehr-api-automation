@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"reboot Georgia","branch":null,"isActive":true,"_id":"67d5c3c9f3b2a79a7f422ff2","createdAt":"2025-03-15T18:15:37.887Z","__v":0}}
