@@ -24887,7 +24887,7 @@
 									"response": []
 								},
 								{
-									"name": "Get results associated with an encounter (uuid) Copy",
+									"name": "Get results associated with an encounter (uuid)-NotFound",
 									"event": [
 										{
 											"listen": "test",
@@ -24896,18 +24896,17 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response status code is 400\", function () {\r",
-													"    pm.response.to.have.status(400);\r",
+													"pm.test(\"Response status code is 404\", function () {\r",
+													"    pm.response.to.have.status(404);\r",
 													"});\r",
 													"\r",
 													"pm.test(\"Response status is 'failed'\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error message is 'Invalid id format'\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"Invalid id format\");\r",
+													"pm.test(\"Error message is 'result not found'\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"Encounter not found\");\r",
 													"});\r",
-													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -24928,57 +24927,7 @@
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/result/encounter/9E9E9F57"
-									},
-									"response": []
-								},
-								{
-									"name": "Get results associated with an encounter (uuid) Copy",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "147f0825-175a-40a7-b3a9-6827f187b9bf",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
-												"type": "text"
-											}
-										],
-										"url": "{{host}}api/result/encounter/9E9E9F56"
+										"url": "{{host}}api/result/encounter/9A9E9F5"
 									},
 									"response": []
 								}
