@@ -27832,7 +27832,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"9E9E9F56\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"71467C3A\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"\",\n    \"notes\": \"\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
