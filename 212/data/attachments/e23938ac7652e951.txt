@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Cordoba Franc Loan","branch":null,"isActive":true,"_id":"67d96c1ca29f5feef9e29229","createdAt":"2025-03-18T12:50:36.783Z","__v":0}}

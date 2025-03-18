@@ -1,4 +1,0 @@
-{
-    "code":"x8cwi",
-    "name":"Fever and cold"
-}
