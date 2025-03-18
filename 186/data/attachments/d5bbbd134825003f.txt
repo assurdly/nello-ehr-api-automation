@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"bandwidth Consultant Chicken Practical","branch":null,"isActive":true,"_id":"67d94ffaa29f5feef9dbc208","createdAt":"2025-03-18T10:50:34.473Z","__v":0}}
