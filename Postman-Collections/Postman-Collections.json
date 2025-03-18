@@ -24850,22 +24850,18 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Access denied message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"User email and role has the unauthorized staff details\", function () {\r",
+													"    pm.expect(jsonData.user.role).to.be.a(\"string\");\r",
 													"});\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -24882,7 +24878,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{doctor_token}}",
+												"value": "Bearer {{receptionist _token}}",
 												"type": "text"
 											}
 										],
@@ -24900,22 +24896,18 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response status is 'failed'\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"Error message is 'Invalid id format'\", function () {\r",
+													"    pm.expect(jsonData.error).to.eql(\"Invalid id format\");\r",
 													"});\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -24936,7 +24928,7 @@
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/result/encounter/9E9E9F56"
+										"url": "{{host}}api/result/encounter/9E9E9F57"
 									},
 									"response": []
 								},
