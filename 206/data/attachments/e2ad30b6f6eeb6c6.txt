@@ -1,0 +1,14 @@
+{
+  "encounterUuid": "9E9E9F56",
+  "userType": "Radiologist",
+  "testType": "Pathology Investigations",
+  "testDetails": {
+    "testName": "LUMBAR SPINE X RAY",
+    "sampleType": "Bloo"
+  },
+  "results": {
+    "resultFile": "https://example.com/reports/cbc_12345.pdf",
+    "notes":"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>"
+  },
+  "uploadedBy": "olamide.adeleke@famacare.com"
+}

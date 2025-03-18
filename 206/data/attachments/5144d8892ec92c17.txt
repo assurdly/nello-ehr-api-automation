@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Corporate lavender Islands Democratic","branch":null,"isActive":true,"_id":"67d96783a29f5feef9e0ff10","createdAt":"2025-03-18T12:30:59.603Z","__v":0}}
