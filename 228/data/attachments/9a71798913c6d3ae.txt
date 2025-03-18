@@ -1,0 +1,4 @@
+{
+    "code":"0h22s",
+    "name":"Fever and cold"
+}

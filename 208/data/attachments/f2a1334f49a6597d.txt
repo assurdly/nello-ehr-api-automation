@@ -1,4 +1,0 @@
-{
-    "code":"rbhlm4",
-    "name":"Fever and cold"
-}

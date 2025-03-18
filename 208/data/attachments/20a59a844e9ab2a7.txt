@@ -1,5 +1,0 @@
-{   
-    "name":"wireless Granite Parkways azure Indian",
-    "office_uuid":"vglk5m"
-}
-
