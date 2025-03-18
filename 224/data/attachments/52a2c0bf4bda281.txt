@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Functionality Dynamic","branch":null,"isActive":true,"_id":"67d97527a29f5feef9e5c0b4","createdAt":"2025-03-18T13:29:11.984Z","__v":0}}
