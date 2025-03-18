@@ -27739,6 +27739,28 @@
 					"item": [
 						{
 							"name": "Add result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Result added successfully\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "69b92868-846c-4288-98a9-df780b04b180",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -27754,7 +27776,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
