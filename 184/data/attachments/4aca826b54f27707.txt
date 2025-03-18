@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"quantify global","branch":null,"isActive":true,"_id":"67d94ceaa29f5feef9db32d9","createdAt":"2025-03-18T10:37:30.955Z","__v":0}}

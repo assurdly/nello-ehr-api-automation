@@ -1,4 +1,0 @@
-{
-    "code":"dcvy3s",
-    "name":"Fever and cold"
-}
