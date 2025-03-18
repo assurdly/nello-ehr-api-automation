@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Account Designer function Strategist Developer","branch":null,"isActive":true,"_id":"67d579a8f3b2a79a7f3e5a38","createdAt":"2025-03-15T12:59:20.284Z","__v":0}}
