@@ -1,4 +1,0 @@
-{
-    "name":"withdrawal",
-    "office_uuid":"vglk5m"
-}
