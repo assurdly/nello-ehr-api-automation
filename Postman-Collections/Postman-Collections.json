@@ -24327,10 +24327,10 @@
 							"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
 						},
 						{
-							"name": "Get unique result",
+							"name": "Get unique result ID",
 							"item": [
 								{
-									"name": "Get unique Result",
+									"name": "Get unique Result ID",
 									"id": "78a8f2a1-8f1e-435c-a920-e65d6c4787fd",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -24340,11 +24340,11 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
+												"value": "Bearer {{doctor_token}}",
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/result/unique/67d9036a5229881c14dde762"
+										"url": "{{host}}api/result/unique/67d95cc0a29f5feef9de512e"
 									},
 									"response": []
 								}
@@ -24365,11 +24365,11 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
+												"value": "Bearer {{doctor_token}}",
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/result/encounter/501FED88"
+										"url": "{{host}}api/result/encounter/9E9E9F56"
 									},
 									"response": []
 								}
