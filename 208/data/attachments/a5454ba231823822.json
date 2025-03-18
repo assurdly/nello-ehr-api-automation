@@ -1,0 +1,10 @@
+{
+    "Authorization": "Bearer {{Lab_Technician_token_Invalid}}",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "6be69b39-f128-47a6-b3ec-a62bf59d0792",
+    "Host": "testback.famacare.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

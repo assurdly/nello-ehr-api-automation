@@ -1,4 +1,0 @@
-{
-    "code":"wsnfz",
-    "name":"Fever and cold"
-}

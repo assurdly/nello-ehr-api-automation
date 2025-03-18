@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"connecting Granite national foreground","branch":null,"isActive":true,"_id":"67d95185a29f5feef9dc3206","createdAt":"2025-03-18T10:57:09.852Z","__v":0}}
