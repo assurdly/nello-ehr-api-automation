@@ -1,5 +1,0 @@
-{   
-    "name":"scalable parsing Soft Account harness",
-    "office_uuid":"vglk5m"
-}
-
