@@ -1,1 +1,0 @@
-{"message":"Access denied: Doctors only","user":{"email":"chukemeka@famacare.com","role":"Super Admin","iat":1742298352,"exp":1742327152}}

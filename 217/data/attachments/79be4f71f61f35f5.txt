@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"interfaces Incredible Concrete Implementation","branch":null,"isActive":true,"_id":"67d96fd2a29f5feef9e3c893","createdAt":"2025-03-18T13:06:26.760Z","__v":0}}
