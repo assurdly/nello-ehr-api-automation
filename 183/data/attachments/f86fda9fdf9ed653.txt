@@ -1,4 +1,0 @@
-{
-    "name":"Global",
-    "office_uuid":"vglk5m"
-}
