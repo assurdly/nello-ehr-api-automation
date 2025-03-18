@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Via deposit AGP Dram","branch":null,"isActive":true,"_id":"67d949f3a29f5feef9da67b0","createdAt":"2025-03-18T10:24:51.519Z","__v":0}}

@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Cyprus Buckinghamshire","branch":null,"isActive":true,"_id":"67d57841f3b2a79a7f3dd79e","createdAt":"2025-03-15T12:53:21.725Z","__v":0}}
