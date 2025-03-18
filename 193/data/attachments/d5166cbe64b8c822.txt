@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"invoice","_id":"67d95a05a29f5feef9dd6e82","createdAt":"2025-03-18T11:33:25.345Z","__v":0}}

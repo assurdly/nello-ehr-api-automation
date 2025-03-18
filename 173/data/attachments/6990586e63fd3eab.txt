@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"RSS Views override deposit","branch":null,"isActive":true,"_id":"67d580cdf3b2a79a7f40e11c","createdAt":"2025-03-15T13:29:49.482Z","__v":0}}

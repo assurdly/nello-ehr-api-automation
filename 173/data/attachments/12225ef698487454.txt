@@ -1,4 +1,0 @@
-{
-    "code":"uusuv5",
-    "name":"Fever and cold"
-}
