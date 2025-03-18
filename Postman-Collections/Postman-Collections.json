@@ -24380,7 +24380,7 @@
 									"response": []
 								},
 								{
-									"name": "Get unique Result ID Copy",
+									"name": "Get unique Result ID-Unauthorized-role",
 									"event": [
 										{
 											"listen": "test",
@@ -24389,22 +24389,18 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Access denied message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Access denied: Doctors only\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.result._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.result.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.result.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.result.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.result.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.result.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"User email and role has the unauthorized staff details\", function () {\r",
+													"    pm.expect(jsonData.user.role).to.be.a(\"string\");\r",
 													"});\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -24475,7 +24471,7 @@
 												"type": "text"
 											}
 										],
-										"url": "{{host}}api/result/unique/67d966c3a29f5feef9e0a7fd"
+										"url": "{{host}}api/result/unique/67d966c3a29f5fee"
 									},
 									"response": []
 								},
