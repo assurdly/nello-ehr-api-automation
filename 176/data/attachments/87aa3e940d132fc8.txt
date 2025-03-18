@@ -1,5 +1,0 @@
-{   
-    "name":"best-of-breed copy 24/7",
-    "office_uuid":"vglk5m"
-}
-

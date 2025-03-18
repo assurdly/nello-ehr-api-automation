@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Soft","_id":"67d582f1f3b2a79a7f41871c","createdAt":"2025-03-15T13:38:57.245Z","__v":0}}
