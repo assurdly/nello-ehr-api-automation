@@ -24327,14 +24327,54 @@
 							"id": "d0eeba15-91b1-41f5-9a5d-dcba6162a01b"
 						},
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "13a529b1-e810-46f9-911a-946d9c296e29"
+							"name": "Get unique result",
+							"item": [
+								{
+									"name": "Get unique Result",
+									"id": "78a8f2a1-8f1e-435c-a920-e65d6c4787fd",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/unique/67d9036a5229881c14dde762"
+									},
+									"response": []
+								}
+							],
+							"id": "fde755f3-eb2f-4455-89e3-b310aa2c877b"
 						},
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "fde755f3-eb2f-4455-89e3-b310aa2c877b"
+							"name": "Get result by UUID",
+							"item": [
+								{
+									"name": "Get results associated with an encounter (uuid)",
+									"id": "bd5301d2-9100-4003-87a8-bf5eb0625277",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/501FED88"
+									},
+									"response": []
+								}
+							],
+							"id": "13a529b1-e810-46f9-911a-946d9c296e29"
 						}
 					],
 					"id": "2ea56140-57f5-420c-bb7a-e9b33b216b4d"
@@ -26783,44 +26823,6 @@
 						}
 					],
 					"id": "a7983ea5-7c5c-48fb-82d5-e6dcaf01a1fe"
-				},
-				{
-					"name": "Get results associated with an encounter (uuid) Copy",
-					"id": "bd5301d2-9100-4003-87a8-bf5eb0625277",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}api/result/encounter/501FED88"
-					},
-					"response": []
-				},
-				{
-					"name": "Get unique Result Copy",
-					"id": "78a8f2a1-8f1e-435c-a920-e65d6c4787fd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh1bXBoZXJ5LmFueWFud3VAZmFtYWNhcmUuY29tIiwicm9sZSI6IkRvY3RvciIsImlhdCI6MTc0MjI3NjMwMCwiZXhwIjoxNzQyMzA1MTAwfQ.t29GyYpA5Utbas_Yr6LNJrzS0bKnorrjial5ew47YBw",
-								"type": "text"
-							}
-						],
-						"url": "{{host}}api/result/unique/67d9036a5229881c14dde762"
-					},
-					"response": []
 				}
 			],
 			"id": "e99a0d7c-5c7a-462f-8d2f-25c757494caa"
