@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Chad programming fuchsia Slovakia","branch":null,"isActive":true,"_id":"67d58180f3b2a79a7f411825","createdAt":"2025-03-15T13:32:48.013Z","__v":0}}
