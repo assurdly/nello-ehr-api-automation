@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Rustic brand Usability architectures","branch":null,"isActive":true,"_id":"67d57dfef3b2a79a7f3feb2a","createdAt":"2025-03-15T13:17:50.454Z","__v":0}}

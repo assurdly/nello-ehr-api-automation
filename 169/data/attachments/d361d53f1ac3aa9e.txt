@@ -1,6 +1,0 @@
-{
-    "email":"olamide.adeleke@famacare.com",
-    "password":"Famacare123**",
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9sYW1pZGUuYWRlbGVrZUBmYW1hY2FyZS5jb20iLCJyb2xlIjoiUmFkaW9sb2dpc3QiLCJpYXQiOjE3NDIwNDA5NTYsImV4cCI6MTc0MjA2OTc1Nn0.Tlaio-ABEFcdQQIlhVfDdrQhrfQ2JyO5yHpQtD5StUI"
-  
-}

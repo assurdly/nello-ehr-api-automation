@@ -1,0 +1,4 @@
+{
+    "code":"ntvkzt",
+    "name":"Fever and cold"
+}
