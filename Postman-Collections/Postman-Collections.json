@@ -27788,7 +27788,7 @@
 							"response": []
 						},
 						{
-							"name": "Add result Copy",
+							"name": "Add result-Invalid-Token",
 							"event": [
 								{
 									"listen": "test",
@@ -27797,12 +27797,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Result added successfully\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"pm.test(\"Response body contains error message\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
 											"});\r",
 											""
 										],
@@ -27820,7 +27820,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{Radiologist_token}}",
+										"value": "Bearer {{Radiologist_token_Invalid}}",
 										"type": "text"
 									}
 								],
@@ -27847,12 +27847,12 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
-											"pm.test(\"Status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Result added successfully\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 											"});\r",
 											""
 										],
@@ -27870,7 +27870,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{Radiologist_token}}",
+										"value": "Bearer {{ExpiredToken}}",
 										"type": "text"
 									}
 								],
