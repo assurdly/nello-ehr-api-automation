@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"monitor","_id":"67d96785a29f5feef9e0ff1b","createdAt":"2025-03-18T12:31:01.432Z","__v":0}}

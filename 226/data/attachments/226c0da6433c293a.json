@@ -1,0 +1,12 @@
+{
+    "Authorization": "Bearer {{Lab_Technician_token}}",
+    "Content-Type": "application/json",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "c155d4cc-f8c6-4d75-80da-3548aaf9a739",
+    "Host": "testback.famacare.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "348"
+}

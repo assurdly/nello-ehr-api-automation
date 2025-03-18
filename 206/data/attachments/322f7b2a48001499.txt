@@ -1,5 +1,0 @@
-{   
-    "name":"Corporate lavender Islands Democratic",
-    "office_uuid":"vglk5m"
-}
-
