@@ -27747,6 +27747,9 @@
 										"exec": [
 											"var jsonData = pm.response.json();\r",
 											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
 											"pm.test(\"Status is success\", function () {\r",
 											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
 											"});\r",
