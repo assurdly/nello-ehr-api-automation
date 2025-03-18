@@ -27779,7 +27779,60 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-TestName-Required",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Result added successfully\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "2df9030d-53ab-4c12-9fdb-e86dc60236f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27968,7 +28021,7 @@
 											"    pm.response.to.have.status(400);\r",
 											"});\r",
 											"\r",
-											"pm.test(\"Status message is correct\", function () {\r",
+											"pm.test(\"testName must be unique\", function () {\r",
 											"    pm.expect(jsonData.message).to.eql(\"A result with this encounterUuid and testName already exists.\");\r",
 											"});\r",
 											"\r",
