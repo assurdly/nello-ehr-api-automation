@@ -1,5 +1,0 @@
-{   
-    "name":"olive end-to-end",
-    "office_uuid":"vglk5m"
-}
-

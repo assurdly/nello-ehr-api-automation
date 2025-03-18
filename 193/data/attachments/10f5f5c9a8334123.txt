@@ -1,4 +1,0 @@
-{
-    "code":"zgbmlp",
-    "name":"Fever and cold"
-}

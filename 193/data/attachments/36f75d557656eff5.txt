@@ -1,4 +1,0 @@
-{
-    "code":"wgpog",
-    "name":"Fever and cold"
-}
