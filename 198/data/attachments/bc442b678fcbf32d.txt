@@ -1,5 +1,0 @@
-{   
-    "name":"Investment Ranch",
-    "office_uuid":"vglk5m"
-}
-

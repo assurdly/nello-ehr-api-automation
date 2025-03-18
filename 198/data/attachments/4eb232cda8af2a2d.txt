@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Investment Ranch","branch":null,"isActive":true,"_id":"67d95db4a29f5feef9decc54","createdAt":"2025-03-18T11:49:08.907Z","__v":0}}
