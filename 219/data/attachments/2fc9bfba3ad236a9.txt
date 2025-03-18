@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Loan panel Nevada Wisconsin dynamic","branch":null,"isActive":true,"_id":"67d97160a29f5feef9e46879","createdAt":"2025-03-18T13:13:04.576Z","__v":0}}

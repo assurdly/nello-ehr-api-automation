@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"quantifying invoice plum connect","branch":null,"isActive":true,"_id":"67d95f46a29f5feef9df10ca","createdAt":"2025-03-18T11:55:50.905Z","__v":0}}

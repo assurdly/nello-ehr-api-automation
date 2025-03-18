@@ -1,0 +1,4 @@
+{
+    "code":"cnv6ok",
+    "name":"Fever and cold"
+}
