@@ -24339,21 +24339,31 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response status is success\", function () {\r",
+													"pm.test(\"Response status is 'success'\", function () {\r",
 													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Validate response fields\", function () {\r",
-													"    pm.expect(jsonData.result._id).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.result.encounterUuid).to.be.a(\"string\");\r",
-													"    pm.expect(jsonData.result.userType).to.be.a('string');\r",
-													"    pm.expect(jsonData.result.testType).to.be.a('string');\r",
-													"    pm.expect(jsonData.result.status).to.eql('completed');\r",
-													"    pm.expect(jsonData.result.uploadedBy).to.be.a('string');\r",
+													"pm.test(\"Test details are valid\", function () {\r",
+													"    pm.expect(jsonData.result.testDetails.testName).to.not.be.empty;\r",
+													"    pm.expect(jsonData.result.testDetails.sampleType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.result.testDetails.description).to.be.null;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Results are valid\", function () {\r",
+													"    pm.expect(jsonData.result.results.resultFile).to.include(\"https://\");\r",
+													"    pm.expect(jsonData.result.results.notes).to.be.a('string');\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User details are valid\", function () {\r",
+													"    pm.expect(jsonData.result.userType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.result.testType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.result.status).to.eql(\"completed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Timestamps and version are valid\", function () {\r",
+													"    pm.expect(jsonData.result.createdAt).to.not.be.null;\r",
+													"    pm.expect(jsonData.result.updatedAt).to.not.be.null;\r",
+													"    pm.expect(jsonData.result.__v).to.eql(0);\r",
 													"});\r",
 													""
 												],
@@ -24656,6 +24666,66 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
+													"pm.test(\"Response status is 'success'\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Test details are valid\", function () {\r",
+													"    pm.expect(jsonData.results[0].testDetails.testName).to.not.be.empty;\r",
+													"    pm.expect(jsonData.results[0].testDetails.sampleType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.results[0].testDetails.description).to.be.null;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Results are valid\", function () {\r",
+													"    pm.expect(jsonData.results[0].results.resultFile).to.include(\"https://\");\r",
+													"    pm.expect(jsonData.results[0].results.notes).to.be.a('string');\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User details are valid\", function () {\r",
+													"    pm.expect(jsonData.results[0].userType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.results[0].testType).to.not.be.empty;\r",
+													"    pm.expect(jsonData.results[0].status).to.eql(\"completed\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Timestamps and version are valid\", function () {\r",
+													"    pm.expect(jsonData.results[0].createdAt).to.not.be.null;\r",
+													"    pm.expect(jsonData.results[0].updatedAt).to.not.be.null;\r",
+													"    pm.expect(jsonData.results[0].__v).to.eql(0);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bd5301d2-9100-4003-87a8-bf5eb0625277",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
 													"pm.test(\"Response code is 200\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
@@ -24679,7 +24749,257 @@
 											}
 										}
 									],
-									"id": "bd5301d2-9100-4003-87a8-bf5eb0625277",
+									"id": "470f6302-df9a-4d5f-b683-d2f8722436fa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "01947ffd-9cb7-4002-9d52-bf262f0350fb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bb4e1cba-5a76-4d04-8173-88bb9b05a81b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "22c69c04-823e-406a-82b9-decd70c81271",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "1f44ea9f-c33f-47e9-97e6-940cdd1c8f61",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/encounter/9E9E9F56"
+									},
+									"response": []
+								},
+								{
+									"name": "Get results associated with an encounter (uuid) Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.results._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.results.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.results.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.resulst.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "147f0825-175a-40a7-b3a9-6827f187b9bf",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
