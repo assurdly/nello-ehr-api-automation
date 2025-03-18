@@ -30499,7 +30499,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"9E9E9F56\",\n  \"userType\": \"Lab Technician\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Fasting Blood Glucose(FBS)\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"jude.ekigwe@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30534,13 +30534,13 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{Radiologist_token}}",
+										"value": "Bearer {{Lab_Technician_token}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"F5C0EA05\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"musa.adeleke@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"F5C0EA05\",\n  \"userType\": \"Lab Technician\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Fasting Blood Glucose(FBS)\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"kan.ekigwe@famacare.com\"\n}\n\n",
 									"options": {
 										"raw": {
 											"language": "json"
