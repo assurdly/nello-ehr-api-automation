@@ -1,4 +1,0 @@
-{
-    "code":"lpehpc",
-    "name":"Fever and cold"
-}

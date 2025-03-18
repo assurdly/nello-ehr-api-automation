@@ -1,9 +1,0 @@
-var jsonData = pm.response.json();
-
-pm.test("Response code is 400", function () {
-    pm.response.to.have.status(400);
-});
-
-pm.test("Correct error message is returned", function () {
-    pm.expect(jsonData.msg).to.eql("must be a valid email");
-});
