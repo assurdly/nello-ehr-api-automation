@@ -30458,8 +30458,33 @@
 					"name": "Investigation",
 					"item": [
 						{
-							"name": "Add result Copy",
-							"id": "4765766f-27d7-4cf4-869b-216ed97965fc",
+							"name": "Add result",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Result added successfully\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "35d4d8dc-f2bc-411f-92c5-643a5a640e54",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30468,13 +30493,535 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjI3MTk1NCwiZXhwIjoxNzQyMzAwNzU0fQ.cGrH5HT8zoxfwi0u3XnNpMjG1vppZHCRzX5sFm5Cp6k",
+										"value": "Bearer {{Radiologist_token}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"encounterUuid\": \"501FED88\",\n  \"userType\": \"Lab Technician\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Blood Group\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"jude.ekigwe@famacare.com\"\n}\n",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Wrong-uploadedBy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"//This would be update when bug is fixed "
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "9cfa65db-ea50-4a4c-9a01-22bec21ff6ea",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"F5C0EA05\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"musa.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-TestName-Required",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message is correct\", function () {\r",
+											"    pm.expect(jsonData.error[0].msg).to.eql(\"Test name is required\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error path is correct\", function () {\r",
+											"    pm.expect(jsonData.error[0].path).to.eql(\"testDetails.testName\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6988d963-078a-459a-b3a2-54827e27ec03",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Notes-Required",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Status is success\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Result added successfully\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d6881eca-4435-4a6b-a6f4-12d2ab2b2857",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"71467C3A\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"\",\n    \"notes\": \"\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Unauthorized-testType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message is correct\", function () {\r",
+											"    pm.expect(jsonData.error).to.eql(\"Radiologist cannot add Pathology Investigations result\");\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "d0e9d236-69ae-4009-a5fe-ca0009931867",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"9E9E9F56\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\":\"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\"//please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Encounter-NotFound",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response code is 404\", function () {\r",
+											"    pm.response.to.have.status(404);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message displays encounter not found\", function () {\r",
+											"    pm.expect(jsonData.error).to.eql(\"Encounter not found\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "12e99b7f-04c6-4b98-87b8-91a5292d6aba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"5189\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Bloo\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Unique-TestName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"testName must be unique\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"A result with this encounterUuid and testName already exists.\");\r",
+											"});\r",
+											"\r",
+											"//This error message would be flagged if the testName is the same as the previously added, the testName must be unique"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "1f46640e-f567-4a6e-9dae-361e51a952f9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Unauthorized-role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 403\", function () {\r",
+											"    pm.response.to.have.status(403);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Access denied message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Access denied: Lab Technician or Radiologist only\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"User email and role has the unauthorized staff details\", function () {\r",
+											"    pm.expect(jsonData.user.role).to.be.a(\"string\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c4c72630-37b4-4c97-bbf7-1b74b3010039",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{receptionist _token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-Invalid-Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains error message\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "307821f3-53b9-4ac0-acbf-085543a726f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token_Invalid}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"960F0E61\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result- Expired-Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Token expiration message is correct\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "fcb66f41-f19c-471b-b696-2b45c3746c3e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{ExpiredToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-NoToken",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response message indicates missing token\", function () {\r",
+											"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "175b1554-db94-4c47-a3dc-da122ee99287",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"X RAY CHEST PA\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30486,7 +31033,7 @@
 							"response": []
 						}
 					],
-					"id": "99e26e84-cebf-4c8e-b086-93dfcabcd0e6"
+					"id": "c82eb629-0a21-4332-9a3b-1f02240aa92c"
 				},
 				{
 					"name": "Services",
