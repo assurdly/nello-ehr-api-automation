@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Berkshire Customer Czech","branch":null,"isActive":true,"_id":"67d963cca29f5feef9e01c96","createdAt":"2025-03-18T12:15:08.633Z","__v":0}}

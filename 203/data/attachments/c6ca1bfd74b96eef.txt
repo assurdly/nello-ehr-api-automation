@@ -1,5 +1,0 @@
-{   
-    "name":"Berkshire Customer Czech",
-    "office_uuid":"vglk5m"
-}
-
