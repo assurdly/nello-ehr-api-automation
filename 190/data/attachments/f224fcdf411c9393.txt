@@ -1,5 +1,0 @@
-{   
-    "name":"Kansas haptic communities Central sensor",
-    "office_uuid":"vglk5m"
-}
-

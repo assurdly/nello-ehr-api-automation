@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Kansas haptic communities Central sensor","branch":null,"isActive":true,"_id":"67d95498a29f5feef9dca8f8","createdAt":"2025-03-18T11:10:16.643Z","__v":0}}
