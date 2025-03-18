@@ -1,4 +1,0 @@
-{
-    "code":"a9cpv",
-    "name":"Fever and cold"
-}
