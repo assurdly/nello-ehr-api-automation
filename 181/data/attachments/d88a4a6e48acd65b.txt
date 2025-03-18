@@ -1,5 +1,0 @@
-{   
-    "name":"Via deposit AGP Dram",
-    "office_uuid":"vglk5m"
-}
-
