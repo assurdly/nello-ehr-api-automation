@@ -27791,7 +27791,7 @@
 							"response": []
 						},
 						{
-							"name": "Add result-TestName-Required",
+							"name": "Add result Copy",
 							"event": [
 								{
 									"listen": "test",
@@ -27810,6 +27810,66 @@
 											"pm.test(\"Result added successfully\", function () {\r",
 											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
 											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ea027b5d-d9d9-4fe3-b312-12a798b46efb",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Radiologist_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"encounterUuid\": \"32EF2710\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide1.adeleke@famacare\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}api/result/add-result"
+							},
+							"response": []
+						},
+						{
+							"name": "Add result-TestName-Required",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error message is correct\", function () {\r",
+											"    pm.expect(jsonData.error[0].msg).to.eql(\"Test name is required\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error path is correct\", function () {\r",
+											"    pm.expect(jsonData.error[0].path).to.eql(\"testDetails.testName\");\r",
+											"});\r",
+											"\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
