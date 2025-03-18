@@ -1,5 +1,0 @@
-{   
-    "name":"quantify global",
-    "office_uuid":"vglk5m"
-}
-

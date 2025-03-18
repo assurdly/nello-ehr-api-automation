@@ -1,4 +1,0 @@
-{
-    "code":"08ogrs",
-    "name":"Fever and cold"
-}
