@@ -24380,6 +24380,130 @@
 									"response": []
 								},
 								{
+									"name": "Get unique Result ID-Invalid-Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9f459b85-f865-41fc-a457-0eeac7cdee3d",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a7cf92a8-ea8f-4762-a197-42740f9da614",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{doctor_token_Invalid}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/unique/67d966c3a29f5feef9e0a7fd"
+									},
+									"response": []
+								},
+								{
+									"name": "Get unique Result ID-Expired-Token",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9f459b85-f865-41fc-a457-0eeac7cdee3d",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4e387c41-ec47-4140-88f6-ac6c9a2c3254",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{ExpiredToken}}",
+												"type": "text"
+											}
+										],
+										"url": "{{host}}api/result/unique/67d966c3a29f5feef9e0a7fd"
+									},
+									"response": []
+								},
+								{
+									"name": "Get unique Result ID-NoToken",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9f459b85-f865-41fc-a457-0eeac7cdee3d",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4d3b3133-7610-4c23-9607-bcf4b9f8c69c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/result/unique/67d966c3a29f5feef9e0a7fd"
+									},
+									"response": []
+								},
+								{
 									"name": "Get unique Result ID-Unauthorized-role",
 									"event": [
 										{
@@ -24524,6 +24648,37 @@
 							"item": [
 								{
 									"name": "Get results associated with an encounter (uuid)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3d1fec46-c451-4b00-a722-b4ec4a42f6e7",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Validate response fields\", function () {\r",
+													"    pm.expect(jsonData.result._id).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.result.encounterUuid).to.be.a(\"string\");\r",
+													"    pm.expect(jsonData.result.userType).to.be.a('string');\r",
+													"    pm.expect(jsonData.result.testType).to.be.a('string');\r",
+													"    pm.expect(jsonData.result.status).to.eql('completed');\r",
+													"    pm.expect(jsonData.result.uploadedBy).to.be.a('string');\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "bd5301d2-9100-4003-87a8-bf5eb0625277",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
