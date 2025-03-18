@@ -1,5 +1,0 @@
-{   
-    "name":"Direct Pants COM Applications",
-    "office_uuid":"vglk5m"
-}
-

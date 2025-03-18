@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"disintermediate","_id":"67d58239f3b2a79a7f414f7e","createdAt":"2025-03-15T13:35:53.601Z","__v":0}}

@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"didactic tolerance","branch":null,"isActive":true,"_id":"67d95b7ca29f5feef9ddecfd","createdAt":"2025-03-18T11:39:40.332Z","__v":0}}
