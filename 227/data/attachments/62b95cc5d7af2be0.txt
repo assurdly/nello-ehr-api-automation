@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"AGP Secured","branch":null,"isActive":true,"_id":"67d97d8ca29f5feef9e6933c","createdAt":"2025-03-18T14:05:00.143Z","__v":0}}
