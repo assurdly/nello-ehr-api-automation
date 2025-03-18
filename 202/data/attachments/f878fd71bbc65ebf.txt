@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Pants Course Product CSS","branch":null,"isActive":true,"_id":"67d9630ba29f5feef9dfb635","createdAt":"2025-03-18T12:11:55.000Z","__v":0}}
