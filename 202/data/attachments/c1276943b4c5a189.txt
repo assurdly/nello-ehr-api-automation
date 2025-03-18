@@ -1,0 +1,14 @@
+{
+  "encounterUuid": "71467C3A",
+  "userType": "Radiologist",
+  "testType": "Imaging Investigations",
+  "testDetails": {
+    "testName": "LUMBAR SPINE X RAY",
+    "sampleType": "Bloo"
+  },
+  "results": {
+    "resultFile": "",
+    "notes": "" 
+  },
+  "uploadedBy": "olamide.adeleke@famacare.com"
+}
