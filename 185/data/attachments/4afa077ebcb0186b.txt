@@ -1,4 +1,0 @@
-{
-    "code":"locbl8",
-    "name":"Fever and cold"
-}
