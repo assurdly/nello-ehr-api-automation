@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Personal Pike transition","branch":null,"isActive":true,"_id":"67d9721da29f5feef9e4ac6e","createdAt":"2025-03-18T13:16:13.534Z","__v":0}}

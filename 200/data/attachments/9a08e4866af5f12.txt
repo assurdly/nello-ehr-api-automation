@@ -1,5 +1,0 @@
-{   
-    "name":"system application grey SDD info-mediaries",
-    "office_uuid":"vglk5m"
-}
-
