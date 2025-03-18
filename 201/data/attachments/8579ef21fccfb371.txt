@@ -1,4 +1,0 @@
-{
-    "code":"qwmcs",
-    "name":"Fever and cold"
-}

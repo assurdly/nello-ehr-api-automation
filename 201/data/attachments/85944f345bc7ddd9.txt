@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Industrial","_id":"67d9625fa29f5feef9df8e2e","createdAt":"2025-03-18T12:09:03.797Z","__v":0}}

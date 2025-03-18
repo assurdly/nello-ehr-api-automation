@@ -1,0 +1,19 @@
+{
+    
+    "firstname":"Timo",
+    "lastname":"Bobson",
+    "email":"Bernita68@yahoo.com",
+    "phone":"09023172944",
+    "office_uuid":"vglk5m",
+    "office":"Famacare Clinic(Egbeda)",
+    "role":"Receptionist", 
+    "department":"Tech",
+    "password":"Password123!",
+    "gender":"Male"
+
+    
+    
+    
+
+    
+}

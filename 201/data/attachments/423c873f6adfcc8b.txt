@@ -1,4 +1,0 @@
-{
-    "name":"Industrial",
-    "office_uuid":"vglk5m"
-}
