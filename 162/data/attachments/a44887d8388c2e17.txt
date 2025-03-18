@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Account Gorgeous Metal EXE Cotton","branch":null,"isActive":true,"_id":"67d578eff3b2a79a7f3e1d45","createdAt":"2025-03-15T12:56:15.056Z","__v":0}}
