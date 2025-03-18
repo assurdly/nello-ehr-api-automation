@@ -1,4 +1,0 @@
-{
-    "name":"Nevada",
-    "office_uuid":"vglk5m"
-}

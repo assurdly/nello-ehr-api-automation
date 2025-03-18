@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("Response indicates failure", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+});
+
+pm.test("An error message should be flagged when AOS and fee are required", function () {
+    pm.expect(jsonData.error).to.eql("Both fee and aos are required for clinical staff");
+});

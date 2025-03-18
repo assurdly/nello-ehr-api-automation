@@ -1,0 +1,22 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 403 (Forbidden)", function () {
+    pm.response.to.have.status(403);
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData).to.have.property("message", "Access denied: Admins and Receptionist only");
+});
+
+pm.test("User object is present and has required fields", function () {
+    pm.expect(jsonData).to.have.property("user").that.is.an("object");
+    pm.expect(jsonData.user).to.have.property("email").that.is.a("string");
+    pm.expect(jsonData.user).to.have.property("role").that.is.a("string");
+    pm.expect(jsonData.user).to.have.property("iat").that.is.a("number");
+    pm.expect(jsonData.user).to.have.property("exp").that.is.a("number");
+});
+
+pm.test("User role is not Admin or Receptionist", function () {
+    pm.expect(jsonData.user.role).to.not.eql("Admin");
+    pm.expect(jsonData.user.role).to.not.eql("Receptionist");
+});
