@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Shores Rubber","branch":null,"isActive":true,"_id":"67d95c35a29f5feef9de2a5f","createdAt":"2025-03-18T11:42:45.220Z","__v":0}}

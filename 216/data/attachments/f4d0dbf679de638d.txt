@@ -1,0 +1,11 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status code is 400", function () {
+    pm.response.to.have.status(400);
+});
+
+pm.test("testName must be unique", function () {
+    pm.expect(jsonData.message).to.eql("A result with this encounterUuid and testName already exists.");
+});
+
+//This error message would be flagged if the testName is the same as the previously added, the testName must be unique

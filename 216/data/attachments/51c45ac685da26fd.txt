@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Hampshire Berkshire green Bike","branch":null,"isActive":true,"_id":"67d96f21a29f5feef9e39d41","createdAt":"2025-03-18T13:03:29.272Z","__v":0}}
