@@ -1,7 +1,0 @@
-{
-    "type":"Kanu Investigations",
-    "name":"tghch7",
-    "sponsor_uuid":"D773AAFB",
-    "plan_code":"3A9A51C7",
-    "price":"wqwqq"
-}

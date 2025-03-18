@@ -1,4 +1,0 @@
-{
-    "code":"dwnlow",
-    "name":"Fever and cold"
-}
