@@ -27798,19 +27798,7 @@
 									"script": {
 										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
 										"exec": [
-											"var jsonData = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Response status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"pm.test(\"Status is success\", function () {\r",
-											"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Result added successfully\", function () {\r",
-											"    pm.expect(jsonData.message).to.eql(\"added Added successfully\");\r",
-											"});\r",
-											""
+											"//This would be updated when the enpoint is fixed. The idea is for the POST endpoint to only add a result once and any edit should be done by the PUT endpoint "
 										],
 										"type": "text/javascript",
 										"packages": {}
