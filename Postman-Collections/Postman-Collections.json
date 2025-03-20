@@ -29025,7 +29025,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
+												"value": "Bearer {{receptionist_token}}",
 												"type": "text"
 											}
 										],
