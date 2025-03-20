@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"discrete Licensed functionalities","branch":null,"isActive":true,"_id":"67d97cc4a29f5feef9e64cdc","createdAt":"2025-03-18T14:01:40.518Z","__v":0}}
