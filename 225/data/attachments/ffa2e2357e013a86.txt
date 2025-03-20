@@ -1,4 +1,0 @@
-{
-    "code":"x5lium",
-    "name":"Fever and cold"
-}

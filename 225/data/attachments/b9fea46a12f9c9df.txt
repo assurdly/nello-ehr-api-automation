@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Lari","_id":"67d97c05a29f5feef9e60d9a","createdAt":"2025-03-18T13:58:29.311Z","__v":0}}
