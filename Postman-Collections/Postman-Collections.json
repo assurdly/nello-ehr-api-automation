@@ -28510,7 +28510,7 @@
 											"script": {
 												"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
 												"exec": [
-													"//This would be upadted when bug is fixed var jsonData = pm.response.json();\r",
+													"var jsonData = pm.response.json();\r",
 													"\r",
 													"pm.test(\"Response code is 400\", function () {\r",
 													"    pm.response.to.have.status(400);\r",
@@ -28520,14 +28520,13 @@
 													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error is an array\", function () {\r",
+													"pm.test(\"Error is an array and not empty\", function () {\r",
 													"    pm.expect(jsonData.error).to.be.an(\"array\").that.is.not.empty;\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
+													"pm.test(\"An error message is displayed\", function () {\r",
 													"    pm.expect(jsonData.error[0].msg).to.eql(\"result note is required\");\r",
 													"});\r",
-													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -29104,7 +29103,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result Copy",
+									"name": "Update Result-TestName-Required",
 									"event": [
 										{
 											"listen": "test",
@@ -29113,17 +29112,23 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response code is 400\", function () {\r",
+													"    pm.response.to.have.status(400);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response status is failed\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Message is correct\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
+													"pm.test(\"Error message is correct\", function () {\r",
+													"    pm.expect(jsonData.error[0].msg).to.eql(\"Test name is required\");\r",
 													"});\r",
+													"\r",
+													"pm.test(\"Error path is correct\", function () {\r",
+													"    pm.expect(jsonData.error[0].path).to.eql(\"testDetails.testName\");\r",
+													"});\r",
+													"\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -29146,7 +29151,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"encounterUuid\": \"DA11C6C3\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+											"raw": "{\n  \"encounterUuid\": \"DA11C6C3\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -31521,7 +31526,23 @@
 									"script": {
 										"id": "525ed8a8-b910-4390-acb2-6a49b83300bc",
 										"exec": [
-											"//This would be written when the bug is fixed\r",
+											"var jsonData = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Response code is 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Status is failed\", function () {\r",
+											"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Error is an array and not empty\", function () {\r",
+											"    pm.expect(jsonData.error).to.be.an(\"array\").that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"An error message is displayed\", function () {\r",
+											"    pm.expect(jsonData.error[0].msg).to.eql(\"result note is required\");\r",
+											"});\r",
 											""
 										],
 										"type": "text/javascript",
