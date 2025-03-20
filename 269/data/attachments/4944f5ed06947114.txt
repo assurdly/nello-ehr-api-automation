@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"HDD bandwidth bus synthesizing","branch":null,"isActive":true,"_id":"67dc6ad82045b07e4dc20d6c","createdAt":"2025-03-20T19:22:00.815Z","__v":0}}
