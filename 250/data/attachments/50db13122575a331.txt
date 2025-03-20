@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Virginia Soft Rupiah invoice","branch":null,"isActive":true,"_id":"67dc51172045b07e4dbc2f09","createdAt":"2025-03-20T17:32:07.950Z","__v":0}}

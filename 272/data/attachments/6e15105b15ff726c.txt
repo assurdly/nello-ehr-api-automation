@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Program South","branch":null,"isActive":true,"_id":"67dc6d122045b07e4dc31bbe","createdAt":"2025-03-20T19:31:30.875Z","__v":0}}
