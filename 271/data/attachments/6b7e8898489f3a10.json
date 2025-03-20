@@ -1,0 +1,12 @@
+{
+    "Authorization": "Bearer {{Radiologist_token}}",
+    "Content-Type": "application/json",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "7b1297b2-2e0c-4a00-8818-90c8724d2419",
+    "Host": "testback.famacare.com",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Content-Length": "442"
+}

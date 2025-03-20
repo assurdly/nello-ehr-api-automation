@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"sensor","_id":"67dc50582045b07e4dbbe1c8","createdAt":"2025-03-20T17:28:56.459Z","__v":0}}

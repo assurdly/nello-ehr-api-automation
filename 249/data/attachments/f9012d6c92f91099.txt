@@ -1,4 +1,0 @@
-{
-    "code":"oj12sd",
-    "name":"Fever and cold"
-}

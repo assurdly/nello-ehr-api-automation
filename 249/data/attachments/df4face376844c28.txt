@@ -1,4 +1,0 @@
-{
-    "name":"sensor",
-    "office_uuid":"vglk5m"
-}
