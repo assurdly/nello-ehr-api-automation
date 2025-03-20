@@ -28928,20 +28928,20 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjQ4MjU2NywiZXhwIjoxNzQyNTExMzY3fQ.jsscadiJc9saeyEf34c1xlgC8cRrdaQrI-ZxpHONC7Q",
+												"value": "Bearer {{Radiologist_token}}",
 												"type": "text"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n \n  \"userType\": \"Lab Technician\",\n  \"testType\": \"Pathology Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Random Blood Glucose\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"jude.ekigwe@famacare.com\"\n}\n",
+											"raw": "{\n  \"encounterUuid\": \"51893E36\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"LUMBAR SPINE X RAY\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "http://localhost:5000/api/result/edit/unique/67db96cc5a418d345f4c8dd7"
+										"url": "{{host}}api/result/edit/unique/67db96cc5a418d345f4c8dd7"
 									},
 									"response": []
 								}
