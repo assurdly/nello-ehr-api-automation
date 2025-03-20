@@ -1,4 +1,0 @@
-{
-    "name":"application",
-    "office_uuid":"vglk5m"
-}
