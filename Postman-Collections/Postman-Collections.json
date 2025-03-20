@@ -22497,6 +22497,62 @@
 									"response": []
 								},
 								{
+									"name": "fetch-all Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3122cd5d-f42c-4c88-a966-20ed169fd8f2",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response has status code 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains expected fields\", function () {\r",
+													"    pm.expect(jsonData).to.have.property(\"status\").that.is.a(\"string\");\r",
+													"    pm.expect(jsonData).to.have.property(\"diagnosis\").that.is.an(\"array\").and.to.have.length.above(0);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response content is correct\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Diagnosis contains required fields\", function () {\r",
+													"    var diagnosis = jsonData.diagnosis[0];\r",
+													"    pm.expect(diagnosis).to.have.property(\"_id\").that.is.a(\"string\").and.to.not.be.empty;\r",
+													"    pm.expect(diagnosis).to.have.property(\"code\").that.is.a(\"string\").and.to.not.be.empty;\r",
+													"    pm.expect(diagnosis).to.have.property(\"name\").that.is.a(\"string\").and.to.not.be.empty;\r",
+													"    //pm.expect(diagnosis).to.have.property(\"createdAt\").that.is.a(\"string\"); //.and.to.not.be.empty was not added here because the initial implementation did not have this field, but the update once have. So the system would pull old diagnosis and fail this and the one below.\r",
+													"    //pm.expect(diagnosis).to.have.property(\"updatedAt\").that.is.a(\"string\")\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "727f2cbf-4e20-4d16-b1ca-f978fc050a58",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{super_admin_token}}",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"url": "{{host}}api/diagnosis/fetch"
+									},
+									"response": []
+								},
+								{
 									"name": "fetch-all-InvalidToken",
 									"event": [
 										{
