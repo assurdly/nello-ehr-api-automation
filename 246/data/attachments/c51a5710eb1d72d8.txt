@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"optimizing Frozen","branch":null,"isActive":true,"_id":"67dc4e232045b07e4dbb03dd","createdAt":"2025-03-20T17:19:31.621Z","__v":0}}

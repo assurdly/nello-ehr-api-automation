@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Soft Dakota Program synergy","branch":null,"isActive":true,"_id":"67dc695f2045b07e4dc18e24","createdAt":"2025-03-20T19:15:43.607Z","__v":0}}
