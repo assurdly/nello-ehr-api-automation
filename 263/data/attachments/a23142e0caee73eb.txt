@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Gorgeous capability Streamlined Developer","branch":null,"isActive":true,"_id":"67dc65a22045b07e4dc006ca","createdAt":"2025-03-20T18:59:46.895Z","__v":0}}
