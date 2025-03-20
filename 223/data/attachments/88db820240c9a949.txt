@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Concrete Steel global","branch":null,"isActive":true,"_id":"67d97464a29f5feef9e57b7c","createdAt":"2025-03-18T13:25:56.428Z","__v":0}}
