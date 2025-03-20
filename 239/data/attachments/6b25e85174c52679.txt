@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Seamless Concrete","branch":null,"isActive":true,"_id":"67dc48422045b07e4db8cf15","createdAt":"2025-03-20T16:54:26.343Z","__v":0}}
