@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Guinea haptic","branch":null,"isActive":true,"_id":"67dc68ad2045b07e4dc1613f","createdAt":"2025-03-20T19:12:45.696Z","__v":0}}

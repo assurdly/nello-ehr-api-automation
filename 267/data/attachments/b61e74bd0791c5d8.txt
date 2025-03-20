@@ -1,0 +1,14 @@
+{
+  "encounterUuid": "9E9E9F56",
+  "userType": "Lab Technician",
+  "testType": "Pathology Investigations",
+  "testDetails": {
+    "testName": "Fasting Blood Glucose(FBS)",
+    "sampleType": "Bone"
+  },
+  "results": {
+    "resultFile": "https://example.com/reports/cbc_12345.pdf",
+    "notes": "<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>" 
+  },
+  "uploadedBy": "olamide.adeleke@famacare.com"
+}
