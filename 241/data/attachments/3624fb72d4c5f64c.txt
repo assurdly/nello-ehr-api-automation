@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Moldovan Tasty cultivate solid","branch":null,"isActive":true,"_id":"67dc49cb2045b07e4db98492","createdAt":"2025-03-20T17:00:59.801Z","__v":0}}
