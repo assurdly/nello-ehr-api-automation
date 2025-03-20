@@ -1,5 +1,0 @@
-{   
-    "name":"interfaces Incredible Concrete Implementation",
-    "office_uuid":"vglk5m"
-}
-
