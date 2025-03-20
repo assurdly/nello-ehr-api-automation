@@ -1,5 +1,0 @@
-{   
-    "name":"Dynamic ROI Automotive",
-    "office_uuid":"vglk5m"
-}
-

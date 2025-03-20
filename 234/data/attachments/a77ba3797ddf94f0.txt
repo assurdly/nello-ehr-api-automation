@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Account Card and","branch":null,"isActive":true,"_id":"67dc07dea29f5feef9e9c5df","createdAt":"2025-03-20T12:19:42.819Z","__v":0}}

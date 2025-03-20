@@ -1,4 +1,0 @@
-{
-    "code":"426ima",
-    "name":"Fever and cold"
-}
