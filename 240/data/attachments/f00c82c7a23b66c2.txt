@@ -1,1 +1,0 @@
-{"status":"success","plan":{"_id":"6790f6e16e91ff690a5ec78e","name":"FAMACARE PRICELIST","plan_code":"3A9A51C7","sponsor_uuid":"D773AAFB","plan_id":null,"is_Active":true,"createdAt":"2025-01-22T13:47:13.435Z","updatedAt":"2025-01-22T13:47:13.435Z","__v":0}}

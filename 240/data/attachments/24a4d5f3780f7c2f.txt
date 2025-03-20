@@ -1,4 +1,0 @@
-{
-    "code":"pkaai",
-    "name":"Fever and cold"
-}

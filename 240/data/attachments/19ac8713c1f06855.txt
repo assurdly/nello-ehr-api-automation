@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Health Networked","branch":null,"isActive":true,"_id":"67dc48ff2045b07e4db9121a","createdAt":"2025-03-20T16:57:35.658Z","__v":0}}
