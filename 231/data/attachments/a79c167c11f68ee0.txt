@@ -1,4 +1,0 @@
-{
-    "code":"lucfin",
-    "name":"Fever and cold"
-}
