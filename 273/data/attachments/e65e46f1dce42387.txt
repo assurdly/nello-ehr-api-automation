@@ -1,0 +1,1 @@
+{"status":"success","sponsor":{"_id":"6790e6b2921ee45b509303b6","name":"Famacare Diagnosis","type":"Clinic","phone":"09070040301","contact_email":"Centre0@famacare.com","contact_person":"Judith Michael","uuid":"87EDF987","is_Active":true,"createdAt":"2025-01-22T12:38:10.122Z","updatedAt":"2025-03-20T19:42:05.748Z","__v":0}}

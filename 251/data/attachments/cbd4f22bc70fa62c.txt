@@ -1,4 +1,0 @@
-{
-    "code":"nhodjf",
-    "name":"Fever and cold"
-}
