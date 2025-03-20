@@ -28972,7 +28972,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result-Unauthorized-role",
+									"name": "Update Result-Unauthorized-testType",
 									"event": [
 										{
 											"listen": "test",
