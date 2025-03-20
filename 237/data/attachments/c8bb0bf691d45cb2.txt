@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"channels SAS","branch":null,"isActive":true,"_id":"67dc45592045b07e4db8347c","createdAt":"2025-03-20T16:42:01.735Z","__v":0}}
