@@ -1,4 +1,0 @@
-{
-    "code":"v66tfl",
-    "name":"Fever and cold"
-}
