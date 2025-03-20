@@ -1,4 +1,0 @@
-{
-    "code":"hm6bui",
-    "name":"Fever and cold"
-}

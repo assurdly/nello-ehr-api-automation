@@ -1,4 +1,0 @@
-{
-    "name":"Computer",
-    "office_uuid":"vglk5m"
-}
