@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"iterate Wooden","branch":null,"isActive":true,"_id":"67d9709ca29f5feef9e42422","createdAt":"2025-03-18T13:09:48.868Z","__v":0}}
