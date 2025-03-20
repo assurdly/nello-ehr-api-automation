@@ -1,1 +1,0 @@
-{"message":"Access denied: Doctors only","user":{"email":"judith.michael@famacare.com","role":"Receptionist","iat":1742307822,"exp":1742336622}}
