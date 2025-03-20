@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Frozen Bacon Roads Romania","branch":null,"isActive":true,"_id":"67dc50562045b07e4dbbe1c0","createdAt":"2025-03-20T17:28:54.753Z","__v":0}}

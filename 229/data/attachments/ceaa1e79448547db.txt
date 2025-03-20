@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Portugal circuit Savings Mouse generating","branch":null,"isActive":true,"_id":"67d9808fa29f5feef9e727db","createdAt":"2025-03-18T14:17:51.396Z","__v":0}}
