@@ -28402,7 +28402,7 @@
 									"response": []
 								},
 								{
-									"name": "Add result-uploadedBy",
+									"name": "Add result-Wrong-uploadedBy",
 									"event": [
 										{
 											"listen": "test",
@@ -28689,7 +28689,7 @@
 													"    pm.expect(jsonData.message).to.eql(\"A result with this encounterUuid and testName already exists.\");\r",
 													"});\r",
 													"\r",
-													""
+													"//This error message would be flagged if the testName is the same as the previously added, the testName must be unique"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -28989,7 +28989,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result-ID-NotFound",
+									"name": "Update Result Copy",
 									"event": [
 										{
 											"listen": "test",
@@ -28998,107 +28998,16 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 404\", function () {\r",
-													"    pm.response.to.have.status(404);\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Status is failed\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"failed\");\r",
+													"pm.test(\"Status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Error message is correct\", function () {\r",
-													"    pm.expect(jsonData.error).to.eql(\"result not found\");\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "a7b7f541-a1da-4edd-8143-bf800e83a0a8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"encounterUuid\": \"\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e69"
-									},
-									"response": []
-								},
-								{
-									"name": "Update Result-uploadedBy",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "1fdd9cfc-5769-4066-ae7b-27c41cce33ef",
-												"exec": [
-													"//This would be update when bug is fixed "
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "fea4e6da-b52d-4c75-943e-beac5177199b",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PUT",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"encounterUuid\": \"DA11C6C3\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide21.adeleke@famacare.com\"\n}\n",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e68"
-									},
-									"response": []
-								},
-								{
-									"name": "Update Result-NoToken",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "1fdd9cfc-5769-4066-ae7b-27c41cce33ef",
-												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response status code is 401\", function () {\r",
-													"    pm.response.to.have.status(401);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response message indicates missing token\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"pm.test(\"A successfully message is displayed\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
 													"});\r",
 													""
 												],
@@ -29116,9 +29025,8 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "",
-												"type": "text",
-												"disabled": true
+												"value": "Bearer {{Radiologist_token}}",
+												"type": "text"
 											}
 										],
 										"body": {
@@ -29453,6 +29361,60 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\n  \"encounterUuid\": \"DA11C6C3\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e68"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Result-Encounter-NotFound",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1fdd9cfc-5769-4066-ae7b-27c41cce33ef",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Status is success\", function () {\r",
+													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a7b7f541-a1da-4edd-8143-bf800e83a0a8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{Radiologist_token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"encounterUuid\": \"\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -31665,7 +31627,7 @@
 							"response": []
 						},
 						{
-							"name": "Add result-uploadedBy",
+							"name": "Add result-Wrong-uploadedBy",
 							"event": [
 								{
 									"listen": "test",
@@ -31952,7 +31914,7 @@
 											"    pm.expect(jsonData.message).to.eql(\"A result with this encounterUuid and testName already exists.\");\r",
 											"});\r",
 											"\r",
-											""
+											"//This error message would be flagged if the testName is the same as the previously added, the testName must be unique"
 										],
 										"type": "text/javascript",
 										"packages": {}
