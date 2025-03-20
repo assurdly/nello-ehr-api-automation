@@ -1,5 +1,0 @@
-{   
-    "name":"RAM Ergonomic Bolivia e-commerce Liaison",
-    "office_uuid":"vglk5m"
-}
-
