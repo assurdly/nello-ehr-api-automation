@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Tuna Dynamic salmon Awesome","branch":null,"isActive":true,"_id":"67dc6b952045b07e4dc275df","createdAt":"2025-03-20T19:25:09.325Z","__v":0}}
