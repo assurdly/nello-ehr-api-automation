@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"JSON","_id":"67dc4f9f2045b07e4dbb87d3","createdAt":"2025-03-20T17:25:51.945Z","__v":0}}

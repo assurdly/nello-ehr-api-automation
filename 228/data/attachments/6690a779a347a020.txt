@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"transmitting deposit Frozen matrix","branch":null,"isActive":true,"_id":"67d97e44a29f5feef9e6d9c9","createdAt":"2025-03-18T14:08:04.182Z","__v":0}}

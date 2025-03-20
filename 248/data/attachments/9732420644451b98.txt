@@ -1,0 +1,19 @@
+{
+    
+    "firstname":"Tayo",
+    "lastname":"Bobson",
+    "email":"Hubert.Borer@yahoo.com",
+    "phone":"09023172944",
+    "office_uuid":"vglk5m",
+    "office":"Famacare Clinic(Egbeda)",
+    "role":"Doctor", 
+    "department":"Tech",
+    "password":"Password123!",
+    "gender":"Male",
+
+    
+    "fee":"8000",
+    "aos":"Dentist"
+
+    
+}
