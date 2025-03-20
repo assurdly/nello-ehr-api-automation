@@ -32319,7 +32319,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
+												"value": "Bearer {{Lab_Technician_token}}",
 												"type": "text"
 											}
 										],
