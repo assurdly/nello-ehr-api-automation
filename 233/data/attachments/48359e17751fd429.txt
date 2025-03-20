@@ -1,1 +1,0 @@
-{"message":"Access denied: Admins and Receptionist only","user":{"email":"morgan+1@assurdly.com","role":"Doctor","iat":1742308252,"exp":1742337052}}
