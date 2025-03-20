@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"AI capacitor HDD California","branch":null,"isActive":true,"_id":"67dc43212045b07e4db7a93a","createdAt":"2025-03-20T16:32:33.989Z","__v":0}}

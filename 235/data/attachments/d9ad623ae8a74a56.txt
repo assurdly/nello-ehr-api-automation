@@ -1,4 +1,0 @@
-{
-    "name":"RAM",
-    "office_uuid":"vglk5m"
-}
