@@ -1,4 +1,0 @@
-{
-    "name":"frame",
-    "office_uuid":"vglk5m"
-}
