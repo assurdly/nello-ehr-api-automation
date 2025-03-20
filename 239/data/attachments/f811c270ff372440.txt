@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Loan","_id":"67dc48442045b07e4db8cf1d","createdAt":"2025-03-20T16:54:28.121Z","__v":0}}

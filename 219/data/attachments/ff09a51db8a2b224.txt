@@ -1,5 +1,0 @@
-{   
-    "name":"Loan panel Nevada Wisconsin dynamic",
-    "office_uuid":"vglk5m"
-}
-
