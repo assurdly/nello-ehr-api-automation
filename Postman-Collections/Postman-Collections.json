@@ -28972,7 +28972,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result Copy",
+									"name": "Update Result-Unauthorized-role",
 									"event": [
 										{
 											"listen": "test",
@@ -29014,7 +29014,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"encounterUuid\": \"9E9E9F56\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+											"raw": "{\n  \"encounterUuid\": \"9E9E9F56\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Fasting Blood Glucose(FBS)\",\n    \"sampleType\": \"Blood\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
 											"options": {
 												"raw": {
 													"language": "json"
