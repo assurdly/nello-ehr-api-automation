@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"orange Granite Table SCSI Jersey","branch":null,"isActive":true,"_id":"67dc4beb2045b07e4dba6562","createdAt":"2025-03-20T17:10:03.366Z","__v":0}}
