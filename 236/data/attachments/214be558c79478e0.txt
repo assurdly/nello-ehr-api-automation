@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Dinar","_id":"67dc44992045b07e4db7f24e","createdAt":"2025-03-20T16:38:49.509Z","__v":0}}

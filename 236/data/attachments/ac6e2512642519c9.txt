@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"cultivate XML wireless","branch":null,"isActive":true,"_id":"67dc44972045b07e4db7f246","createdAt":"2025-03-20T16:38:47.746Z","__v":0}}

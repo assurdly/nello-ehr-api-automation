@@ -1,5 +1,0 @@
-{   
-    "name":"cultivate XML wireless",
-    "office_uuid":"vglk5m"
-}
-

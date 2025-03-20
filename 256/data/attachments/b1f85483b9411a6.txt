@@ -1,0 +1,13 @@
+var jsonData = pm.response.json();
+
+pm.test("Response code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Status is success", function () {
+    pm.expect(jsonData.status).to.eql("success");
+});
+
+pm.test("A successfully message is displayed", function () {
+    pm.expect(jsonData.message).to.eql("result Updated successfully");
+});
