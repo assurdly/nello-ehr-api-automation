@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Synergistic","_id":"67d96f23a29f5feef9e39d52","createdAt":"2025-03-18T13:03:31.638Z","__v":0}}
