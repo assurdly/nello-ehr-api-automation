@@ -28989,7 +28989,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result Copy",
+									"name": "Update Result-NoToken",
 									"event": [
 										{
 											"listen": "test",
@@ -28998,17 +28998,69 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+													"pm.test(\"Response message indicates missing token\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"No token, authorization denied\");\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3b7da460-a749-4211-ab32-ff6b213ee638",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"encounterUuid\": \"DA11C6C3\",\n  \"userType\": \"Radiologist\",\n  \"testType\": \"Imaging Investigations\",\n  \"testDetails\": {\n    \"testName\": \"Both Feet\",\n    \"sampleType\": \"Bone\"\n  },\n  \"results\": {\n    \"resultFile\": \"https://example.com/reports/cbc_12345.pdf\",\n    \"notes\": \"<p>The blood group levels are within normal range for the patient. No abnormalities detected, this is a test for one.</p>\" //please use html tags\n  },\n  \"uploadedBy\": \"olamide.adeleke@famacare.com\"\n}\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e68"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Result-Unauthorized-role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1fdd9cfc-5769-4066-ae7b-27c41cce33ef",
+												"exec": [
+													"var jsonData = pm.response.json();\r",
+													"\r",
+													"pm.test(\"Response status code is 403\", function () {\r",
+													"    pm.response.to.have.status(403);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"A successfully message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
+													"pm.test(\"Access denied message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Access denied: Lab Technician or Radiologist only\");\r",
 													"});\r",
+													"\r",
+													"pm.test(\"User email and role has the unauthorized staff details\", function () {\r",
+													"    pm.expect(jsonData.user.role).to.be.a(\"string\");\r",
+													"});\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript",
@@ -29043,7 +29095,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result Copy 2",
+									"name": "Update Result-Invalid-Token",
 									"event": [
 										{
 											"listen": "test",
@@ -29052,16 +29104,12 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"A successfully message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
+													"pm.test(\"Response body contains error message\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token is not valid\");\r",
 													"});\r",
 													""
 												],
@@ -29079,7 +29127,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
+												"value": "Bearer {{Radiologist_token_Invalid}}",
 												"type": "text"
 											}
 										],
@@ -29097,7 +29145,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Result Copy 3",
+									"name": "Update Result-Expired-Token",
 									"event": [
 										{
 											"listen": "test",
@@ -29106,16 +29154,12 @@
 												"exec": [
 													"var jsonData = pm.response.json();\r",
 													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
+													"pm.test(\"Response status code is 401\", function () {\r",
+													"    pm.response.to.have.status(401);\r",
 													"});\r",
 													"\r",
-													"pm.test(\"Status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"A successfully message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
+													"pm.test(\"Token expiration message is correct\", function () {\r",
+													"    pm.expect(jsonData.message).to.eql(\"Token has expired\");\r",
 													"});\r",
 													""
 												],
@@ -29133,7 +29177,7 @@
 										"header": [
 											{
 												"key": "Authorization",
-												"value": "Bearer {{Radiologist_token}}",
+												"value": "Bearer {{ExpiredToken}}",
 												"type": "text"
 											}
 										],
