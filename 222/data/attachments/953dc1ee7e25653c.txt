@@ -1,4 +1,0 @@
-{
-    "name":"Outdoors",
-    "office_uuid":"vglk5m"
-}

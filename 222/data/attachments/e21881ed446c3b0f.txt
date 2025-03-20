@@ -1,4 +1,0 @@
-{
-    "code":"msyi4m",
-    "name":"Fever and cold"
-}

@@ -1,1 +1,0 @@
-{"status":"success","role":{"office_uuid":"vglk5m","name":"Outdoors","_id":"67d973a2a29f5feef9e53610","createdAt":"2025-03-18T13:22:42.496Z","__v":0}}
