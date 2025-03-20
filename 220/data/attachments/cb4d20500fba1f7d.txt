@@ -1,5 +1,0 @@
-{   
-    "name":"Personal Pike transition",
-    "office_uuid":"vglk5m"
-}
-
