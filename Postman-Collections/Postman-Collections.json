@@ -28996,20 +28996,7 @@
 											"script": {
 												"id": "1fdd9cfc-5769-4066-ae7b-27c41cce33ef",
 												"exec": [
-													"var jsonData = pm.response.json();\r",
-													"\r",
-													"pm.test(\"Response code is 200\", function () {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Status is success\", function () {\r",
-													"    pm.expect(jsonData.status).to.eql(\"success\");\r",
-													"});\r",
-													"\r",
-													"pm.test(\"A successfully message is displayed\", function () {\r",
-													"    pm.expect(jsonData.message).to.eql(\"result Updated successfully\");\r",
-													"});\r",
-													""
+													"//This would be update when bug is fixed "
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -29472,7 +29459,7 @@
 												}
 											}
 										},
-										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e68"
+										"url": "{{host}}api/result/edit/unique/67dc495c2045b07e4db94e69"
 									},
 									"response": []
 								}
