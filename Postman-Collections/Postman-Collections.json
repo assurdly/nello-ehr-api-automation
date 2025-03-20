@@ -28346,7 +28346,7 @@
 					"name": "Investigation",
 					"item": [
 						{
-							"name": "Post Result",
+							"name": "Add Result",
 							"item": [
 								{
 									"name": "Add result",
@@ -31653,7 +31653,7 @@
 					"name": "Investigation",
 					"item": [
 						{
-							"name": "Investigation",
+							"name": "Add Result",
 							"item": [
 								{
 									"name": "Add result",
