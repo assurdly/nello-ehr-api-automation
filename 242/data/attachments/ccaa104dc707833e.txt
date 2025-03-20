@@ -1,5 +1,0 @@
-{   
-    "name":"Central orange Steel mobile",
-    "office_uuid":"vglk5m"
-}
-

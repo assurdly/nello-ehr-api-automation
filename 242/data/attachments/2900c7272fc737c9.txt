@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Central orange Steel mobile","branch":null,"isActive":true,"_id":"67dc4a762045b07e4db9adc1","createdAt":"2025-03-20T17:03:50.048Z","__v":0}}
