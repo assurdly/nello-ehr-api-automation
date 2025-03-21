@@ -1,0 +1,1 @@
+{"status":"success","role":{"office_uuid":"vglk5m","name":"Peso","_id":"67ddb8fd2045b07e4dc7a7a1","createdAt":"2025-03-21T19:07:41.535Z","__v":0}}
