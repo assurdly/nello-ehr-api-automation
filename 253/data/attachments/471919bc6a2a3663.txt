@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Account orchestrate payment","branch":null,"isActive":true,"_id":"67dc54012045b07e4dbd17cd","createdAt":"2025-03-20T17:44:33.628Z","__v":0}}

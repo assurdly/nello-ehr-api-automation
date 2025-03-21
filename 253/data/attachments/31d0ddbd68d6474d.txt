@@ -1,5 +1,0 @@
-{   
-    "name":"Account orchestrate payment",
-    "office_uuid":"vglk5m"
-}
-
