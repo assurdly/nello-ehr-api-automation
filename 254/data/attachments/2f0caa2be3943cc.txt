@@ -1,4 +1,0 @@
-{
-    "code":"hmtcii",
-    "name":"Fever and cold"
-}

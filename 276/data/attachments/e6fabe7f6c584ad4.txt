@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"blue hub black","branch":null,"isActive":true,"_id":"67ddad572045b07e4dc797ee","createdAt":"2025-03-21T18:17:59.252Z","__v":0}}

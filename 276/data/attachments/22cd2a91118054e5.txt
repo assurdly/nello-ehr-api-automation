@@ -1,0 +1,10 @@
+var jsonData = pm.response.json();
+
+pm.test("Response status is 404", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("Error message is correct", function () {
+    pm.expect(jsonData.status).to.eql("failed");
+    pm.expect(jsonData.error).to.eql("Sponsor not found");
+});

@@ -1,5 +1,0 @@
-{   
-    "name":"copying e-business",
-    "office_uuid":"vglk5m"
-}
-
