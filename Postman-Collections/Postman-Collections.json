@@ -27392,7 +27392,7 @@
 					"name": "Authentication",
 					"item": [
 						{
-							"name": "Authntication-Login(ClinicalStaff)",
+							"name": "Authentication-Login(ClinicalStaff)",
 							"item": [
 								{
 									"name": "Login(staff) - Radiologist-Successful",
