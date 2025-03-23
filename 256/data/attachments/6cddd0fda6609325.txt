@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"capacitor Chief Communications Organic","branch":null,"isActive":true,"_id":"67dc56392045b07e4dbe031c","createdAt":"2025-03-20T17:54:01.699Z","__v":0}}

@@ -1,4 +1,0 @@
-{
-    "email":"olamide.ad@famacare.com",
-    "password":"Famacare123**"
-}
