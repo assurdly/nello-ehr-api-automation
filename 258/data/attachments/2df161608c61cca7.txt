@@ -1,5 +1,0 @@
-{   
-    "name":"Synergized Reverse-engineered Central Concrete",
-    "office_uuid":"vglk5m"
-}
-

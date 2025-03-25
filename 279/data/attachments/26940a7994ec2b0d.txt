@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Specialist Internal RAM calculate set","branch":null,"isActive":true,"_id":"67e274162045b07e4dc80c5d","createdAt":"2025-03-25T09:15:02.073Z","__v":0}}
