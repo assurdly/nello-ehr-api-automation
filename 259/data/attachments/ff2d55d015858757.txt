@@ -1,6 +1,0 @@
-{
-    "email":"jude.ekigwe@famacare.com",
-    "password":"Famacare123**",
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1ZGUuZWtpZ3dlQGZhbWFjYXJlLmNvbSIsInJvbGUiOiJMYWIgVGVjaG5pY2lhbiIsImlhdCI6MTc0MjA0MDkxNCwiZXhwIjoxNzQyMDY5NzE0fQ.8mvIMTb4cHMeNVQh3GbPLFQ-5SwL8AW9P360daZH1dI"
-  
-}

@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"system Investment deposit","branch":null,"isActive":true,"_id":"67dc58682045b07e4dbef890","createdAt":"2025-03-20T18:03:20.269Z","__v":0}}
