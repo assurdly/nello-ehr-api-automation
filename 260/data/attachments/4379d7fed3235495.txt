@@ -1,1 +1,0 @@
-{"status":"success","department":{"office_uuid":"vglk5m","name":"Dollar Intuitive RSS payment","branch":null,"isActive":true,"_id":"67dc592d2045b07e4dbf40ea","createdAt":"2025-03-20T18:06:37.765Z","__v":0}}

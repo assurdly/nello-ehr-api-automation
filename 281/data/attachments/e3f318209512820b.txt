@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"index Rubber","branch":null,"isActive":true,"_id":"67e6df5ed1a06f02b13f85d2","createdAt":"2025-03-28T17:41:50.030Z","__v":0}}

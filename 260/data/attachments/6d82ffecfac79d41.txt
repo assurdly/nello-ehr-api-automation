@@ -1,5 +1,0 @@
-{   
-    "name":"Dollar Intuitive RSS payment",
-    "office_uuid":"vglk5m"
-}
-
