@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - draft
-  schedule:
-     - cron: '0 18 * * 4' # Runs every Wednesday by 4pm
-     - cron: '0 18 * * 5' # Runs every Friday by 4pm
-     - cron: '0 20 * * 0' # Runs every Sunday by 6pm
+  # schedule:
+  #    - cron: '0 18 * * 4' # Runs every Wednesday by 4pm
+  #    - cron: '0 18 * * 5' # Runs every Friday by 4pm
+  #    - cron: '0 20 * * 0' # Runs every Sunday by 6pm
 
 jobs:
   run_tests:
@@ -114,18 +114,18 @@ jobs:
         if: always()
         continue-on-error: true
         run: sleep 10
-      - name: Notify Slack
-        if: github.event_name == 'schedule'
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CHANNEL: 'C070KUKPDLZ'
-          SLACK_MESSAGE: |
-            *Famacare-EHR - API Quality Readiness*
-            *Contributors - Abisola Oyedotun, Morgan Zee*
-            Status: ${{ job.status }}
-            Passing Tests: ${{ steps.parse_json.outputs.passing_percentage }}%
-            Failing Tests: ${{ steps.parse_json.outputs.failing_percentage }}%
-            Total Passed: ${{ steps.parse_json.outputs.passed_tests }}
-            Total Failed: ${{ steps.parse_json.outputs.failed_tests }}
-            GitHub Pages URL: ${{ secrets.PAGES_URL }}
+      # - name: Notify Slack
+      #   if: github.event_name == 'schedule'
+      #   uses: rtCamp/action-slack-notify@v2
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     SLACK_CHANNEL: 'C070KUKPDLZ'
+      #     SLACK_MESSAGE: |
+      #       *Famacare-EHR - API Quality Readiness*
+      #       *Contributors - Abisola Oyedotun, Morgan Zee*
+      #       Status: ${{ job.status }}
+      #       Passing Tests: ${{ steps.parse_json.outputs.passing_percentage }}%
+      #       Failing Tests: ${{ steps.parse_json.outputs.failing_percentage }}%
+      #       Total Passed: ${{ steps.parse_json.outputs.passed_tests }}
+      #       Total Failed: ${{ steps.parse_json.outputs.failed_tests }}
+      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}
