@@ -1,0 +1,1 @@
+{"status":"success","department":{"office_uuid":"vglk5m","name":"Gold hard Programmable content","branch":null,"isActive":true,"_id":"67e6e832d1a06f02b13fdb86","createdAt":"2025-03-28T18:19:30.303Z","__v":0}}
