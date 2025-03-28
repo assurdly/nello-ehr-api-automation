@@ -121,8 +121,8 @@ jobs:
       #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       #     SLACK_CHANNEL: 'C070KUKPDLZ'
       #     SLACK_MESSAGE: |
-      #       *Famacare-EHR - API Quality Readiness*
-      #       *Contributors - Abisola Oyedotun, Morgan Zee*
+      #       Famacare-EHR - API Quality Readiness*
+      #       Contributors - Abisola Oyedotun, Morgan Zee*
       #       Status: ${{ job.status }}
       #       Passing Tests: ${{ steps.parse_json.outputs.passing_percentage }}%
       #       Failing Tests: ${{ steps.parse_json.outputs.failing_percentage }}%
